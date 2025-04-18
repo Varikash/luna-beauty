@@ -20,7 +20,7 @@
 /* верхушка ================================= */
 
 .button-style {
-  font-family: var(--font-great_vibes);
+  font-family: var(--font-great-vibes);
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
@@ -66,9 +66,7 @@
 
 .card-text {
   width: 100%;
-  /* font-family: var(--font-public-sans); */
-  font-family: 'Public Sans', Helvetica, sans-serif;
-  /* font-family: 'Public Sans', sans-serif; */
+  font-family: var(--font-public-sans);
   font-weight: 200;
   font-size: 24px;
   line-height: 32px;
@@ -101,7 +99,7 @@
 }
 
 .card-list-item-text {
-  font-family: 'Public Sans', serif;
+  font-family: var(--font-public-sans);
   font-weight: 500;
   font-size: 18px;
   line-height: 30px;
@@ -126,7 +124,7 @@
 }
 
 .service-counter {
-  font-family: 'Public Sans', sans-serif;
+  font-family: var(--font-public-sans);
   font-weight: 600;
   font-size: 18px;
   line-height: 24px;
@@ -144,7 +142,7 @@
   padding: 0px 0px 0px 5px;
   margin: 0px;
   display: flex;
-  font-family: 'Public Sans', sans-serif;
+  font-family: var(--font-public-sans);
   font-weight: 600;
   font-size: 18px;
   line-height: 30px;
@@ -167,7 +165,7 @@
 }
 
 .placeholder-title {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-playfair-display);
   font-weight: 400;
   font-size: 32px;
   line-height: 40px;

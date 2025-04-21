@@ -6,10 +6,11 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <BeautyServices />
+        <BeautyServices type="page1" />
+        <BeautyServices type="page2" />
       </main>
       <footer className={styles.footer}>
-        <a
+        {/* <a
           href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
           target="_blank"
           rel="noopener noreferrer"
@@ -50,7 +51,7 @@ export default function Home() {
             height={16}
           />
           Go to nextjs.org →
-        </a>
+        </a> */}
       </footer>
     </div>
   );

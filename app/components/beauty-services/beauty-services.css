@@ -1,0 +1,199 @@
+.beauty-services-section {
+  width: 100%;
+  padding: 100px 76px 120px 76px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 96px;
+  background: #FFFFFF;
+  /* background: #F8F8F8; */
+}
+
+.beauty-services-section-page2 {
+  width: 100%;
+  padding: 110px 76px 96px 76px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 96px;
+  background: #FFFFFF;
+  /* background: #F8F8F8; */
+}
+
+/* серединка ================================ */
+.beauty-services-list-page1 {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  list-style: none;
+}
+
+.beauty-services-list-page2 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.card-title {
+  width: 100%;
+  font-family: var(--font-playfair-display);
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 48px;
+  /* letter-spacing: -0.05em; */
+  color: #0A090C;
+  margin-top: 11px;
+}
+
+.card-title-page2 {
+  width: 558px;
+  font-family: var(--font-playfair-display);
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 80px;
+  letter-spacing: 3%;
+  text-transform: capitalize;
+  color: #0A090C;
+}
+
+.card-text {
+  width: 100%;
+  font-family: var(--font-public-sans);
+  font-weight: 200;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 3%;
+  color: #0A090C;
+  margin-top: 10px;
+}
+
+.card-image {
+  margin-top: 26px;
+  object-fit: cover;
+  margin: 26px auto 0px auto;
+}
+
+.card-image-page2 {
+  object-fit: cover;
+}
+
+.card-list {
+  margin-top: 27px;
+  padding-left: 0px;
+  letter-spacing: 0.01em;
+  color: #0A090C;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-list-item {
+  padding: 0px 0px 0px 0px;
+  margin: 0px;
+  display: flex;
+  gap: 8px;
+}
+
+.card-list-item-text {
+  font-family: var(--font-public-sans);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.card-list-item-I {
+  /* border-left: 1px solid #0A090C; */
+  font-family: var(--font-public-sans);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 26px;
+  padding-right: 5px;
+  color: #95A3A0;
+}
+
+.card-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  position: relative;
+}
+
+.card-header-page2 {
+  width: 100%;
+  max-width: 1170px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.service-counter {
+  font-family: var(--font-public-sans);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 1%;
+  text-transform: uppercase;
+  color: #0A090C;
+}
+
+.service-counter-page2 {
+  font-family: var(--font-playfair-display);
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 80px;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  color: #0A090C;
+}
+
+.calendar-icon {
+  width: 48px;
+  height: 48px;
+}
+
+.last-li {
+  padding: 0px 0px 0px 5px;
+  margin: 0px;
+  display: flex;
+  font-family: var(--font-public-sans);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 30px;
+  letter-spacing: 1%;
+  text-transform: uppercase;
+  color: #A9714B;
+}
+
+.placeholder-card {
+  cursor: pointer;
+  padding: 80px;
+  display: flex;
+  gap: 66px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 568px;
+  height: 640px;
+  border-top-right-radius: 80px;
+  background-color: #95A3A0;
+}
+
+.placeholder-title {
+  font-family: var(--font-playfair-display);
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 40px;
+  letter-spacing: -0.05em;
+  /* Преобразование процентов в em для letter-spacing */
+  text-align: center;
+  color: #FFFFFF;
+}
+
+/* .card-arrow-page2 {
+
+} */

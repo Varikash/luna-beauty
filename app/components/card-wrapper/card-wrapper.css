@@ -1,4 +1,4 @@
-.card-wrapper {
+.card-wrapper-page1 {
   width: 568px;
   height: 640px;
   border: 1px solid #E4E4E4;
@@ -6,6 +6,19 @@
   padding: 40px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin-bottom: 0px;
+}
+
+.card-wrapper-page2 {
+  width: 100%;
+  /* height: 344px; */
+  gap: 170px;
+  border-bottom: 1px solid #E4E4E4;
+  background-color: white;
+  padding: 32px 150px 32px 0px;
+  display: flex;
+  flex-direction: row;
   align-items: center;
   margin-bottom: 0px;
 }

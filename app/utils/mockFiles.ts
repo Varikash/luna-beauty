@@ -5,10 +5,18 @@ export interface IService {
   nav: string[];
 }
 
-const servicesMock: IService[] = [
+export interface IExtService {
+  title: string;
+  images: string[];
+  text: string;
+  nav: string[];
+  link: string;
+}
+
+export const servicesMock: IService[] = [
   {
     title: "Makeup",
-    image: "/services1.jpg",
+    image: "/images/bs/services1.jpg",
     text: "Natural beauty with professional techniques, using high-quality products!",
     nav: ["Pre-makeup facial", "Event/Party", "Flower girl makeup", "Junior make-up", "Bridesmaids trial"],
   },
@@ -44,4 +52,21 @@ const servicesMock: IService[] = [
   },
 ];
 
-export default servicesMock;
+export const servicesExtendedMock: IExtService[] = [
+  {
+    title: "Makeup",
+    images: ["/images/bs/services1.jpg", "/images/bs/services1.2.jpg", "/images/bs/services1.3.jpg"],
+    text: "Natural beauty with professional techniques, using high-quality products!",
+    nav: ["Travel charge", "Pre-makeup facial", "Even/party", "Flower girl makeup",
+      "Junior make-up", "Bridesmaids trial", "Bridal make-up"],
+    link: "/"
+  },
+];
+
+export const ourWorksMock = {
+  image1: "/images/ow/1.jpg",
+  image2: "/images/ow/2.jpg",
+  image3: "/images/ow/3.jpg",
+  image4: "/images/ow/4.jpg",
+  image5: "/images/ow/5.jpg",
+};

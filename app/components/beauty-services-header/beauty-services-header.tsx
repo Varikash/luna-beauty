@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import './beauty-services-header.css';
+import BeautyButton from '@/app/utils/ui/bs-button/bs-button';
 
 const BeautyServicesHeader: React.FC = () => {
   return (
@@ -16,7 +17,7 @@ const BeautyServicesHeader: React.FC = () => {
           Luxury beauty services tailored just for you.<br />
           Book your appointment today!
         </p>
-        <button className="beauty-services-button-style">
+        {/* <button className="beauty-services-button-style">
           <Image
             src="/BeautyServicesStar.png"
             alt="BeautyServicesStar"
@@ -24,7 +25,11 @@ const BeautyServicesHeader: React.FC = () => {
             height={32}
           />
           eXPLORE all our SERVICES
-        </button>
+        </button> */}
+        <BeautyButton
+          text="eXPLORE all our SERVICES"
+          className="beauty-services-button-style"
+        />
       </div>
     </div>
   )

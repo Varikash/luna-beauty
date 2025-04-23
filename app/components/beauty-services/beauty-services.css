@@ -38,6 +38,14 @@
   list-style: none;
 }
 
+.beauty-services-list-page3 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  gap: 32px;
+}
+
 .card-title {
   width: 100%;
   font-family: var(--font-playfair-display);
@@ -197,3 +205,70 @@
 /* .card-arrow-page2 {
 
 } */
+
+/* Третья страница */
+
+.bs-images-list-p3 {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 16px;
+}
+
+.bs-card-article-p3 {
+  margin: 0px;
+  ;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bs-card-title-p3 {
+  width: 100%;
+  font-family: var(--font-playfair-display);
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 48px;
+  /* letter-spacing: -0.05em; */
+  color: #0A090C;
+}
+
+.bs-card-text-p3 {
+  width: 555px;
+  font-family: var(--font-public-sans);
+  font-weight: 200;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 1%;
+  color: #0A090C;
+}
+
+.beauty-services-button-style-p3 {
+  width: 247px;
+  position: absolute;
+  z-index: 2;
+  top: 40px;
+  right: 43px;
+}
+
+.bs-card-list-p3 {
+  width: 900px;
+  margin-top: 3px;
+  padding-left: 0px;
+  letter-spacing: 0.01em;
+  color: #0A090C;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bs-card-list-item-text-p3 {
+  font-family: var(--font-public-sans);
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 1%;
+  color: #0A090C;
+
+}

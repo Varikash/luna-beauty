@@ -2,11 +2,12 @@ import React from 'react';
 import Image from 'next/image';
 import CardWrapper from '@/app/components/card-wrapper/card-wrapper';
 import BeautyServicesHeader from '@/app/components/beauty-services-header/beauty-services-header';
-import servicesMock from '@/app/utils/mockFiles';
+import BeautyButton from '@/app/utils/ui/bs-button/bs-button';
+import { servicesMock, servicesExtendedMock } from '@/app/utils/mockFiles';
 import './beauty-services.css';
 
 interface BeautyServicesProps {
-  type?: "page1" | "page2";
+  type?: "page1" | "page2" | "page3" | "page4";
 }
 
 const BeautyServices: React.FC<BeautyServicesProps> = ({ type }) => {
@@ -18,7 +19,7 @@ const BeautyServices: React.FC<BeautyServicesProps> = ({ type }) => {
       {type === "page1" && (
         <ul className="beauty-services-list-page1">
           {servicesMock.map((service, index) => (
-            <React.Fragment key={index}>
+            <React.Fragment key={"bs-page-1" + index}>
               {index === 4 ? (
                 <div className="placeholder-card">
                   <p className="placeholder-title">
@@ -28,7 +29,7 @@ const BeautyServices: React.FC<BeautyServicesProps> = ({ type }) => {
                     best experts in nails<br />
                     manicure!</p>
                   <Image
-                    src="/services-placeholder-btn.png"
+                    src="/images/bs/services-placeholder-btn.png"
                     alt="placeholder-card-pic"
                     width={408}
                     height={214}
@@ -41,7 +42,7 @@ const BeautyServices: React.FC<BeautyServicesProps> = ({ type }) => {
                       0{index + 1}
                     </span>
                     <Image
-                      src="/calendarButton.svg"
+                      src="/images/bs/calendarButton.svg"
                       alt="Calendar Icon"
                       width={48}
                       height={48}
@@ -79,9 +80,8 @@ const BeautyServices: React.FC<BeautyServicesProps> = ({ type }) => {
       {type === "page2" && (
         <ul className="beauty-services-list-page2">
           {servicesMock.map((service, index) => (
-            // Skip
             index !== 4 ? (
-              <CardWrapper type="page2" key={index}>
+              <CardWrapper type="page2" key={"bs-page-2" + index} >
                 <Image
                   src={service.image}
                   alt={service.title}
@@ -106,6 +106,49 @@ const BeautyServices: React.FC<BeautyServicesProps> = ({ type }) => {
                 </div>
               </CardWrapper>
             ) : null
+          ))}
+        </ul>
+      )}
+      {type === "page3" && (
+        <ul className="beauty-services-list-page3">
+          {servicesExtendedMock.map((service, index) => (
+            <CardWrapper type="page3" key={"bs-page-3" + index}>
+              <span className="service-counter">
+                0{index + 1}
+              </span>
+              <article className="bs-card-article-p3">
+                <h3 className="bs-card-title-p3">
+                  {service.title}
+                </h3>
+                <p className="bs-card-text-p3">
+                  {service.text}
+                </p>
+                <ul className="bs-images-list-p3">
+                  {service.images.map((image, index) => (
+                    <Image
+                      key={"bs-3-image" + index}
+                      src={image}
+                      alt={service.title + " " + index}
+                      width={200}
+                      height={200}
+                    />
+                  ))}
+                </ul>
+                <ul className="bs-card-list-p3">
+                  <>
+                    {service.nav.map((item, navIndex) => (
+                      <li className="card-list-item" key={"bs-3-nav" + navIndex}><p className="bs-card-list-item-text-p3">{item}</p>
+                      <div className="card-list-item-I">|</div></li>
+                    ))}
+                    <li className="last-li">View all</li>
+                  </>
+                </ul>
+              </article>
+              <BeautyButton
+                text="MORE DETAILS"
+                className="beauty-services-button-style-p3"
+              />
+            </CardWrapper>
           ))}
         </ul>
       )}

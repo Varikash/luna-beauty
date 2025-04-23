@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import BeautyServices from "./components/beauty-services/beauty-services";
+import OurWorks from "./components/our-works/our-works";
 
 export default function Home() {
   return (
@@ -8,6 +9,8 @@ export default function Home() {
       <main className={styles.main}>
         <BeautyServices type="page1" />
         <BeautyServices type="page2" />
+        <BeautyServices type="page3" />
+        <OurWorks />
       </main>
       <footer className={styles.footer}>
         {/* <a

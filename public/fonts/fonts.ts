@@ -4,24 +4,28 @@ export const greatVibes = Great_Vibes({
     subsets: ['latin'],
     weight: '400',
     display: 'swap',
+    preload: true,
     variable: '--font-great-vibes', //переменные CSS для использования
 });
 
 export const publicSans = Public_Sans({
     subsets: ['latin'],
     display: 'swap',
+    preload: true,
     variable: '--font-public-sans', //переменные CSS для использования
 });
 
 export const playfairDisplay = Playfair_Display({
     subsets: ['latin'],
     display: 'swap',
+    preload: true,
     variable: '--font-playfair-display', //переменные CSS для использования
 });
 
 export const geist = Geist({
     subsets: ['latin'],
     display: 'swap',
+    preload: true,
     variable: '--font-geist', //переменные CSS для использования
 });
 

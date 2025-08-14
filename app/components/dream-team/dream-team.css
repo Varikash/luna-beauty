@@ -1,0 +1,91 @@
+.dream-team {
+  width: 100%;
+  min-height: 976px;
+  display: flex;
+  gap: 110px;
+  padding: 90px 75px 120px 76px;
+  background-color: #E4E4E4;
+  background-image: url('/images/dt/background-dt.svg');
+  background-repeat: no-repeat;
+  background-position: left 87px top 45px;
+  background-size: 490px 886px;
+}
+
+.dream-team-aside {
+  flex-shrink: 0;
+  width: 490px;
+}
+
+.dream-team-master-list-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-top: 30px;
+  width: 66%;
+}
+
+.dream-team-master-list {
+  overflow: hidden;
+  width: 100%;
+  padding-top: 96px;
+}
+
+.slider-controls-dt {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 5;
+  display: flex;
+  gap: 16px;
+}
+
+.dream-team-slider-track {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+  width: 100%;
+  gap: 32px;
+}
+
+/*
+.slider-item {
+  min-width: 50%;
+  flex: 0 0 50%;
+} */
+
+.slider-btn {
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  flex-shrink: 0;
+}
+
+.slider-btn-prev:hover {
+  background: #95A3A0;
+}
+
+.slider-btn-next {
+  background: #95A3A0;
+}
+
+.slider-btn-next:hover {
+  background: #fff;
+}
+
+.dream-team-text {
+  margin-top: 60px;
+  margin-bottom: 32px;
+  max-width: 490px;
+  font-family: Public Sans;
+  font-weight: 200;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 1%;
+}

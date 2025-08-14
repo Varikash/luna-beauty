@@ -1,0 +1,135 @@
+.clients-recommended {
+  display: flex;
+  background-image: url('/images/ocr/background-ocr.png');
+  background-repeat: no-repeat;
+  background-position: right 0px top 0px;
+  background-size: 1832px 1301px;
+}
+
+.clients-recommended-content {
+  flex-shrink: 0;
+  max-width: calc(100% - 499px);
+  padding: 180px 68px 116px 76px;
+  display: flex;
+  justify-content: space-between;
+  gap: 64px;
+}
+
+.clients-recommended-content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 110px;
+  padding-top: 70px;
+  width: 680px;
+}
+
+.title-gap {
+  margin-right: 12px;
+}
+
+.clients-recommended-aside {
+  padding: 151px 76px 116px 104px;
+  display: flex;
+  flex-direction: column;
+  gap: 128px;
+  align-items: end;
+}
+
+.clients-recommended-relative-container {
+  position: relative;
+}
+
+.clients-recommended-hands-picture {
+  border-bottom-left-radius: 76px;
+}
+
+.clients-recommended-title {
+  text-align: right;
+}
+
+.clients-recommended-comment {
+  position: absolute;
+  left: -125px;
+  top: -130px;
+}
+
+.clients-recommended-slider-controls {
+  position: absolute;
+  top: 49px;
+  right: 50px;
+  display: flex;
+  gap: 16px;
+}
+
+.review-item {
+  position: relative;
+  padding: 40px 38px 40px 40px;
+  width: 650px;
+  border: 1px solid #E4E4E4;
+  border-top-left-radius: 80px;
+}
+
+.clients-recommended-slider-hide {
+  overflow: hidden;
+  padding-top: 25px;
+  padding-bottom: 1px;
+  width: 650px;
+}
+
+.clients-recommended-slider-track {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+  width: 650px;
+}
+
+.clients-recommended-slider-item {
+  width: 650px;
+}
+
+.review-item-name {
+  font-family: Playfair Display;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 40px;
+  letter-spacing: -5%;
+  color: #0A090C;
+  margin-bottom: 16px;
+}
+
+.review-item-subtitle {
+  font-family: Public Sans;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 1%;
+  color: #A9714B;
+  margin: 14px 0px 48px;
+}
+
+.stars-container {
+  display: flex;
+  gap: 2px;
+}
+
+.review-item-text {
+  font-family: Public Sans;
+  font-weight: 200;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 1%;
+}
+
+.quote {
+  position: absolute;
+  top: -25px;
+  right: 60px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: #E4E4E4;
+  border-radius: 100%;
+}

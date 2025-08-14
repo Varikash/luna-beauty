@@ -1,0 +1,47 @@
+.appointment-button {
+  width: 196px;
+  height: 196px;
+  border-radius: 100%;
+  background-color: #95A3A0;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  box-shadow:
+    inset 0 0 0 4px #95A3A0,
+    inset 0 0 0 5px #FFFFFF;
+  transition: all 0.3s ease;
+}
+
+.appointment-button:hover {
+  gap: 16px;
+}
+
+.appointment-pressed {
+  box-shadow:
+  inset 0 0 0 0px #95A3A0,
+  inset 0 0 0 0px #FFFFFF;
+}
+
+.appointment-text {
+  font-family: Public Sans;
+  font-weight: 600;
+  font-style: SemiBold;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 1%;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.appointment-arrow {
+  display: none;
+  transition: all 0.3s ease;
+}
+
+.appointment-button:hover .appointment-arrow {
+  display: block;
+}

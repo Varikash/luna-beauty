@@ -1,0 +1,63 @@
+.our-masters {
+  padding: 160px 76px 120px 76px;
+}
+
+.our-masters-header-container {
+  display: flex;
+  gap: 96px;
+}
+
+.our-masters-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.vine-title-om {
+  font-family: Playfair Display;
+  font-weight: 400;
+  font-size: 112px;
+  line-height: 96px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+
+}
+
+.champagne-title-om {
+  font-family: Great Vibes;
+  font-weight: 400;
+  font-size: 160px;
+  line-height: 96px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+
+}
+
+.our-masters-header {
+  margin-top: 145px;
+  position: relative;
+}
+
+.our-masters-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 31px;
+  list-style: none;
+}
+
+.our-masters-comment {
+  position: absolute;
+  right: -15px;
+  top: -130px;
+  rotate: 71deg;
+}
+
+.our-masters-subtitle {
+  width: 744px;
+  font-family: Public Sans;
+  font-weight: 200;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 1%;
+}

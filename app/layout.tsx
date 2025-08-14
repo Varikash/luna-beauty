@@ -1,5 +1,6 @@
 import { greatVibes, publicSans, playfairDisplay, geist, geistMono } from "../public/fonts/fonts";
 import "./globals.css";
+import Footer from "./components/footer/footer";
 
 
 export default function RootLayout({
@@ -11,6 +12,7 @@ export default function RootLayout({
 		<html lang="en">
 			<body className={`${greatVibes.variable} ${publicSans.variable} ${playfairDisplay.variable} ${geist.variable} ${geistMono.variable}`}>
 				{children}
+				<Footer />
 			</body>
 		</html>
 	);

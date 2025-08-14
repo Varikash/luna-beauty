@@ -29,6 +29,7 @@ const BeautyServicesHeader: React.FC = () => {
         <BeautyButton
           text="eXPLORE all our SERVICES"
           className="beauty-services-button-style"
+          link="/services"
         />
       </div>
     </div>

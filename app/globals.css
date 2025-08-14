@@ -5,98 +5,6 @@
   --font-great_vibes: 'Great Vibes', sans-serif;
 }
 
-/* @font-face {
-  font-family: 'Public Sans';
-  src: url('../public/fonts/PublicSans-Thin.ttf') format('truetype');
-  font-weight: 100;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Public Sans';
-  src: url('../public/fonts/PublicSans-ExtraLight.ttf') format('truetype');
-  font-weight: 200;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Public Sans';
-  src: url('/fonts/PublicSans-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Public Sans';
-  src: url('/fonts/PublicSans-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Public Sans';
-  src: url('/fonts/PublicSans-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Public Sans';
-  src: url('/fonts/PublicSans-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Public Sans';
-  src: url('/fonts/PublicSans-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Public Sans';
-  src: url('/fonts/PublicSans-Black.ttf') format('truetype');
-  font-weight: 900;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Playfair Display';
-  src: url('/fonts/PlayfairDisplay-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Playfair Display';
-  src: url('/fonts/PlayfairDisplay-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Playfair Display';
-  src: url('/fonts/PlayfairDisplay-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Playfair Display';
-  src: url('/fonts/PlayfairDisplay-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Great Vibes';
-  src: url('/fonts/GreatVibes-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-} */
-
-
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -107,7 +15,10 @@
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 body {
@@ -133,4 +44,30 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+.skip-li {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+
+}
+
+.champagne-title {
+  font-family: Great Vibes;
+  font-weight: 400;
+  font-size: 136px;
+  line-height: 75px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  margin-bottom: 10px;
+}
+
+.vine-title {
+  font-family: Playfair Display;
+  font-weight: 400;
+  font-size: 96px;
+  line-height: 51px;
+  letter-spacing: 0%;
+  vertical-align: middle;
 }

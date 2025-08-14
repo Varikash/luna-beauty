@@ -1,0 +1,104 @@
+.master-list-item {
+  flex-shrink: 0;
+  position: relative;
+  width: 568px;
+  min-height: 640px;
+  padding: 40px 16px 40px 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  background-color: #FFFFFF;
+  transition: border-bottom-right-radius 0.3s ease;
+}
+
+.master-card-border {
+  border: solid 1px #E4E4E4;
+}
+
+.master-list-item:hover {
+  border-bottom-right-radius: 80px;
+}
+
+.master-info-top {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-top: 48px;
+}
+
+.master-info-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 95%;
+}
+
+.master-image-status {
+  display: flex;
+  gap: 24px;
+}
+
+.master-info {
+  width:fit-content;
+  padding: 8px 16px;
+  border-radius: 32px;
+  background-color: #A9714B;
+  font-family: Public Sans;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 1%;
+  line-height: 24px;
+  text-transform: uppercase;
+  color:#FFFFFF;
+}
+
+.master-status {
+  white-space: pre-line;
+  font-family: Public Sans;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 18px;
+  line-height: 30px;
+  letter-spacing: 1%;
+
+}
+
+.master-name {
+  font-family: Playfair Display;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 48px;
+  line-height: 48px;
+  letter-spacing: -5%;
+}
+
+.master-skills {
+  font-family: Public Sans;
+  font-weight: 200;
+  font-style: extralight;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 1%;
+}
+
+.master-list-appoinment {
+  position: absolute;
+  top: 292px;
+  right: 72px;
+}
+
+.master-hover-element {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.master-list-item:hover .master-hover-element {
+  opacity: 1;
+}
+
+.master-list-star {
+  position: absolute;
+  top: 53px;
+  right: 226px;
+}

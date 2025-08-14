@@ -1,0 +1,133 @@
+/* Стили для формы */
+.subscription-form {
+  flex: 1;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.subscription-form-title {
+  font-family: var(--font-playfair-display);
+  font-size: 24px;
+  font-weight: 500;
+  color: #C78F69;
+  margin-bottom: 8px;
+}
+
+.subscription-form-field-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* Стили для поля ввода с анимированным плейсхолдером */
+.subscription-form-field {
+  width: 100%;
+  position: relative;
+  height: 56px;
+}
+
+.subscription-form-input {
+  width: 100%;
+  height: 60px;
+  padding: 20px 0px 0px 0px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgb(255, 255, 255, 50%);
+  border-radius: 0;
+  color: #fff;
+  font-family: var(--font-public-sans);
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.subscription-form-input:focus {
+  outline: none;
+  border-color: rgb(255, 255, 255, 100%);
+}
+
+.subscription-form-label {
+  position: absolute;
+  left: 0px;
+  top: 67%;
+  transform: translateY(-50%);
+  font-family: var(--font-public-sans);
+  font-size: 16px;
+  line-height: 20px;
+  color: #949494;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+/* Анимация плейсхолдера при фокусе или когда поле не пустое */
+.subscription-form-field.focused .subscription-form-label {
+  top: 10px;
+  left: 0px;
+  transform: translateY(-50%);
+  font-size: 16px;
+  background-color: #323134;
+  color: #E4E4E4;
+}
+
+/* Стили для ошибок валидации */
+.subscription-form-field.error .subscription-form-input {
+  border-color: #ff4d4f;
+}
+
+.subscription-form-field.error .subscription-form-label {
+  color: #ff4d4f;
+}
+
+.subscription-form-error {
+  position: absolute;
+  left: 0;
+  bottom: -20px;
+  font-size: 12px;
+  color: #ff4d4f;
+  font-family: var(--font-public-sans);
+}
+
+/* Кнопка отправки */
+.subscription-form-submit {
+  margin-top: 26px;
+  align-self: flex-start;
+  padding: 16px 41px;
+  background-color: #C78F69;
+  color: #fff;
+  border: none;
+  border-radius: 48px;
+  font-family: var(--font-public-sans);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.subscription-form-submit:hover {
+  background-color: #b07a57;
+}
+
+.subscription-form-submit:disabled,
+.subscription-form-submit.submitting {
+  background-color: #8a6347;
+  cursor: not-allowed;
+}
+
+/* Сообщения об успехе и ошибке */
+.subscription-form-success {
+  font-family: var(--font-public-sans);
+  font-size: 14px;
+  color: #52c41a;
+}
+
+.subscription-form-submit-error {
+  font-family: var(--font-public-sans);
+  font-size: 14px;
+  color: #ff4d4f;
+}

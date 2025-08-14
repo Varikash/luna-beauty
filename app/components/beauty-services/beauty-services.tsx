@@ -10,7 +10,7 @@ interface BeautyServicesProps {
   type?: "page1" | "page2" | "page3" | "page4";
 }
 
-const BeautyServices: React.FC<BeautyServicesProps> = ({ type }) => {
+const BeautyServices : React.FC<BeautyServicesProps> = ({ type }) => {
   return (
     <section className={type === "page2"
       ? "beauty-services-section-page2"
@@ -21,7 +21,12 @@ const BeautyServices: React.FC<BeautyServicesProps> = ({ type }) => {
           {servicesMock.map((service, index) => (
             <React.Fragment key={"bs-page-1" + index}>
               {index === 4 ? (
-                <div className="placeholder-card">
+                <a
+                  href="https://example.com/booking"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="placeholder-card"
+                >
                   <p className="placeholder-title">
                     High-quality services,<br />
                     from professional makeup<br />
@@ -34,20 +39,27 @@ const BeautyServices: React.FC<BeautyServicesProps> = ({ type }) => {
                     width={408}
                     height={214}
                   />
-                </div>
+                </a>
               ) : (
                 <CardWrapper type="page1" key={index}>
                   <div className="card-header">
                     <span className="service-counter">
                       0{index + 1}
                     </span>
-                    <Image
-                      src="/images/bs/calendarButton.svg"
-                      alt="Calendar Icon"
-                      width={48}
-                      height={48}
-                      className="calendar-icon"
-                    />
+                    <a
+                      href="https://example.com/booking"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="calendar-link"
+                    >
+                      <Image
+                        src="/images/bs/calendarButton.svg"
+                        alt="Calendar Icon"
+                        width={48}
+                        height={48}
+                        className="calendar-icon"
+                      />
+                    </a>
                   </div>
                   <h3 className="card-title">
                     {service.title}
@@ -67,7 +79,10 @@ const BeautyServices: React.FC<BeautyServicesProps> = ({ type }) => {
                       {service.nav.map((item, navIndex) => (
                         <li className="card-list-item" key={navIndex}><p className="card-list-item-text">{item}</p><div className="card-list-item-I">|</div></li>
                       ))}
-                      <li className="last-li">View all</li>
+                      <a href="/services"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="last-li">View all</a>
                     </>
                   </ul>
 
@@ -138,7 +153,7 @@ const BeautyServices: React.FC<BeautyServicesProps> = ({ type }) => {
                   <>
                     {service.nav.map((item, navIndex) => (
                       <li className="card-list-item" key={"bs-3-nav" + navIndex}><p className="bs-card-list-item-text-p3">{item}</p>
-                      <div className="card-list-item-I">|</div></li>
+                        <div className="card-list-item-I">|</div></li>
                     ))}
                     <li className="last-li">View all</li>
                   </>

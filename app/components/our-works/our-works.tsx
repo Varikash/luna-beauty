@@ -1,20 +1,17 @@
 import React from 'react';
 import Image from 'next/image';
-import CardWrapper from '@/app/components/card-wrapper/card-wrapper';
 import { ourWorksMock } from '@/app/utils/mockFiles';
 import './our-works.css';
 import BeautyButton from '@/app/utils/ui/bs-button/bs-button';
-
-// interface BeautyServicesProps {
-//   type?: "page1" | "page2";
-// }
+import AppointmentButton from "@/app/utils/ui/make-an-appointment/make-an-appointment";
 
 const OurWorks: React.FC = () => {
   return (
     <section className={"our-works-section"} key={'our-works'}>
       <BeautyButton
         text="eXPLORE all our SERVICES"
-        className="beauty-services-button-style"
+        className="beauty-services-button-style-our-works"
+        link="/services"
       />
       <div className={"our-works-info"}>
         <Image
@@ -78,6 +75,7 @@ const OurWorks: React.FC = () => {
           />
         </li>
       </ul>
+      < AppointmentButton className="our-works-appoinment" />
     </section>
   );
 };

@@ -102,6 +102,13 @@ border-radius: 120px 200px 120px 280px;
   align-self: flex-end;
 }
 
-.beauty-services-button-style {
+.beauty-services-button-style-our-works {
   align-self: start;
+}
+
+.our-works-appoinment {
+  position: absolute;
+  right: 22.5%;
+  top: 775px;
+  z-index: 10;
 }

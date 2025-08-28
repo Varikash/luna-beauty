@@ -7,8 +7,17 @@
   gap: 16px;
 }
 
-.beauty-services-head-text{
+.beauty-services-head-text {
   margin-top: 37px;
+  display: flex;
+  gap: 48px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.beauty-services-head-text-page3 {
+  margin-top: 54px;
   display: flex;
   gap: 48px;
   flex-direction: column;

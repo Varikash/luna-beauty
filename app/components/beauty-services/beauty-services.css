@@ -22,6 +22,22 @@
   /* background: #F8F8F8; */
 }
 
+.beauty-services-section-page3 {
+  position: relative;
+  width: 100%;
+  padding: 40px 76px 85px 76px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background: #FFFFFF;
+  background-image: url('/images/bs/background-bs.svg');
+  background-repeat: no-repeat;
+  background-position: right 0px top 28px;
+  background-size: 1920px 1301px;
+}
+
 /* серединка ================================ */
 .beauty-services-list-page1 {
   width: 100%;
@@ -159,6 +175,17 @@
   color: #0A090C;
 }
 
+.service-counter-page3 {
+  margin-top: 5px;
+  font-family: var(--font-public-sans);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 1%;
+  text-transform: uppercase;
+  color: #0A090C;
+}
+
 .calendar-icon {
   width: 48px;
   height: 48px;
@@ -286,4 +313,10 @@
 
 .calendar-link:hover {
   transform: scale(1.1);
+}
+
+.bs-appoinment {
+  position: absolute;
+  right: 397px;
+  top: 316px;
 }

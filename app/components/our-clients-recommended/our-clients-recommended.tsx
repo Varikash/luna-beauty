@@ -23,7 +23,7 @@ const OurClientsRecommended: React.FC = () => {
   };
 
   return (
-    <section className={"clients-recommended"}>
+    <section className="clients-recommended">
       <article className="clients-recommended-content">
         <div className="clients-recommended-relative-container">
           <div className="clients-recommended-slider-controls">

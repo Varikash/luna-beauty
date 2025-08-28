@@ -3,6 +3,7 @@ export interface IService {
   image: string;
   text: string;
   nav: string[];
+  link: string;
 }
 
 export interface IExtService {
@@ -40,47 +41,84 @@ export const servicesMock: IService[] = [
     image: "/images/bs/services1.jpg",
     text: "Natural beauty with professional techniques, using high-quality products!",
     nav: ["Pre-makeup facial", "Event/Party", "Flower girl makeup", "Junior make-up", "Bridesmaids trial"],
+    link: "makeup",
   },
   {
     title: "Waxing",
     image: "/images/bs/services2.jpg",
     text: "Service ensures smooth, long-lasting results with gentle techniques!",
     nav: ["Waxing Men", "Waxing Ladies", "Brazilian bikini", "Half leg", "Full/Half Arm", "Extra area"],
+    link: "waxing"
   },
   {
     title: "Manicure/Extensions",
     image: "/images/bs/services3.jpg",
     text: "Offering durability, style, and a polished look tailored to individual preferences!",
     nav: ["Gel extension", "Tip gel extension", "Cuticle oil", "Design 10 nails", "Clean manicure"],
+    link: "manicure"
   },
   {
     title: "Semi permanent makeup",
     image: "/images/bs/services4.jpg",
     text: "Enhances beauty with longevity!",
     nav: ["Luxury lashes lamination", "Eyebrow lamination", "Keratin", "Botox", "SPMU Eyeliner"],
+    link: "semi-permanent"
   },
   {
     title: "mock",
     image: "/images/bs/services4.jpg",
     text: "mock",
     nav: ["mock",],
+    link: "pedicure"
   },
   {
     title: "Pedicure",
     image: "/images/bs/services5.jpg",
     text: "Beautifies feet, ensuring smooth skin, healthy, and well-groomed appearance.",
     nav: ["Pedicure&rubber gel", "Clean pedicure", "Pedicure with varnish"],
+    link: "pedicure"
   },
 ];
 
 export const servicesExtendedMock: IExtService[] = [
   {
     title: "Makeup",
-    images: ["/images/bs/services1.jpg", "/images/bs/services1.2.jpg", "/images/bs/services1.3.jpg"],
+    images: ["/images/bs/services1.jpg", "/images/bs/services1.3.jpg", "/images/bs/services1.2.jpg",],
     text: "Natural beauty with professional techniques, using high-quality products!",
     nav: ["Travel charge", "Pre-makeup facial", "Even/party", "Flower girl makeup",
       "Junior make-up", "Bridesmaids trial", "Bridal make-up"],
-    link: "/"
+    link: "makeup"
+  },
+  {
+    title: "Waxing",
+    images: ["/images/bs/services2.jpg", "/images/bs/services2.2.jpg", "/images/bs/services2.3.jpg"],
+    text: "Service ensures smooth, long-lasting results with gentle techniques!",
+    nav: ["Waxing Men", "Waxing Ladies"],
+    link: "waxing"
+  },
+  {
+    title: "Manicure/Extensions",
+    images: ["/images/bs/services1.jpg", "/images/bs/services1.2.jpg", "/images/bs/services1.3.jpg"],
+    text: "Offering durability, style, and a polished look tailored to individual preferences!",
+    nav: ["Travel charge", "Pre-makeup facial", "Even/party", "Flower girl makeup",
+      "Junior make-up", "Bridesmaids trial", "Bridal make-up"],
+    link: "manicure"
+  },
+  {
+    title: "Semi permanent makeup",
+    images: ["/images/bs/services1.jpg", "/images/bs/services1.2.jpg", "/images/bs/services1.3.jpg"],
+    text: "Micropigmentation technique that enhances eyebrows, lips, or eyeliner!",
+    nav: ["Travel charge", "Pre-makeup facial", "Even/party", "Flower girl makeup",
+      "Junior make-up", "Bridesmaids trial", "Bridal make-up"],
+    link: "semi-permanent"
+  },
+  {
+    title: "Pedicure",
+    images: ["/images/bs/services1.jpg", "/images/bs/services1.2.jpg", "/images/bs/services1.3.jpg"],
+    text: "Beautifies feet, ensuring smooth skin, healthy, and well-groomed appearance.",
+    nav: ["Travel charge", "Pre-makeup facial", "Even/party", "Flower girl makeup",
+      "Junior make-up", "Bridesmaids trial", "Bridal make-up"],
+    link: "pedicure"
   },
 ];
 

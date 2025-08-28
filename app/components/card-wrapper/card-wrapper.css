@@ -25,7 +25,9 @@
 
 .card-wrapper-page3 {
   width: 1187px;
-  padding: 40px 120px 40px 40px;
+  min-height: 496px;
+  padding: 40px 120px 37px 40px;
+  background-color: white;
   display: flex;
   gap: 32px;
   position: relative;

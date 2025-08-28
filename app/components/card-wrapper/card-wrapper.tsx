@@ -4,9 +4,11 @@ import './card-wrapper.css';
 interface CardWrapperProps {
   children: React.ReactNode;
   type?: "page1" | "page2" | "page3" | "page4";
+  ikey: number;
+  id?: string;
 }
 
-const CardWrapper: React.FC<CardWrapperProps> = ({ children, type }) => {
+const CardWrapper: React.FC<CardWrapperProps> = ({ children, type, ikey, id }) => {
   let className = "card-wrapper";
 
   switch (type) {
@@ -28,7 +30,7 @@ const CardWrapper: React.FC<CardWrapperProps> = ({ children, type }) => {
 
 
   return (
-    <li className={className}>
+    <li className={className} key={ikey} id={id}>
       {children}
     </li>
   );

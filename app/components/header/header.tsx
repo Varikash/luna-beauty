@@ -49,6 +49,7 @@ const Header: React.FC<HeaderProps> = ({ type }) => {
             <a
               href="https://maps.app.goo.gl/9akphzwrHiV6arBU6"
               className='header-address'
+              target="_blank"
             >
               <Image
                 src="/images/header/point.svg"
@@ -83,6 +84,7 @@ const Header: React.FC<HeaderProps> = ({ type }) => {
             <a
               href="https://maps.app.goo.gl/9akphzwrHiV6arBU6"
               className='header-address'
+              target="_blank"
             >
               <Image
                 src="/images/header/point.svg"
@@ -142,6 +144,7 @@ const Header: React.FC<HeaderProps> = ({ type }) => {
                 <a
                   href="https://maps.app.goo.gl/9akphzwrHiV6arBU6"
                   className='burger-address'
+                  target="_blank"
                 >
                   <Image
                     src="/images/header/point.svg"

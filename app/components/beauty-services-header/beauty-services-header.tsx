@@ -9,7 +9,7 @@ const BeautyServicesHeader: React.FC<{ type?: string }> = ({ type }) => {
       {type != "page3" ? (
         <div className="beauty-services-head">
           <Image
-            src="/BeautyServices.png"
+            src="/images/bs/BeautyServices.png"
             alt="BeautyServices"
             width={479}
             height={214}
@@ -29,7 +29,7 @@ const BeautyServicesHeader: React.FC<{ type?: string }> = ({ type }) => {
       ) : (
         <div className="beauty-services-head">
           <Image
-            src="/BeautyServices.png"
+            src="/images/bs/BeautyServices.png"
             alt="BeautyServices"
             width={479}
             height={214}

@@ -1,6 +1,7 @@
 .beautyServicesSection {
+  box-sizing: border-box;
   width: 100%;
-  padding: 100px 76px 120px 76px;
+  padding: 100px 0 120px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,12 +41,16 @@
 
 /* серединка ================================ */
 .beautyServicesListPageOne {
+  max-width: 1768px;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 500px), 568px));
   gap: 32px;
   list-style: none;
+  justify-content: center;
+  align-items: center;
 }
+
 
 .beautyServicesListPageTwo {
   width: 100%;
@@ -320,3 +325,11 @@
   right: 397px;
   top: 316px;
 }
+
+
+
+/* @media (max-width: 1880px) {
+  .beautyServicesListPageOne {
+    grid-template-columns: repeat(2, 1fr);
+  }
+} */

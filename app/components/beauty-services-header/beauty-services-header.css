@@ -1,6 +1,7 @@
 /* верхушка ================================= */
 .beauty-services-head {
   width: 100%;
+  max-width: 1768px;
   display: flex;
   align-items: center;
   justify-content: space-between;

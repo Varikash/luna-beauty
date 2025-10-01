@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import CardWrapper from '@/app/components/card-wrapper/card-wrapper';
@@ -7,191 +7,204 @@ import BeautyButton from '@/app/utils/ui/bs-button/bs-button';
 import SideMenu from '@/app/components/side-menu/side-menu';
 import { servicesMock, servicesExtendedMock } from '@/app/utils/mockFiles';
 import AppointmentButton from '@/app/utils/ui/make-an-appointment/make-an-appointment';
-import './beauty-services.css';
+import style from './beauty-services.module.css';
 
 interface BeautyServicesProps {
-  type?: "page1" | "page2" | "page3" | "page4";
+  type?: "page1" | "page2" | "page3";
 }
 
 const BeautyServices: React.FC<BeautyServicesProps> = ({ type }) => {
 
-  return (
-    <section className={type === "page2"
-      ? "beauty-services-section-page2"
-      : (type === "page3"
-        ? "beauty-services-section-page3"
-        : "beauty-services-section")}>
 
-      {type === "page1" && (
-        <>
-          <BeautyServicesHeader />
-          <ul className="beauty-services-list-page1">
-            {servicesMock.map((service, index) => (
-              <React.Fragment key={"bs-page-1" + index}>
-                {index === 4 ? (
-                  <a
-                    href="https://example.com/booking"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="placeholder-card"
-                  >
-                    <p className="placeholder-title">
-                      High-quality services,<br />
-                      from professional makeup<br />
-                      and flawless waxing to the<br />
-                      best experts in nails<br />
-                      manicure!</p>
-                    <Image
-                      src="/images/bs/services-placeholder-btn.png"
-                      alt="placeholder-card-pic"
-                      width={408}
-                      height={214}
-                    />
-                  </a>
-                ) : (
-                  <CardWrapper type="page1" ikey={index} key={"cardkey" + index}>
-                    <div className="card-header">
-                      <span className="service-counter">
-                        0{index + 1}
-                      </span>
-                      <a
-                        href="https://example.com/booking"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="calendar-link"
-                      >
-                        <Image
-                          src="/images/bs/calendarButton.svg"
-                          alt="Calendar Icon"
-                          width={48}
-                          height={48}
-                          className="calendar-icon"
-                        />
-                      </a>
-                    </div>
-                    <h3 className="card-title">
-                      {service.title}
-                    </h3>
-                    <p className="card-text">
-                      {service.text}
-                    </p>
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      width={268}
-                      height={268}
-                      className="card-image"
-                    />
-                    <ul className="card-list">
-                      <>
-                        {service.nav.map((item, navIndex) => (
-                          <li className="card-list-item" key={navIndex}><p className="card-list-item-text">{item}</p><div className="card-list-item-I">|</div></li>
-                        ))}
-                        {/* <a href="/services"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="last-li">View all</a> */}
-                        <li
-                          className="last-li"
-                          key={"bs-1-nav" + "last"}>
-                          <Link key={service.title} href={`/services/details/${service.link}`}>View all</Link>
-                        </li>
+  const sectionClassName = useMemo(() => {
+    if (type === 'page2') return 'beautyServicesSectionPageTwo';
+    if (type === 'page3') return 'beautyServicesSectionPageThree';
+    return 'beautyServicesSection';
+  }, [type])
 
-                      </>
-                    </ul>
 
-                  </CardWrapper>
-                )}
-              </React.Fragment>
-            ))}
-          </ul>
-        </>
-      )}
-      {type === "page2" && (
-        <>
-          <BeautyServicesHeader />
-          <ul className="beauty-services-list-page2">
-            {servicesMock.map((service, index) => (
-              index !== 4 ? (
-                <CardWrapper type="page2" ikey={index} key={"cardkey" + index}>
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    width={280}
-                    height={280}
-                    className="card-image-page2"
-                  />
-                  <div className="card-header-page2">
-                    <span className="service-counter-page2">
-                      0{index + 1}
-                    </span>
-                    <h3 className="card-title-page2">
-                      {service.title}
-                    </h3>
-                    <Image
-                      src="/BeautyServicesArrow.png"
-                      alt="BeautyServicesArrowIcon"
-                      width={85}
-                      height={40}
-                    // className="card-arrow-page2"
-                    />
-                  </div>
-                </CardWrapper>
-              ) : null
-            ))}
-          </ul>
-        </>
-      )}
-      {type === "page3" && (
-        <>
-          <BeautyServicesHeader type={type} />
-          <AppointmentButton className="bs-appoinment" />
-          <SideMenu services={servicesExtendedMock} />
-          <ul className="beauty-services-list-page3">
-            {servicesExtendedMock.map((service, index) => (
-              <CardWrapper type="page3" ikey={index} id={service.title} key={"cardkey" + index}>
-                <span className="service-counter-page3">
+
+  const page1List = useMemo(() => (
+    <ul className={style.beautyServicesListPageOne}>
+      {servicesMock.map((service, index) => (
+        <React.Fragment key={"bs-page-1" + index}>
+          {index === 4 ? (
+            <a
+              href="https://example.com/booking"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={style.placeholderCard}
+            >
+              <p className={style.placeholderTitle}>
+                High-quality services,<br />
+                from professional makeup<br />
+                and flawless waxing to the<br />
+                best experts in nails<br />
+                manicure!</p>
+              <Image
+                src="/images/bs/services-placeholder-btn.png"
+                alt="placeholder-card-pic"
+                width={408}
+                height={214}
+              />
+            </a>
+          ) : (
+            <CardWrapper type="page1" ikey={index} key={"cardkey" + index}>
+              <div className={style.cardHeader}>
+                <span className={style.serviceCounter}>
                   0{index + 1}
                 </span>
-                <article className="bs-card-article-p3">
-                  <h3 className="bs-card-title-p3">
-                    {service.title}
-                  </h3>
-                  <p className="bs-card-text-p3">
-                    {service.text}
-                  </p>
-                  <ul className="bs-images-list-p3">
-                    {service.images.map((image, index) => (
-                      <Image
-                        key={"bs-3-image" + index}
-                        src={image}
-                        alt={service.title + " " + index}
-                        width={200}
-                        height={200}
-                      />
-                    ))}
-                  </ul>
-                  <ul className="bs-card-list-p3">
-                    <>
-                      {service.nav.map((item, navIndex) => (
-                        <li className="card-list-item" key={"bs-3-nav" + navIndex}><p className="bs-card-list-item-text-p3">{item}</p>
-                          <div className="card-list-item-I">|</div></li>
-                      ))}
-                      <li className="last-li" key={"bs-3-nav" + "last"}><Link key={service.title} href={`/services/details/${service.link}`}>View all</Link></li>
-                    </>
-                  </ul>
-                </article>
-                <BeautyButton
-                  text="MORE DETAILS"
-                  className="beauty-services-button-style-p3"
-                  link={`/services/details/${service.link}`}
+                <a
+                  href="https://example.com/booking"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={style.calendarLink}
+                >
+                  <Image
+                    src="/images/bs/calendarButton.svg"
+                    alt="Calendar Icon"
+                    width={48}
+                    height={48}
+                    className={style.calendarIcon}
+                  />
+                </a>
+              </div>
+              <h3 className={style.cardTitle}>
+                {service.title}
+              </h3>
+              <p className={style.cardText}>
+                {service.text}
+              </p>
+              <Image
+                src={service.image}
+                alt={service.title}
+                width={268}
+                height={268}
+                className={style.cardImage}
+              />
+              <ul className={style.cardList}>
+                <>
+                  {service.nav.map((item, navIndex) => (
+                    <li className={style.cardListItem} key={navIndex}>
+                      <p className={style.cardListItemText}>{item}</p>
+                      <div className={style.cardListItemI}>|</div>
+                    </li>
+                  ))}
+                  <li
+                    className={style.lastLi}
+                    key={"bs-1-nav" + "last"}>
+                    <Link key={service.title} href={`/services/details/${service.link}`}>View all</Link>
+                  </li>
+                </>
+              </ul>
+            </CardWrapper>
+          )}
+        </React.Fragment>
+      ))}
+    </ul>
+  ), []);
+
+
+  const page2List = useMemo(() => (
+    <ul className={style.beautyServicesListPageTwo}>
+      {servicesMock.map((service, index) => (
+        index !== 4 ? (
+          <CardWrapper type="page2" ikey={index} key={"cardkey" + index}>
+            <Image
+              src={service.image}
+              alt={service.title}
+              width={280}
+              height={280}
+              className={style.cardImagePageTwo}
+            />
+            <div className={style.cardHeaderPageTwo}>
+              <span className={style.serviceCounterPageTwo}>
+                0{index + 1}
+              </span>
+              <h3 className={style.cardTitlePageTwo}>
+                {service.title}
+              </h3>
+              <Image
+                src="/BeautyServicesArrow.png"
+                alt="BeautyServicesArrowIcon"
+                width={85}
+                height={40}
+              />
+            </div>
+          </CardWrapper>
+        ) : null
+      ))}
+    </ul>
+  ), []);
+
+  const page3List = useMemo(() => (
+    <ul className={style.beautyServicesListPageThree}>
+      {servicesExtendedMock.map((service, index) => (
+        <CardWrapper type="page3" ikey={index} id={service.title} key={"cardkey" + index}>
+          <span className={style.serviceCounterPageThree}>
+            0{index + 1}
+          </span>
+          <article className={style.bsCardArticlePThree}>
+            <h3 className={style.bsCardTitlePThree}>
+              {service.title}
+            </h3>
+            <p className={style.bsCardTextPThree}>
+              {service.text}
+            </p>
+            <ul className={style.bsImagesListPThree}>
+              {service.images.map((image, imgIndex) => (
+                <Image
+                  key={"bs-3-image" + imgIndex}
+                  src={image}
+                  alt={service.title + " " + imgIndex}
+                  width={200}
+                  height={200}
                 />
-              </CardWrapper>
-            ))}
-          </ul>
+              ))}
+            </ul>
+            <ul className={style.bsCardListPThree}>
+              <>
+                {service.nav.map((item, navIndex) => (
+                  <li className={style.cardListItem} key={"bs-3-nav" + navIndex}>
+                    <p className={style.bsCardListItemTextPThree}>{item}</p>
+                    <div className={style.cardListItemI}>|</div>
+                  </li>
+                ))}
+                <li className={style.lastLi} key={"bs-3-nav" + "last"}>
+                  <Link key={service.title} href={`/services/details/${service.link}`}>View all</Link>
+                </li>
+              </>
+            </ul>
+          </article>
+          <BeautyButton
+            text="MORE DETAILS"
+            className={style.beautyServicesButtonStylePThree}
+            link={`/services/details/${service.link}`}
+          />
+        </CardWrapper>
+      ))}
+    </ul>
+  ), []);
+
+
+
+
+
+  return (
+    <section className={sectionClassName}>
+      <BeautyServicesHeader type={type} />
+
+      {type === "page3" && (
+        <>
+          <AppointmentButton className={style.bsAppoinment} />
+          <SideMenu services={servicesExtendedMock} />
         </>
       )}
-    </section>
+
+      {type === "page1" && page1List}
+      {type === "page2" && page2List}
+      {type === "page3" && page3List}
+     </section>
   );
 };
 

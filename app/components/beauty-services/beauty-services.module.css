@@ -1,4 +1,4 @@
-.beauty-services-section {
+.beautyServicesSection {
   width: 100%;
   padding: 100px 76px 120px 76px;
   display: flex;
@@ -10,7 +10,7 @@
   /* background: #F8F8F8; */
 }
 
-.beauty-services-section-page2 {
+.beautyServicesSectionPageTwo {
   width: 100%;
   padding: 110px 76px 96px 76px;
   display: flex;
@@ -22,7 +22,7 @@
   /* background: #F8F8F8; */
 }
 
-.beauty-services-section-page3 {
+.beautyServicesSectionPageThree {
   position: relative;
   width: 100%;
   padding: 40px 76px 85px 76px;
@@ -39,7 +39,7 @@
 }
 
 /* серединка ================================ */
-.beauty-services-list-page1 {
+.beautyServicesListPageOne {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -62,7 +62,7 @@
   gap: 32px;
 }
 
-.card-title {
+.cardTitle {
   width: 100%;
   font-family: var(--font-playfair-display);
   font-weight: 400;
@@ -84,7 +84,7 @@
   color: #0A090C;
 }
 
-.card-text {
+.cardText {
   width: 100%;
   font-family: var(--font-public-sans);
   font-weight: 200;
@@ -95,7 +95,7 @@
   margin-top: 15px;
 }
 
-.card-image {
+.cardImage {
   margin-top: 26px;
   object-fit: cover;
   margin: 26px auto 0px auto;
@@ -105,7 +105,7 @@
   object-fit: cover;
 }
 
-.card-list {
+.cardList {
   margin-top: 26px;
   padding-left: 0px;
   letter-spacing: 0.01em;
@@ -115,21 +115,21 @@
   flex-wrap: wrap;
 }
 
-.card-list-item {
+.cardListItem {
   padding: 0px 0px 0px 0px;
   margin: 0px;
   display: flex;
   gap: 8px;
 }
 
-.card-list-item-text {
+.cardListItemText {
   font-family: var(--font-public-sans);
   font-weight: 500;
   font-size: 18px;
   line-height: 30px;
 }
 
-.card-list-item-I {
+.cardListItemI {
   /* border-left: 1px solid #0A090C; */
   font-family: var(--font-public-sans);
   font-weight: 500;
@@ -139,7 +139,7 @@
   color: #95A3A0;
 }
 
-.card-header {
+.cardHeader {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -155,7 +155,7 @@
   align-items: center;
 }
 
-.service-counter {
+.serviceCounter {
   font-family: var(--font-public-sans);
   font-weight: 600;
   font-size: 18px;
@@ -186,7 +186,7 @@
   color: #0A090C;
 }
 
-.calendar-icon {
+.calendarIcon {
   width: 48px;
   height: 48px;
 }
@@ -223,7 +223,7 @@
   transform: scale(1.01);
 }
 
-.placeholder-title {
+.placeholderTitle {
   font-family: var(--font-playfair-display);
   font-weight: 400;
   font-size: 32px;
@@ -305,7 +305,7 @@
 
 }
 
-.calendar-link {
+.calendarLink {
   display: inline-block;
   cursor: pointer;
   transition: transform 0.2s ease;

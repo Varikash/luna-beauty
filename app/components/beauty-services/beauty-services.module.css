@@ -47,14 +47,14 @@
   list-style: none;
 }
 
-.beauty-services-list-page2 {
+.beautyServicesListPageTwo {
   width: 100%;
   display: flex;
   flex-direction: column;
   list-style: none;
 }
 
-.beauty-services-list-page3 {
+.beautyServicesListPageThree {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -73,7 +73,7 @@
   margin-top: 4px;
 }
 
-.card-title-page2 {
+.cardTitlePageTwo {
   width: 558px;
   font-family: var(--font-playfair-display);
   font-weight: 400;
@@ -101,7 +101,7 @@
   margin: 26px auto 0px auto;
 }
 
-.card-image-page2 {
+.cardImagePageTwo {
   object-fit: cover;
 }
 
@@ -147,7 +147,7 @@
   position: relative;
 }
 
-.card-header-page2 {
+.cardHeaderPageTwo {
   width: 100%;
   max-width: 1170px;
   display: flex;
@@ -165,7 +165,7 @@
   color: #0A090C;
 }
 
-.service-counter-page2 {
+.serviceCounterPageTwo {
   font-family: var(--font-playfair-display);
   font-weight: 400;
   font-size: 64px;
@@ -175,7 +175,7 @@
   color: #0A090C;
 }
 
-.service-counter-page3 {
+.serviceCounterPageThree {
   margin-top: 5px;
   font-family: var(--font-public-sans);
   font-weight: 600;
@@ -191,7 +191,7 @@
   height: 48px;
 }
 
-.last-li {
+.lastLi {
   padding: 0px 0px 0px 5px;
   margin: 0px;
   display: flex;
@@ -204,7 +204,7 @@
   color: #A9714B;
 }
 
-.placeholder-card {
+.placeholderCard {
   cursor: pointer;
   padding: 80px;
   display: flex;
@@ -219,7 +219,7 @@
   transition: transform 0.2s ease;
 }
 
-.placeholder-card:hover {
+.placeholderCard:hover {
   transform: scale(1.01);
 }
 
@@ -240,13 +240,13 @@
 
 /* Третья страница */
 
-.bs-images-list-p3 {
+.bsImagesListPThree {
   display: flex;
   flex-wrap: nowrap;
   gap: 16px;
 }
 
-.bs-card-article-p3 {
+.bsCardArticlePThree {
   margin: 0px;
   ;
   width: 100%;
@@ -255,7 +255,7 @@
   gap: 16px;
 }
 
-.bs-card-title-p3 {
+.bsCardTitlePThree {
   width: 100%;
   font-family: var(--font-playfair-display);
   font-weight: 400;
@@ -265,7 +265,7 @@
   color: #0A090C;
 }
 
-.bs-card-text-p3 {
+.bsCardTextPThree {
   width: 555px;
   font-family: var(--font-public-sans);
   font-weight: 200;
@@ -275,7 +275,7 @@
   color: #0A090C;
 }
 
-.beauty-services-button-style-p3 {
+.beautyServicesButtonStylePThree {
   width: 247px;
   position: absolute;
   z-index: 2;
@@ -283,7 +283,7 @@
   right: 43px;
 }
 
-.bs-card-list-p3 {
+.bsCardListPThree {
   width: 900px;
   margin-top: 3px;
   padding-left: 0px;
@@ -294,7 +294,7 @@
   flex-wrap: wrap;
 }
 
-.bs-card-list-item-text-p3 {
+.bsCardListItemTextPThree {
   font-family: var(--font-public-sans);
   text-transform: uppercase;
   font-weight: 600;
@@ -311,11 +311,11 @@
   transition: transform 0.2s ease;
 }
 
-.calendar-link:hover {
+.calendarLink:hover {
   transform: scale(1.1);
 }
 
-.bs-appoinment {
+.bsAppoinment {
   position: absolute;
   right: 397px;
   top: 316px;

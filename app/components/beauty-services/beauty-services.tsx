@@ -17,9 +17,9 @@ const BeautyServices: React.FC<BeautyServicesProps> = ({ type }) => {
 
 
   const sectionClassName = useMemo(() => {
-    if (type === 'page2') return 'beautyServicesSectionPageTwo';
-    if (type === 'page3') return 'beautyServicesSectionPageThree';
-    return 'beautyServicesSection';
+    if (type === 'page2') return style.beautyServicesSectionPageTwo;
+    if (type === 'page3') return style.beautyServicesSectionPageThree;
+    return style.beautyServicesSection;
   }, [type])
 
 

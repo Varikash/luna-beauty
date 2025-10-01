@@ -1,0 +1,398 @@
+.section {
+  --fz-mp: 18px;
+  --fz-m: 16px;
+  --fz-sm: 13px;
+  --fz-ss: 10px;
+
+
+
+  width: 100%;
+  max-width: 1600px;
+  background: url('/images/hero/1920/hero-team.png');
+  background-position: clamp(74%, 70% + (100vw - 1920px) * 0.02, 100%) center;
+  background-size: 584px 748px;
+  background-repeat: no-repeat;
+  min-height: 1012px;
+  z-index: 100;
+}
+
+.title {
+  color: var(--Black, #0A090C);
+  font-family: var(--font-playfair-display);
+  font-size: 112px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 96px;
+  max-width: 1359px;
+  text-align-last: right;
+}
+
+.title span {
+  font-family: var(--font-great-vibes);
+  font-size: 160px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 96px;
+} 
+
+.wrap {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+ 
+}
+
+.wrapContent {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+}
+
+.wrapContent :global(.beauty-button.beauty-services-button-style) {
+  align-self: flex-start !important;
+}
+
+.serviceList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  column-gap: 24px;
+}
+
+.socialList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  align-items: center;
+}
+
+.socialItem a {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 2.88px;
+}
+
+.service {
+  color: #A9714B;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 3.24px;
+  text-transform: uppercase;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.socialList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.appointment {
+  position: absolute;
+  top: 72%;
+  left: 41%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+  max-width: 490px;
+  margin-top: 43px;
+}
+
+.contentText {
+  font-size: 24px;
+  font-weight: 200;
+  line-height: 32px;
+  letter-spacing: .24px;
+}
+
+.imageWrapper {
+  border-radius: 0 0 80px 0;
+  overflow: hidden;
+  width: 228px;
+  height: 228px;
+}
+
+.socialList {
+  align-self: flex-end;
+}
+
+.imageSmall {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+
+
+
+@media (max-width: 1800) {
+  .section {
+    background-position: 75% 37%;
+    background-size: 430px 550px;
+  }
+
+  .sectionWrapper {
+    margin: 0 150px;
+  }
+
+
+  .service {
+    font-size: var(--fz-m);
+  }
+
+  .appointment {
+    top: 60%;
+    left: 49%;
+  }
+
+  .content {
+    margin-top: 0;
+  }
+
+  .contentText {
+    font-size: 20px;
+  }
+  .imageWrapper {
+    width: 200px;
+    height: 200px;
+  }
+
+  .image {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+
+@media (max-width: 1660) {
+  .section {
+    max-width: none;
+    background-position: 70% 30%;
+  }
+
+  .title {
+    font-size: 90px;
+    line-height: 70px;
+  }
+
+  .title span {
+    font-size: 100px;
+  }
+
+  .serviceList {
+    max-width: 500px;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: space-between;
+  }
+
+  .service {
+    text-align: left;
+  }
+
+  .appointment {
+    width: 144px;
+    height: 144px;
+    top: 62%;
+    left: 46%;
+  }
+
+  .appointment p {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .content {
+    max-width: 420px;
+  }
+}
+
+
+@media (max-width: 1430) {
+  .sectionWrapper {
+    margin: 0 100px;
+  }
+
+  .appointment {
+    top: 64%;
+    left: 41%;
+  }
+}
+
+
+@media (max-width: 1320) {
+  .title {
+    font-size: 70px;
+  }
+
+  .serviceList {
+    max-width: 350px;
+  }
+
+  .content {
+    max-width: 370px;
+  }
+
+  .contentText {
+    font-size: var(--fz-mp);
+  }
+}
+
+@media (max-width: 1254) {
+  .section {
+    background-position: 80% 20%;
+  }
+
+  .sectionWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .title {
+    text-align-last
+    : left;
+  }
+
+  .serviceList {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .socialList {
+    margin-bottom: 105px;
+  }
+
+  .appointment {
+    top: 32%;
+    left: 43%;
+  }
+}
+
+
+
+@media (max-width: 1075) {
+
+  .section {
+    margin-top: 50px;
+    background: none;
+  }
+
+  .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+  }
+
+  .title {
+    font-size: 55px;
+    line-height: 66px;
+  }
+
+  .title span {
+    line-height: 66px;
+  }
+
+  .service {
+    font-size: var(--fz-sm);
+  }
+
+  .socialList {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+  }
+
+  .appointment {
+    top: 253%;
+    left: 40%;
+  }
+
+  .imageSmall {
+    position: static;
+    display: block;
+    width: 100%;
+    height: 454px;
+    background-image: url('/images/hero/1920/hero-team-xs.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 38%;
+  }
+
+  .sectionWrapper {
+    margin: 0;
+  }
+  
+}
+
+@media (max-width: 740) {
+  .title {
+    font-size: 48px;
+  }
+
+  .title span {
+    font-size: 70px;
+  }
+
+  .appointment {
+    left: 38%;
+  }
+}
+
+@media (max-width: 650) {
+  .appointment {
+    left: 36%
+  }
+}
+
+@media (max-width: 550) {
+  .title {
+    line-height: 31px;
+  }
+
+  .appointment {
+    left: 32%
+  }
+
+  .imageSmall {
+    background-position: 50% 55%;
+  }
+}
+
+@media (max-width: 440) {
+  .sectionWrapper {
+    gap: 24px;
+  }
+
+
+  .title {
+    font-size: 32px;
+  }
+
+  .title span {
+    font-size: 48px;
+  }
+
+  .appointment {
+    left: 28%
+  }
+
+
+  .serviceList {
+    gap: 16px;
+  }
+}

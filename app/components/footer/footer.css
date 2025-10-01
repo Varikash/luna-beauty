@@ -1,7 +1,6 @@
 .footer {
   position: relative;
   width: 100%;
-  height: 1056px;
   display: flex;
   flex-direction: column;
   gap: 128px;

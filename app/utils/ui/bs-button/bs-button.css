@@ -6,11 +6,10 @@
   letter-spacing: 1%;
   text-transform: uppercase;
   color: #0A090C;
-  width: 374px;
   height: 64px;
   display: flex;
   box-sizing: border-box;
-  gap: 6px;
+  gap: 16px;
   justify-content: space-between;
   border-radius: 48px;
   border-width: 1px;
@@ -35,4 +34,10 @@
   background-color: #A9714B;
   color: #FFFFFF;
   border-color: #A9714B;
+}
+
+@media (max-width: 650) {
+  .beauty-button {
+    font-size: 14px; 
+  }
 }

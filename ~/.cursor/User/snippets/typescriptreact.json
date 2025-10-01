@@ -1,0 +1,31 @@
+{
+  "React className with CSS Modules": {
+    "prefix": "class",
+    "body": [
+      "className={style.$1}"
+    ],
+    "description": "React className with CSS Modules"
+  },
+  "React className with string": {
+    "prefix": "classs",
+    "body": [
+      "className=\"$1\""
+    ],
+    "description": "React className with string"
+  },
+  "React component": {
+    "prefix": "rfc",
+    "body": [
+      "import React from 'react';",
+      "",
+      "export default function $1() {",
+      "    return (",
+      "        <div>",
+      "            $2",
+      "        </div>",
+      "    );",
+      "}"
+    ],
+    "description": "React functional component"
+  }
+}

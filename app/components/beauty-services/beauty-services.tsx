@@ -29,6 +29,7 @@ const BeautyServices: React.FC<BeautyServicesProps> = ({ type }) => {
       {servicesMock.map((service, index) => (
         <React.Fragment key={"bs-page-1" + index}>
           {index === 4 ? (
+            <li>
             <a
               href="https://example.com/booking"
               target="_blank"
@@ -48,6 +49,7 @@ const BeautyServices: React.FC<BeautyServicesProps> = ({ type }) => {
                 height={214}
               />
             </a>
+            </li>
           ) : (
             <CardWrapper type="page1" ikey={index} key={"cardkey" + index}>
               <div className={style.cardHeader}>

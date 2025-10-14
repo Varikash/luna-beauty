@@ -119,10 +119,6 @@ a.secondary {
 }
 
 @media (max-width: 768px) {
-  .main {
-    padding: 0 16px;
-  }
-
   .ctas {
     flex-direction: column;
   }

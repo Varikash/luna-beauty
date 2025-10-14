@@ -1,5 +1,5 @@
 import React from 'react';
-import './card-wrapper.css';
+import style from './cardWrapper.module.css';
 
 interface CardWrapperProps {
   children: React.ReactNode;
@@ -13,24 +13,21 @@ const CardWrapper: React.FC<CardWrapperProps> = ({ children, type, ikey, id }) =
 
   switch (type) {
     case "page1":
-      className = "card-wrapper-page1";
+      className = "cardWrapperPageOne";
       break;
     case "page2":
-      className = "card-wrapper-page2";
+      className = "cardWrapperPageTwo";
       break;
     case "page3":
-      className = "card-wrapper-page3";
-      break;
-    case "page4":
-      className = "card-wrapper-page4";
+      className = "cardWrapperPageThree";
       break;
     default:
-      className = "card-wrapper-page1";
+      className = "cardWrapperPageOne";
   }
 
 
   return (
-    <li className={className} key={ikey} id={id}>
+    <li className={style[className]} key={ikey} id={id}>
       {children}
     </li>
   );

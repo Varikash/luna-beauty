@@ -1,0 +1,155 @@
+/* верхушка ================================= */
+.beautyServicesHead {
+  width: 100%;
+  max-width: 1768px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.beautyServicesHeadText {
+  margin-top: 37px;
+  display: flex;
+  gap: 48px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.beautyServicesHeadTextPageThree {
+  margin-top: 54px;
+  display: flex;
+  gap: 48px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.beautyServicesHeadSubtitle {
+  font-family: var(--font-public-sans);
+  font-weight: 200;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0.5%;
+  text-align: right;
+  max-width: 500px;
+  color: #0A090C;
+}
+
+.title {
+  color: var(--Black, #0A090C);
+  font-family: var(--font-playfair-display);
+  font-size: 112px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 60px;
+  max-width: 568px;
+  text-align: right;
+  text-align-last: left;
+}
+
+.title span {
+  font-family: var(--font-great-vibes);
+  font-size: 160px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 96px;
+} 
+
+
+@media (max-width: 1660) {
+  .title {
+    font-size: 90px;
+    max-width: 412px;
+    line-height: 0;
+  }
+
+  .title span {
+    font-size: 100px;
+    line-height: 77px;
+  }
+}
+
+@media (max-width: 1320) {
+  .title {
+    font-size: 70px;
+    max-width: 355px;
+  }
+
+  .title span {
+    line-height: 70px;
+  }
+}
+
+@media (max-width: 1075) {
+  .title {
+    font-size: 55px;
+    max-width: 318px;
+  }
+
+  .title span {
+    line-height: 66px;
+  }
+
+  .beautyServicesHeadSubtitle {
+    font-size: 20px;
+    max-width: 287px;
+  }
+}
+
+@media (max-width: 850) {
+
+  .beautyServicesHead {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .beautyServicesHeadText {
+    width: 100%;
+    align-items: flex-start;
+    margin-top: 0;
+    gap: 24px;
+  }
+
+  .beautyServicesHeadSubtitle {
+    max-width: 100%;
+    width: 100%;
+    text-align: left;
+    font-size: 18px;
+  }
+
+  .beautyServicesButtonStyle {
+    align-self: flex-start !important;
+  }
+}
+
+@media (max-width: 740) {
+  .title {
+    font-size: 48px;
+    max-width: 246px;
+  }
+
+  .title span {
+    font-size: 70px;
+    line-height: 40px;
+  }
+}
+
+@media (max-width: 550) {
+  .title {
+    line-height: 31px;
+  }
+}
+
+
+@media (max-width: 440) {
+  .title {
+    font-size: 32px;
+    max-width: 170px;
+  }
+
+  .title span {
+    font-size: 48px;
+  }
+}

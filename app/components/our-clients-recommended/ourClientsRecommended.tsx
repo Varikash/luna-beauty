@@ -77,13 +77,32 @@ const OurClientsRecommended: React.FC = () => {
           </div>
         </div>
       </article>
-      <aside className={style.clientsRecommendedAside}>
-        <div className={style.clientsRecommendedRelativeContainer}>
-          <Image className={style.clientsRecommendedComment} src="/images/ocr/b-studio-london.svg" alt="comment-picture" width={230} height={244} />
-          <Image src="/images/ocr/salon-image.jpg" alt="salon-picture" width={314} height={414} />
-        </div>
-        <Image src="/images/ocr/fresha-award.jpg" alt="award-picture" width={268} height={282} />
-      </aside>
+        <aside className={style.clientsRecommendedAside}>
+          <div className={style.clientsRecommendedRelativeContainer}>
+            <Image 
+              className={style.clientsRecommendedComment} 
+              src="/images/ocr/b-studio-london.svg" 
+              alt="comment-picture" 
+              width={230} 
+              height={244}
+              style={{ width: 'auto', height: 'auto', maxWidth: '230px' }}
+            />
+            <Image 
+              src="/images/ocr/salon-image.jpg" 
+              alt="salon-picture" 
+              width={314} 
+              height={414}
+              style={{ width: '100%', height: 'auto', maxWidth: '314px' }}
+            />
+          </div>
+          <Image 
+            src="/images/ocr/fresha-award.jpg" 
+            alt="award-picture" 
+            width={268} 
+            height={282}
+            style={{ width: '100%', height: 'auto', maxWidth: '268px' }}
+          />
+        </aside>
     </section>
   );
 };

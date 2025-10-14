@@ -182,40 +182,35 @@
     align-items: center;
   }
 
+  /* "Растворяем" контейнер, чтобы управлять порядком детей */
   .clientsRecommendedContentContainer {
-    max-width: 650px;
-    gap: 70px;
-    padding-top: 50px;
-    align-items: center;
+    display: contents;
   }
 
   .clientsRecommendedTitle {
     text-align: center;
+    order: 1;
+    width: 100%;
+    max-width: 650px;
   }
 
   .clientsRecommendedRelativeContainer {
     display: flex;
     justify-content: center;
+    order: 2;
+  }
+
+  .clientsRecommendedSliderHide {
+    order: 3;
   }
 
   .clientsRecommendedHandsPicture {
     max-width: 450px;
   }
 
+  /* Скрываем aside на планшетах */
   .clientsRecommendedAside {
-    padding: 80px 60px;
-    gap: 80px;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .clientsRecommendedComment {
-    left: -70px;
-    top: -90px;
-    width: 170px;
-    height: auto;
+    display: none;
   }
 
   .reviewItem {

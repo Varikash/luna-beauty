@@ -2,12 +2,12 @@ import React, { useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import CardWrapper from '@/app/components/card-wrapper/card-wrapper';
-import BeautyServicesHeader from '@/app/components/beauty-services-header/beauty-services-header';
+import BeautyServicesHeader from '@/app/components/beauty-services-header/beautyServicesHeader';
 import BeautyButton from '@/app/utils/ui/bs-button/bs-button';
 import SideMenu from '@/app/components/side-menu/side-menu';
 import { servicesMock, servicesExtendedMock } from '@/app/utils/mockFiles';
 import AppointmentButton from '@/app/utils/ui/make-an-appointment/make-an-appointment';
-import style from './beauty-services.module.css';
+import style from './beautyServices.module.css';
 
 interface BeautyServicesProps {
   type?: "page1" | "page2" | "page3";
@@ -211,3 +211,4 @@ const BeautyServices: React.FC<BeautyServicesProps> = ({ type }) => {
 };
 
 export default BeautyServices;
+

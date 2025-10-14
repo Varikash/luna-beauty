@@ -43,3 +43,4 @@ const BeautyServicesHeader: React.FC<{ type?: string }> = ({ type }) => {
 }
 
 export default BeautyServicesHeader;
+

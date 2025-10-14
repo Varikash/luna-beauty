@@ -1,7 +1,7 @@
 
 import styles from "./page.module.css";
-import BeautyServices from "../components/beauty-services/beauty-services";
-import OurClientsRecommended from "../components/our-clients-recommended/our-clients-recommended";
+import BeautyServices from "../components/beauty-services/beautyServices";
+import OurClientsRecommended from "../components/our-clients-recommended/ourClientsRecommended";
 import Header from "../components/header/header";
 import OurMasters from "../components/our-masters/our-masters";
 

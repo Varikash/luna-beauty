@@ -1,10 +1,8 @@
 "use client"
 import React, { useState } from 'react';
 import Image from 'next/image';
-import CardWrapper from '@/app/components/card-wrapper/card-wrapper';
-import BeautyButton from '@/app/utils/ui/bs-button/bs-button';
 import { clientsRecommendedMock } from '@/app/utils/mockFiles';
-import './our-clients-recommended.css';
+import style from './ourClientsRecommended.module.css'
 
 const OurClientsRecommended: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -23,10 +21,10 @@ const OurClientsRecommended: React.FC = () => {
   };
 
   return (
-    <section className="clients-recommended">
-      <article className="clients-recommended-content">
-        <div className="clients-recommended-relative-container">
-          <div className="clients-recommended-slider-controls">
+    <section className={style.clientsRecommended}>
+      <article className={style.clientsRecommendedContent}>
+        <div className={style.clientsRecommendedRelativeContainer}>
+          <div className={style.clientsRecommendedSliderControls}>
             <button className="slider-btn slider-btn-prev" onClick={prevSlide}>
               <Image src="/images/ui/arrow-left.svg" alt="Previous" width={24} height={24} />
             </button>
@@ -34,23 +32,23 @@ const OurClientsRecommended: React.FC = () => {
               <Image src="/images/ui/arrow-right.svg" alt="Next" width={24} height={24} />
             </button>
           </div>
-          <Image className="clients-recommended-hands-picture" src="/images/ocr/hands.jpeg" alt="hands-picture" width={568} height={795} />
+          <Image className={style.clientsRecommendedHandsPicture} src="/images/ocr/hands.jpeg" alt="hands-picture" width={568} height={795} />
         </div>
-        <div className="clients-recommended-content-container">
-          <h2 className="vine-title clients-recommended-title">
-            <span className="champagne-title">O</span>ur clients<span className="title-gap"></span><br /> <span className="champagne-title">R</span>ecommend
+        <div className={style.clientsRecommendedContentContainer}>
+          <h2 className={`vine-title ${style.clientsRecommendedTitle}`}>
+            <span className="champagne-title">O</span>ur clients<span className={style.titleGap}></span><br /> <span className="champagne-title">R</span>ecommend
           </h2>
-          <div className="clients-recommended-slider-hide">
+          <div className={style.clientsRecommendedSliderHide}>
             <ul
-              className="skip-li clients-recommended-slider-track"
+              className={`skip-li ${style.clientsRecommendedSliderTrack}`}
               style={{
                 transform: `translateX(-${currentIndex * 100}%)`,
               }}
             >
               {clientsRecommendedMock.map((client, index) => (
-                <li key={"slide" + index} className="clients-recommended-slider-item">
-                  <div key={`recommends+${index}`} className="review-item">
-                    <div className="quote">
+                <li key={"slide" + index} className={style.clientsRecommendedSliderItem}>
+                  <div key={`recommends+${index}`} className={style.reviewItem}>
+                    <div className={style.quote}>
                     <Image
                           src="/images/ocr/quote-icon.svg"
                           alt="quote-picture"
@@ -58,8 +56,8 @@ const OurClientsRecommended: React.FC = () => {
                           height={18}
                         />
                     </div>
-                    <p className="review-item-name">{client.name}</p>
-                    <div className="stars-container">
+                    <p className={style.reviewItemName}>{client.name}</p>
+                    <div className={style.starsContainer}>
                       {Array.from({ length: client.stars }, (_, starIndex) => (
                         <Image
                           key={starIndex}
@@ -70,8 +68,8 @@ const OurClientsRecommended: React.FC = () => {
                         />
                       ))}
                     </div>
-                    <p className="review-item-subtitle">{client.subtitle}</p>
-                    <p className="review-item-text">{client.text}</p>
+                    <p className={style.reviewItemSubtitle}>{client.subtitle}</p>
+                    <p className={style.reviewItemText}>{client.text}</p>
                   </div>
                 </li>
               ))}
@@ -79,9 +77,9 @@ const OurClientsRecommended: React.FC = () => {
           </div>
         </div>
       </article>
-      <aside className="clients-recommended-aside">
-        <div className="clients-recommended-relative-container">
-          <Image className="clients-recommended-comment" src="/images/ocr/b-studio-london.svg" alt="comment-picture" width={230} height={244} />
+      <aside className={style.clientsRecommendedAside}>
+        <div className={style.clientsRecommendedRelativeContainer}>
+          <Image className={style.clientsRecommendedComment} src="/images/ocr/b-studio-london.svg" alt="comment-picture" width={230} height={244} />
           <Image src="/images/ocr/salon-image.jpg" alt="salon-picture" width={314} height={414} />
         </div>
         <Image src="/images/ocr/fresha-award.jpg" alt="award-picture" width={268} height={282} />
@@ -91,3 +89,4 @@ const OurClientsRecommended: React.FC = () => {
 };
 
 export default OurClientsRecommended;
+

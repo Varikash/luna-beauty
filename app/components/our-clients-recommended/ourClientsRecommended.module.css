@@ -143,6 +143,68 @@
   border-radius: 100%;
 }
 
+@media (max-width: 1660px) {
+  .clientsRecommendedTitle {
+    font-size: 90px;
+  }
+}
+
+@media (max-width: 1656px) {
+  .clientsRecommendedSliderHide {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 1612px) {
+  .clientsRecommendedTitle {
+    font-size: 75px;
+  }
+
+  .clientsRecommendedSliderHide {
+    max-width: 545px;
+  }
+  
+  .reviewItemText {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 1550px) {
+  .clientsRecommendedContentContainer {
+    gap: 0;
+  }
+
+  .clientsRecommendedTitle {
+    font-size: 50px;
+  }
+
+  .clientsRecommendedTitle span {
+    font-size: 100px;
+  }
+
+  .clientsRecommendedSliderHide {
+    max-width: 450px;
+  }
+
+  .reviewItemName {
+    font-size: 25px;
+  }
+
+  .reviewItemSubtitle {
+    margin: 14px 0 15px;
+  }
+
+  .reviewItemText {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 1450px) {
+  .clientsRecommendedContent {
+    padding: 180px 68px 116px 0px;
+  }
+}
+
 /* Tablet - большой (1200px - 1400px) */
 @media (max-width: 1400px) {
   .clientsRecommendedContent {
@@ -165,6 +227,22 @@
   .reviewItem {
     padding: 35px;
     border-top-left-radius: 70px;
+  }
+}
+
+@media (max-width: 1300px) {
+  .clientsRecommended {
+    background: none;
+  }
+
+  .clientsRecommendedContent {
+    gap: 30px;
+    padding: 0px 68px 116px 0;
+  }
+
+  .clientsRecommendedAside {
+    padding: 0px 0px 100px 140px;
+    gap: 0;
   }
 }
 
@@ -229,10 +307,53 @@
   }
 }
 
+/* Tablet - переход на колонку (до 1068px) */
+@media (max-width: 1068px) {
+  .clientsRecommendedContent {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0;
+  }
+
+  /* "Растворяем" контейнер для управления порядком */
+  .clientsRecommendedContentContainer {
+    display: contents;
+  }
+
+  .clientsRecommendedTitle {
+    text-align: center;
+    order: 1;
+    width: 100%;
+  }
+
+  .clientsRecommendedRelativeContainer {
+    width: 344px;
+    height: 344px;
+    overflow: hidden;
+    order: 2;
+  }
+
+  .clientsRecommendedHandsPicture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .clientsRecommendedSliderHide {
+    width: 100%;
+    max-width: 100%;
+    order: 3;
+  }
+  
+  .reviewItem {
+    justify-self: center;
+  }
+}
+
 /* Tablet - малый (768px - 992px) */
 @media (max-width: 992px) {
   .clientsRecommendedContent {
-    padding: 80px 40px 60px 40px;
+    padding: 0px 40px 60px 40px;
     gap: 35px;
   }
 
@@ -276,7 +397,7 @@
   }
 
   .clientsRecommendedContent {
-    padding: 60px 30px 50px 30px;
+    padding: 0px 30px 50px 30px;
     gap: 30px;
   }
 
@@ -351,10 +472,24 @@
   }
 }
 
+@media (max-width: 550px) {
+  .clientsRecommendedContent {
+    gap: 10px;
+  }
+
+  .clientsRecommendedSliderHide {
+    max-width: 344px;
+  }
+
+  .quote {
+    display: none;
+  }
+}
+
 /* Mobile - малый (до 480px) */
 @media (max-width: 480px) {
   .clientsRecommendedContent {
-    padding: 50px 20px 40px 20px;
+    padding: 0px 20px 40px 20px;
     gap: 24px;
   }
 
@@ -420,7 +555,7 @@
 /* Mobile - экстра малый (до 375px) */
 @media (max-width: 375px) {
   .clientsRecommendedContent {
-    padding: 40px 16px 30px 16px;
+    padding: 0px 16px 30px 16px;
     gap: 20px;
   }
 
@@ -470,86 +605,5 @@
     right: 25px;
     width: 36px;
     height: 36px;
-  }
-}
-
-@media (max-width: 1660) {
-  .clientsRecommendedTitle {
-    font-size: 90px;
-  }
-}
-
-
-@media (max-width: 1656) {
- .clientsRecommendedSliderHide {
-  max-width: 600px;
- }
-}
-
-
-@media (max-width: 1612) {
-  .clientsRecommendedTitle {
-    font-size: 75px;
-  }
-
-  .clientsRecommendedSliderHide {
-    max-width: 545px;
-   }
-  
-  .reviewItemText {
-    font-size: 20px;
-  }
-}
-
-@media (max-width: 1550) {
-  .clientsRecommendedContentContainer {
-    gap: 0;
-  }
-
-  .clientsRecommendedTitle {
-    font-size: 50px;
-  }
-
-  .clientsRecommendedTitle span {
-    font-size: 100px;
-  }
-
-  .clientsRecommendedSliderHide {
-    max-width: 450px;
-   }
-
-   .reviewItemName {
-    font-size: 25px;
-   }
-
-   .reviewItemSubtitle {
-    margin: 14px 0 15px;
-   }
-
-
-   .reviewItemText {
-    font-size: 18px;
-  }
-}
-
-@media (max-width: 1450) {
-  .clientsRecommendedContent {
-    padding: 180px 68px 116px 0px;
-  }
-}
-
-@media (max-width: 1300px) {
-  .clientsRecommended {
-    background: none;
-  }
-
-  .clientsRecommendedContent {
-    gap: 30px;
-    padding: 0px 68px 116px 0;
-  }
-
-  .clientsRecommendedAside {
-    padding: 0px 0px 100px 140px;
-    gap: 0;
   }
 }

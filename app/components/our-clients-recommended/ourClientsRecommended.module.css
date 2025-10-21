@@ -46,7 +46,7 @@
   width: 100%;
   height: auto;
   max-width: 568px;
-  min-width: 330px;
+  min-width: 320px;
 }
 
 .clientsRecommendedTitle {
@@ -278,15 +278,15 @@
     justify-content: center;
     order: 2;
     flex: 0 0 auto;
-    height: 344px;
-    width: 344px;
+    height: 320px;
+    width: 320px;
     overflow: hidden;
   }
 
   .clientsRecommendedSliderHide {
     order: 3;
     flex: 1 1 auto;
-    min-width: 400px;
+    min-width: 320px;
   }
 
   .clientsRecommendedHandsPicture {
@@ -327,8 +327,8 @@
   }
 
   .clientsRecommendedRelativeContainer {
-    width: 344px;
-    height: 344px;
+    width: 320px;
+    height: 320px;
     overflow: hidden;
     order: 2;
   }
@@ -478,7 +478,7 @@
   }
 
   .clientsRecommendedSliderHide {
-    max-width: 344px;
+    max-width: 320px;
   }
 
   .quote {

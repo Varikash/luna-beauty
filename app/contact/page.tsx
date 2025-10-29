@@ -1,7 +1,7 @@
 import styles from "./page.module.css";
 import Image from 'next/image';
 import CardWrapper from "@/app/components/card-wrapper/card-wrapper";
-import OurClientsRecommended from "@/app/components/our-clients-recommended/our-clients-recommended";
+import OurClientsRecommended from "@/app/components/our-clients-recommended/ourClientsRecommended";
 import Header from "@/app/components/header/header";
 import Footer from "@/app/components/footer/footer";
 import { serviceDetailsMock } from '@/app/utils/mockFiles';

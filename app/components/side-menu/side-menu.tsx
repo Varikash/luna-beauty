@@ -2,9 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import styles from "./side-menu.module.css"
-import { servicesExtendedMock, IExtService } from '@/app/utils/mockFiles';
 
-interface SideMenuProps {
+export interface SideMenuProps {
   className?: string;
   services: string[];
   onActiveServiceChange?: (activeService: string) => void;

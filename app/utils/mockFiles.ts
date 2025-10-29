@@ -145,6 +145,7 @@ export const servicesExtendedMock: IExtService[] = [
   },
 ];
 
+// Exported service details mock data
 export const serviceDetailsMock: IDetailsServicePage = {
   makeup: {
     title: "Makeup",

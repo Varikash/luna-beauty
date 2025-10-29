@@ -1,6 +1,6 @@
 import styles from "./page.module.css";
 import BeautyServices from "../components/beauty-services/beautyServices";
-import OurClientsRecommended from "../components/our-clients-recommended/ourClientsRecommended";
+import OurClientsRecommended from "@/app/components/our-clients-recommended/ourClientsRecommended";
 import Header from "../components/header/header";
 import Footer from "../components/footer/footer";
 

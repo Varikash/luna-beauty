@@ -1,7 +1,7 @@
 import styles from "./page.module.css";
 import Image from 'next/image';
 import CardWrapper from "@/app/components/card-wrapper/card-wrapper";
-import OurClientsRecommended from "@/app/components/our-clients-recommended/our-clients-recommended";
+import OurClientsRecommended from "@/app/components/our-clients-recommended/ourClientsRecommended";
 import Header from "@/app/components/header/header";
 import Footer from "@/app/components/footer/footer";
 import { serviceDetailsMock } from '@/app/utils/mockFiles';
@@ -11,7 +11,7 @@ import AppointmentButton from '@/app/utils/ui/make-an-appointment/make-an-appoin
 
 export default function ServiceDetails() {
 
-  const detailsTitles = serviceDetailsMock.makeup.details.map(detail => detail.title);
+  const detailsTitles: string[] = serviceDetailsMock.makeup.details.map(detail => detail.title);
   return (
     <div className={styles.page}>
       <Header type="otherpages" />
@@ -42,6 +42,7 @@ export default function ServiceDetails() {
                 {serviceDetailsMock.makeup.master.title}
               </p>
               <AppointmentButton className={styles.appoinmentButton} />
+              {/* Side navigation menu */}
               <SideMenu className={styles.asideMenu} services={detailsTitles} />
             </div>
           </div>

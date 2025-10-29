@@ -1,10 +1,6 @@
 "use client"
 import React, { useState } from 'react';
 import Image from 'next/image';
-import CardWrapper from '@/app/components/card-wrapper/card-wrapper';
-import BeautyServicesHeader from '@/app/components/beauty-services-header/beauty-services-header';
-import BeautyButton from '@/app/utils/ui/bs-button/bs-button';
-import { servicesMock, servicesExtendedMock } from '@/app/utils/mockFiles';
 import DreamTeamButton from '@/app/utils/ui/dt-button/dt-button';
 import './dream-team.css';
 import MasterListItem from '@/app/components/master-list-item/master-list-item';

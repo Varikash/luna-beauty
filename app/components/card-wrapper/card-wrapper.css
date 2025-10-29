@@ -33,3 +33,38 @@
   position: relative;
   border: 1px solid #E4E4E4;
 }
+
+.card-wrapper-page4 {
+  width: 568px;
+  height: 640px;
+  border: 1px solid #E4E4E4;
+  background-color: white;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0px;
+}
+
+@media (max-width: 1070px) {
+  .card-wrapper-page4 {
+    width: 100%;
+    padding: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-wrapper-page4 {
+    width: 100%;
+    /* min-height: 460px; */
+    height: fit-content;
+    /* min-height: 540px; */
+    padding: 7px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: normal;
+    margin-bottom: 0px;
+  }
+}

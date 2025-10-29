@@ -1,19 +1,28 @@
 "use client"
 
 import React, { useState, useEffect } from 'react';
+import styles from "./side-menu.module.css"
 import { servicesExtendedMock, IExtService } from '@/app/utils/mockFiles';
-import './side-menu.css';
 
 interface SideMenuProps {
-  services?: IExtService[];
+  className?: string;
+  services: string[];
   onActiveServiceChange?: (activeService: string) => void;
 }
 
 const SideMenu: React.FC<SideMenuProps> = ({
-  services = servicesExtendedMock,
+  className,
+  services,
   onActiveServiceChange
 }) => {
-  const [activeService, setActiveService] = useState<string>(services[0]?.title || '');
+  const [activeService, setActiveService] = useState<string>('');
+  const [isClient, setIsClient] = useState(false);
+
+  // Инициализация только на клиенте, чтобы избежать ошибки гидратации
+  useEffect(() => {
+    setIsClient(true);
+    setActiveService(services[0] || '');
+  }, []);
 
   const scrollToService = (serviceTitle: string) => {
     setActiveService(serviceTitle);
@@ -25,13 +34,14 @@ const SideMenu: React.FC<SideMenuProps> = ({
   };
 
   useEffect(() => {
+    if (!isClient) return;
     const handleScroll = () => {
       const serviceElements = services.map(service => ({
-        title: service.title,
-        element: document.getElementById(service.title)
+        title: service,
+        element: document.getElementById(service)
       })).filter(item => item.element);
 
-      let closestService = services[0]?.title || '';
+      let closestService = services[0] || '';
       let closestDistance = Infinity;
 
       serviceElements.forEach(({ title, element }) => {
@@ -54,17 +64,17 @@ const SideMenu: React.FC<SideMenuProps> = ({
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [services, activeService, onActiveServiceChange]);
+  }, [services, activeService, onActiveServiceChange, isClient]);
   return (
-    <nav className="services-navigation">
-      <ul className="services-nav-list">
+    <nav className={`${styles.services_navigation} ${className}`}>
+      <ul className={styles.services_nav_list}>
         {services.map((service, index) => (
           <li key={`nav-${index}`}>
             <button
-              onClick={() => scrollToService(service.title)}
-              className={`nav-link ${activeService === service.title ? 'active' : ''}`}
+              onClick={() => scrollToService(service)}
+              className={`${styles.nav_link} ${activeService === service ? styles.active : ''}`}
             >
-              {activeService === service.title && <div className={`nav-link-dot`}></div>}{service.link}
+              {service}
             </button>
           </li>
         ))}

@@ -187,7 +187,7 @@ const BeautyServices: React.FC<BeautyServicesProps> = ({ type }) => {
   ), []);
 
 
-
+  const extendedTitles = servicesExtendedMock.map(service => service.title);
 
 
   return (
@@ -197,7 +197,7 @@ const BeautyServices: React.FC<BeautyServicesProps> = ({ type }) => {
       {type === "page3" && (
         <>
           <AppointmentButton className={style.bsAppoinment} />
-          <SideMenu services={servicesExtendedMock} />
+          <SideMenu services={extendedTitles} />
         </>
       )}
 

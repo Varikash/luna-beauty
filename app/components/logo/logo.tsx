@@ -4,6 +4,7 @@ import Image from 'next/image';
 interface LogoProps {
   size?: "small" | "medium" | "large";
   color?: "white" | "black" | "black-titled" | "white-titled";
+
 }
 
 const Logo: React.FC<LogoProps> = ({

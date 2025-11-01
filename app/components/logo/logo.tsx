@@ -30,8 +30,8 @@ const Logo: React.FC<LogoProps> = ({
     <Image
       src={getLogoSrc()}
       alt="logo"
-      width={size === "small" ? 80 : (size === "medium" ? 118 : 118)}
-      height={size === "small" ? 80 : (size === "medium" ? 118 : 154)}
+      width={size === "small" ? 80 : (size === "medium" ? 78 : 118)}
+      height={size === "small" ? 80 : (size === "medium" ? 103 : 154)}
     />
   );
 };

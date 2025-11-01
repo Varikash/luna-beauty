@@ -87,7 +87,7 @@
 .beautyServiceDetail {
   position: relative;
   width: 100%;
-  padding: 47px 76px 85px 76px;
+  padding: 15px 76px 85px 76px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -96,7 +96,7 @@
   background: #FFFFFF;
   background-image: url('/images/bs/background-bs.svg');
   background-repeat: no-repeat;
-  background-position: right 0px top 28px;
+  background-position: right 0px top 0px;
   background-size: 1920px 1301px;
 }
 
@@ -377,7 +377,7 @@
   }
 
   .beautyServiceDetail {
-    padding: 20px 0px 32px 0px;
+    padding: 10px 0px 32px 0px;
     background: none;
   }
 
@@ -403,7 +403,7 @@
   }
 
   .titleWrapper {
-    gap: 35px;
+    gap: 34px;
   }
 
   .navigateButton {
@@ -420,7 +420,7 @@
   .cardTitle {
     font-size: 32px;
     line-height: 36px;
-    letter-spacing: -1.7px;
+    letter-spacing: -1.55px;
   }
 
   .cardText {
@@ -480,12 +480,12 @@
   .appoinmentButton {
     position: absolute;
     left: 188px;
-    top: 117px;
+    top: 115px;
   }
 
   .beautyServiceHeadAside {
     width: 100%;
-    margin-top: 25px;
+    margin-top: 24px;
   }
 
   .beautyServiceWtf {

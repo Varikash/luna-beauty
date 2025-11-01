@@ -1,9 +1,10 @@
 .header-container {
+  max-width: 1920px;
   width: 100%;
   display: flex;
   align-items: start;
   justify-content: space-between;
-  padding-top: 32px;
+  padding: 32px 76px;
   position: relative;
   z-index: 100;
   background: white;
@@ -196,4 +197,51 @@
 
 .burg-soc-link:hover {
   color: #C78F69;
+}
+
+.logo-mobile {
+  display: none;
+
+}
+
+@media (max-width: 900px) {
+  .header-address-container {
+    display: none;
+  }
+
+  .header-container {
+    align-items: center;
+  }
+
+  .header-menu-button {
+    justify-content: end;
+  }
+}
+
+@media (max-width: 568px) {
+
+  .header-menu-image {
+    width: 32px;
+  }
+
+  .logo-desctop {
+    display: none;
+  }
+
+  .logo-mobile {
+    display: contents;
+  }
+
+  .header-container {
+    padding: 16px 16px;
+    align-items: center;
+  }
+
+  .header-menu-button {
+    font-family: Public Sans;
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: +2px;
+  }
+
 }

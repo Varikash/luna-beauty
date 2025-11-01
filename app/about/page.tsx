@@ -5,13 +5,15 @@ import OurClientsRecommended from "../components/our-clients-recommended/ourClie
 import Header from "../components/header/header";
 import OurMasters from "../components/our-masters/our-masters";
 import HeroAbout from "../components/HeroAbout/HeroAbout";
+import CooperComponent from "@/app/components/cooper-component/cooper-component";
 
 export default function About() {
   return (
     <div className={styles.page}>
       <Header type="otherpages" />
-      <HeroAbout />
       <main className={styles.main}>
+      {/* <HeroAbout /> */}
+      <CooperComponent />
         <OurMasters />
         <OurClientsRecommended />
         <BeautyServices type="page2" />

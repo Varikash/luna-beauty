@@ -20,6 +20,8 @@ const CardWrapper: React.FC<CardWrapperProps> = ({ children, type, ikey, id }) =
       break;
     case "page3":
       className = "cardWrapperPageThree";
+    case "page4":
+      className = "cardWrapperPageFour";
       break;
     default:
       className = "cardWrapperPageOne";

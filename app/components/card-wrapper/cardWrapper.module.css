@@ -1,6 +1,6 @@
 .cardWrapperPageOne {
-  width: 100%; 
-  max-width: 568px; 
+  width: 100%;
+  max-width: 568px;
   height: 640px;
   border: 1px solid #E4E4E4;
   background-color: white;
@@ -35,6 +35,20 @@
   border: 1px solid #E4E4E4;
 }
 
+.cardWrapperPageFour {
+  width: 100%;
+  max-width: 568px;
+  height: 640px;
+  border: 1px solid #E4E4E4;
+  background-color: white;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0px;
+}
+
 
 
 @media (max-width: 1868px) {
@@ -43,10 +57,20 @@
     max-width: 500px;
     height: 600px;
   }
+
+  .cardWrapperPageFour {
+    width: 100%;
+    max-width: 500px;
+    height: 600px;
+  }
 }
 
 @media (max-width: 1550px) {
   .cardWrapperPageOne {
+    padding: 25px;
+  }
+
+  .cardWrapperPageFour {
     padding: 25px;
   }
 }
@@ -71,10 +95,18 @@
     color: #A9714B;
   }
 
+  .cardWrapperPageFour {
+    height: 500px;
+  }
+
 }
 
 @media (max-width: 415px) {
   .cardWrapperPageOne {
+    height: 470px;
+  }
+
+  .cardWrapperPageFour {
     height: 470px;
   }
 }
@@ -83,6 +115,12 @@
   .cardWrapperPageOne {
     padding: 16px;
     height: 374px;
+    width: 344px;
+  }
+
+  .cardWrapperPageFour {
+    padding: 8px 14px;
+    height: fit-content;
     width: 344px;
   }
 }

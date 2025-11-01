@@ -344,3 +344,33 @@ export const clientsRecommendedMock: IRecommended[] = [
     text: "Brother eeewwww!"
   }
 ]
+
+export interface ICooperGridContent {
+  image: string;
+  title: string;
+  text: string;
+}
+
+export const CooperGridContent: ICooperGridContent[] = [
+  {
+    image: "/images/cooper/icon_1.svg",
+    title: "Expert Stylists",
+    text: "Our highly skilled professionals stay ahead of the latest trends to craft your perfect look.",
+  },
+  {
+    image: "/images/cooper/icon_2.svg",
+    title: "Premium Products",
+    text: "We use only top-tier, professional products to protect and enhance your hair and skin.",
+  },
+  {
+    image: "/images/cooper/icon_3.svg",
+    title: "Relaxing Atmosphere",
+    text: "Step into a serene and elegant space designed for your ultimate comfort.",
+  },
+  {
+    image: "/images/cooper/icon_4.svg",
+    title: "Personalized Services",
+    text: "Every client is unique, and we tailor our services to your specific needs and preferences.",
+  }
+
+]

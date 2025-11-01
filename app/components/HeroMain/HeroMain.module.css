@@ -7,7 +7,8 @@
 
 
   width: 100%;
-  max-width: 1600px;
+  max-width: 1920px;
+  padding: 0px 77px 0px 217px;
   background: url('/images/hero/1920/hero-team.png');
   background-position: clamp(74%, 70% + (100vw - 1920px) * 0.02, 100%) center;
   background-size: 584px 748px;
@@ -23,7 +24,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 96px;
-  max-width: 1359px;
+  max-width: 1332px;
   text-align-last: right;
 }
 
@@ -33,14 +34,14 @@
   font-style: normal;
   font-weight: 400;
   line-height: 96px;
-} 
+}
 
 .wrap {
   box-sizing: border-box;
   position: relative;
   display: flex;
   justify-content: space-between;
- 
+
 }
 
 .wrapContent {
@@ -286,6 +287,7 @@
 @media (max-width: 1075) {
 
   .section {
+    padding: 0px 77px 0px 77px;
     margin-top: 50px;
     background: none;
   }
@@ -336,7 +338,7 @@
   .sectionWrapper {
     margin: 0;
   }
-  
+
 }
 
 @media (max-width: 740) {

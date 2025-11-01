@@ -70,3 +70,19 @@ a {
   letter-spacing: 0%;
   vertical-align: middle;
 }
+
+.cooper_li_index_0 {
+  border-top-left-radius: 96px
+}
+
+.cooper_li_index_1 {
+  border-top-right-radius: 96px
+}
+
+.cooper_li_index_2 {
+  border-bottom-left-radius: 96px
+}
+
+.cooper_li_index_3 {
+  border-bottom-right-radius: 96px
+}

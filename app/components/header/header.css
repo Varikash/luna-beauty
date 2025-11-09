@@ -204,6 +204,12 @@
 
 }
 
+@media (max-width: 1070px) {
+  .header-container {
+    padding: 32px 40px;
+  }
+}
+
 @media (max-width: 900px) {
   .header-address-container {
     display: none;

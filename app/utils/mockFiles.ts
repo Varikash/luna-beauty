@@ -29,12 +29,10 @@ export interface IDetailMaster {
   image: string;
 }
 
-export interface IDetailsServicePage {
-  makeup: {
-    title: string;
-    master: IDetailMaster;
-    details: IDetailService[];
-  }
+export interface iServiceExtended {
+  title: string;
+  master: IDetailMaster;
+  details: IDetailService[];
 }
 
 export interface INav {
@@ -145,8 +143,8 @@ export const servicesExtendedMock: IExtService[] = [
   },
 ];
 
-// Exported service details mock data
-export const serviceDetailsMock: IDetailsServicePage = {
+// Exported service details mock data IDetailsServicePage
+export const serviceDetailsMock: Record<string, iServiceExtended> = {
   makeup: {
     title: "Makeup",
     master: {

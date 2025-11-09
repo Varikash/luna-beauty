@@ -269,10 +269,10 @@
 
 /* Desktop (до 1440px) */
 @media (max-width: 1440px) {
-  .beautyServiceDetail {
+  /* .beautyServiceDetail {
     padding: 40px 60px 70px 60px;
-    /* background-size: 1400px 1000px; */
-  }
+    background-size: 1400px 1000px;
+  } */
 
   .beautyServiceWtf {
     max-width: 100%;
@@ -294,7 +294,8 @@
 @media (max-width: 1070px) {
   .beautyServiceDetail {
     padding: 30px 40px 60px 40px;
-    background-size: 1200px 900px;
+    background-size: 1300px 1000px;
+    /* background-position: left 0px top 0px; */
   }
 
   .beautyServiceHead {
@@ -308,7 +309,7 @@
 
   .beautyServiceHeadAside {
     position: static;
-    width: 60%;
+    width: 550px;
     margin-top: 40px;
     text-align: right;
     display: flex;
@@ -351,7 +352,11 @@
   }
 }
 
-@media (max-width: 868px) {}
+@media (max-width: 980px) {
+  .beautyServiceDetail {
+    background-position: right -250px top 0px;
+  }
+}
 
 /* Tablet (до 768px) */
 @media (max-width: 768px) {
@@ -467,6 +472,12 @@
     line-height: 41px;
   }
 
+}
+
+@media (max-width: 600px) {
+  .beautyServiceHeadAside {
+    width: 100%;
+  }
 }
 
 /* Mobile (до 480px) */

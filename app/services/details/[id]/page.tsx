@@ -4,14 +4,16 @@ import CardWrapper from "@/app/components/card-wrapper/card-wrapper";
 import OurClientsRecommended from "@/app/components/our-clients-recommended/ourClientsRecommended";
 import Header from "@/app/components/header/header";
 import Footer from "@/app/components/footer/footer";
-import { serviceDetailsMock } from '@/app/utils/mockFiles';
+import { serviceDetailsMock, iServiceExtended } from '@/app/utils/mockFiles';
 import SideMenu from '@/app/components/side-menu/side-menu';
 import AppointmentButton from '@/app/utils/ui/make-an-appointment/make-an-appointment';
 
+type PageProps = { params: { id: string } };
 
-export default function ServiceDetails() {
-
-  const detailsTitles: string[] = serviceDetailsMock.makeup.details.map(detail => detail.title);
+export default function ServiceDetails({ params }: PageProps) {
+  console.log("paraaams", params.id);
+  const setService: iServiceExtended = serviceDetailsMock[params.id];
+  const detailsTitles: string[] = setService.details.map(detail => detail.title);
   return (
     <div className={styles.page}>
       <Header type="otherpages" />
@@ -28,7 +30,7 @@ export default function ServiceDetails() {
             <div className={styles.beautyServiceHeadAside}>
               <div className={styles.imageWrapper}>
                 <Image
-                  src={serviceDetailsMock.makeup.master.image}
+                  src={setService.master.image}
                   alt="BeautyServices"
                   className={styles.beautyServiceHeadImage}
                   width={148}
@@ -36,10 +38,10 @@ export default function ServiceDetails() {
                 />
               </div>
               <p className={styles.master_name}>
-                {serviceDetailsMock.makeup.master.name}
+                {setService.master.name}
               </p>
               <p className={styles.beautyServiceHeadAsideSubtitle}>
-                {serviceDetailsMock.makeup.master.title}
+                {setService.master.title}
               </p>
               <AppointmentButton className={styles.appoinmentButton} />
               {/* Side navigation menu */}
@@ -48,8 +50,8 @@ export default function ServiceDetails() {
           </div>
           <div className={styles.beautyServiceWtfContainer}>
             <ul className={styles.beautyServiceWtf}>
-              {serviceDetailsMock.makeup.details.map((service, index) =>
-                <CardWrapper type="page4" ikey={index} id={service.title}>
+              {setService.details.map((service, index) =>
+                <CardWrapper type="page4" ikey={index} id={service.title} key={index}>
                   <div>
                     <div className={styles.cardHeader}>
                       <span className={styles.serviceCounter}>

@@ -30,25 +30,25 @@ const BeautyServices: React.FC<BeautyServicesProps> = ({ type }) => {
         <React.Fragment key={"bs-page-1" + index}>
           {index === 4 ? (
             <li>
-            <a
-              href="https://example.com/booking"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={style.placeholderCard}
-            >
-              <p className={style.placeholderTitle}>
-                High-quality services,<br />
-                from professional makeup<br />
-                and flawless waxing to the<br />
-                best experts in nails<br />
-                manicure!</p>
-              <Image
-                src="/images/bs/services-placeholder-btn.png"
-                alt="placeholder-card-pic"
-                width={408}
-                height={214}
-              />
-            </a>
+              <a
+                href="https://example.com/booking"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={style.placeholderCard}
+              >
+                <p className={style.placeholderTitle}>
+                  High-quality services,<br />
+                  from professional makeup<br />
+                  and flawless waxing to the<br />
+                  best experts in nails<br />
+                  manicure!</p>
+                <Image
+                  src="/images/bs/services-placeholder-btn.png"
+                  alt="placeholder-card-pic"
+                  width={408}
+                  height={214}
+                />
+              </a>
             </li>
           ) : (
             <CardWrapper type="page1" ikey={index} key={"cardkey" + index}>
@@ -111,30 +111,37 @@ const BeautyServices: React.FC<BeautyServicesProps> = ({ type }) => {
     <ul className={style.beautyServicesListPageTwo}>
       {servicesMock.map((service, index) => (
         index !== 4 ? (
-          <CardWrapper type="page2" ikey={index} key={"cardkey" + index}>
-            <Image
-              src={service.image}
-              alt={service.title}
-              width={280}
-              height={280}
-              className={style.cardImagePageTwo}
-            />
-            <div className={style.cardHeaderPageTwo}>
+          <Link key={service.title + " li"} href={"/services/details/" + service.link}>
+            <CardWrapper type="page2" ikey={index} key={"cardkey" + index}>
+              <div className={style.imageWrapperPageTwo}>
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  width={280}
+                  height={280}
+                  className={style.cardImagePageTwo}
+                />
+                <span className={style.serviceCounterPageTwoPad}>
+                  0{index === 5 ? index : index + 1}
+                </span>
+              </div>
+              <div className={style.cardHeaderPageTwo}>
               <span className={style.serviceCounterPageTwo}>
-                0{index + 1}
-              </span>
-              <h3 className={style.cardTitlePageTwo}>
-                {service.title}
-              </h3>
-              <Image
-                src="/BeautyServicesArrow.png"
-                alt="BeautyServicesArrowIcon"
-                width={85}
-                height={40}
-              />
-            </div>
-          </CardWrapper>
-        ) : null
+                  0{index === 5 ? index : index + 1}
+                </span>
+                <h3 className={style.cardTitlePageTwo}>
+                  {service.title}
+                </h3>
+                <Image
+                  src="/images/bs/arrow.svg"
+                  alt="BeautyServicesArrowIcon"
+                  width={85}
+                  height={40}
+                  className={style.arrowImagePageTwo}
+                />
+              </div>
+            </CardWrapper>
+          </Link>) : null
       ))}
     </ul>
   ), []);
@@ -206,7 +213,7 @@ const BeautyServices: React.FC<BeautyServicesProps> = ({ type }) => {
       {type === "page1" && page1List}
       {type === "page2" && page2List}
       {type === "page3" && page3List}
-     </section>
+    </section>
   );
 };
 

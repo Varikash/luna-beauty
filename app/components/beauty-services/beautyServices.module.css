@@ -78,10 +78,9 @@
   margin-top: 4px;
 }
 
-
-
 .cardTitlePageTwo {
-  width: 558px;
+  width: 80%;
+  max-width: 558px;
   font-family: var(--font-playfair-display);
   font-weight: 400;
   font-size: 64px;
@@ -89,6 +88,15 @@
   letter-spacing: 3%;
   text-transform: capitalize;
   color: #0A090C;
+  overflow-wrap: break-word;
+}
+
+.cardTitlePageTwoTab {
+  display: none;
+}
+
+.imageWrapperPageTwo {
+  display: block;
 }
 
 .cardText {
@@ -160,6 +168,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 30px;
 }
 
 .serviceCounter {
@@ -180,6 +189,10 @@
   letter-spacing: 0%;
   text-transform: uppercase;
   color: #0A090C;
+}
+
+.serviceCounterPageTwoPad {
+  display: none;
 }
 
 .serviceCounterPageThree {
@@ -340,7 +353,7 @@
 
 
 @media (max-width: 1867px) {
-  .cardTitle{ 
+  .cardTitle {
     font-size: 35px;
   }
 
@@ -402,6 +415,44 @@
   .beautyServicesListPageOne {
     grid-template-columns: repeat(2, minmax(350px, 568px));
   }
+
+  /* вторая страница */
+  .serviceCounterPageTwo {
+    display: none;
+  }
+
+  .serviceCounterPageTwoPad {
+    display: block;
+    font-family: var(--font-playfair-display);
+    font-weight: 400;
+    font-size: 52px;
+    line-height: 52px;
+    letter-spacing: 0%;
+    text-transform: capitalize;
+  }
+
+  .cardTitlePageTwo {
+    font-size: 52px;
+    line-height: 52px;
+    letter-spacing: 3%;
+    text-transform: capitalize;
+    color: rgba(169, 113, 75, 1);
+  }
+
+  .imageWrapperPageTwo {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 1070) {
+
+  /* вторая страница */
+  .beautyServicesSectionPageTwo {
+    padding: 32px 40px;
+    gap: 66px;
+  }
 }
 
 @media (max-width: 850) {
@@ -417,52 +468,97 @@
     justify-items: center;
   }
 
-    /* Скрываем placeholder карточку (5-ю) */
-    .beautyServicesListPageOne li:nth-child(5) {
-      display: none;
-    }
-
-    .cardImage {
-      width: 312px;
-      height: 160px;
-      object-fit: cover;
-      object-position: top;
-    }
-
-    .beautyServicesListPageOne li:nth-child(2) .cardImage {
-      object-position: center;
-    }
-
-    .beautyServicesListPageOne li:nth-child(3) .cardImage {
-      object-position: 50% 60%;
-    }
-
-    .beautyServicesListPageOne li:nth-child(4) .cardImage {
-      object-position: 50% 60%;
-    }
-
-    .beautyServicesListPageOne li:nth-child(6) .cardImage {
-      object-position: 50% 60%;
-    }
+  /* Скрываем placeholder карточку (5-ю) */
+  .beautyServicesListPageOne li:nth-child(5) {
+    display: none;
   }
 
-  @media (max-width: 440) {
-    .beautyServicesSection {
-      padding-top: 100px;
-    }
+  .cardImage {
+    width: 312px;
+    height: 160px;
+    object-fit: cover;
+    object-position: top;
   }
 
-  @media (max-width: 390px) {
-    .cardList .cardListItem:nth-child(n+4) {
-      display: none;
-    }
-
-    .cardText {
-      display: none;
-    }
-    
-    .cardImage {
-      margin: 0;
-    }
+  .beautyServicesListPageOne li:nth-child(2) .cardImage {
+    object-position: center;
   }
 
+  .beautyServicesListPageOne li:nth-child(3) .cardImage {
+    object-position: 50% 60%;
+  }
+
+  .beautyServicesListPageOne li:nth-child(4) .cardImage {
+    object-position: 50% 60%;
+  }
+
+  .beautyServicesListPageOne li:nth-child(6) .cardImage {
+    object-position: 50% 60%;
+  }
+
+  /* вторая страница */
+
+  .cardTitlePageTwo {
+    font-size: 42px;
+    line-height: 42px;
+  }
+
+  .serviceCounterPageTwoPad {
+    font-size: 42px;
+    line-height: 42px;
+  }
+
+  .cardImagePageTwo {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+@media (max-width: 568) {
+
+  /* вторая страница */
+  .beautyServicesSectionPageTwo {
+    padding: 16px 16px 0px 16px;
+    gap: 24px;
+  }
+
+  .cardTitlePageTwo {
+    font-size: 32px;
+    line-height: 32px;
+  }
+
+  .serviceCounterPageTwoPad {
+    font-size: 32px;
+    line-height: 32px;
+  }
+
+  .cardImagePageTwo {
+    width: 120px;
+    height: 120px;
+  }
+
+  .arrowImagePageTwo {
+    width: 50px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 440) {
+  .beautyServicesSection {
+    padding-top: 100px;
+  }
+}
+
+@media (max-width: 390px) {
+  .cardList .cardListItem:nth-child(n+4) {
+    display: none;
+  }
+
+  .cardText {
+    display: none;
+  }
+
+  .cardImage {
+    margin: 0;
+  }
+}

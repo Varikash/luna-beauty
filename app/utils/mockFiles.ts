@@ -72,7 +72,7 @@ export const servicesMock: IService[] = [
     link: "waxing"
   },
   {
-    title: "Manicure/Extensions",
+    title: "Manicure/\u200BExtensions",
     image: "/images/bs/services3.jpg",
     text: "Offering durability, style, and a polished look tailored to individual preferences!",
     nav: ["Gel extension", "Tip gel extension", "Cuticle oil", "Design 10 nails", "Clean manicure"],

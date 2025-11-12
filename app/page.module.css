@@ -6,6 +6,9 @@
   --button-primary-hover: #383838;
   --button-secondary-hover: #f2f2f2;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   /* padding: 0 50px 0 50px; */
 }
 

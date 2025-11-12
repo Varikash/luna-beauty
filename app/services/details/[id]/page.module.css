@@ -1,14 +1,16 @@
 .page {
-  max-width: 1920px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .main {
+  width: 100%;
   max-width: 1920px;
   display: flex;
   flex-direction: column;
   gap: 32px;
-  grid-row-start: 2;
 }
 
 .beautyServiceHead {

@@ -21,12 +21,26 @@ const OurWorks: React.FC = () => {
           height={250}
           className="ow-title"
         />
+        <h2 className={"our-works-title"}><span className={"our-works-span"}>O</span>ur <span>W</span>orks</h2>
         <p className={"our-works-info-subtitle"}>
-          Experience our elegant beauty salon in the heart of London, where <br />
-          every corner is designed to inspire. Indulge in luxury treatments <br />
-          surrounded by a sophisticated interior, adorned with modern art pieces <br />
+          Experience our elegant beauty salon in the heart of London, where
+          every corner is designed to inspire. Indulge in luxury treatments
+          surrounded by a sophisticated interior, adorned with modern art pieces
           that elevate your beauty journey!
         </p>
+        <BeautyButton
+        text="eXPLORE all our SERVICES"
+        className="beauty-services-button-style-our-works-mob"
+        link="/services"
+      />
+        <Image
+          src={ourWorksMock.image6}
+          alt={"image-5"}
+          width={916}
+          height={748}
+          className="our-works-image-5"
+        />
+        < AppointmentButton className="our-works-appoinment" />
       </div>
       <ul className="our-works-images-list">
         <li className="our-works-images-list-item ow-li-1">
@@ -65,7 +79,7 @@ const OurWorks: React.FC = () => {
             className="our-works-image-4"
           />
         </li>
-        <li className="our-works-images-list-item ow-li-5">
+        {/* <li className="our-works-images-list-item ow-li-5">
           <Image
             src={ourWorksMock.image5}
             alt={"image-5"}
@@ -73,9 +87,9 @@ const OurWorks: React.FC = () => {
             height={748}
             className="our-works-image-5"
           />
-        </li>
+        </li> */}
       </ul>
-      < AppointmentButton className="our-works-appoinment" />
+      {/* < AppointmentButton className="our-works-appoinment" /> */}
     </section>
   );
 };

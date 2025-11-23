@@ -1,27 +1,33 @@
 .our-works-section {
   width: 100%;
+  max-width: 1920px;
   height: 1862px;
-  padding: 200px 0px 120px 76px;
+  padding: 200px 0px 120px 0px;
   position: relative;
   background-color: #FFFFFF;
   display: flex;
   align-items: start;
-  gap: 110px;
+  justify-content: space-around;
+  /* gap: 110px; */
 }
 
 .our-works-image-1 {
   border-bottom-right-radius: 80px;
 }
 
-.our-works-image-4{
+.our-works-image-4 {
   border-top-left-radius: 80px;
 }
 
 .our-works-image-5 {
-border-radius: 120px 200px 120px 280px;
+  margin-top: 56px;
+  border-radius: 120px 200px 120px 280px;
+  object-fit: cover;
 }
 
 .our-works-images-list {
+  position: absolute;
+  width: 100%;
   list-style: none;
   padding: 0px;
   margin: 0px;
@@ -33,69 +39,77 @@ border-radius: 120px 200px 120px 280px;
   margin: 0px;
 }
 
-.ow-li-1{
+.ow-li-1 {
   position: absolute;
-  top: 559px;
+  top: 359px;
   left: 76px;
   height: fit-content;
   height: fit-content;
   z-index: 1;
 }
 
-.ow-li-2{
+.ow-li-2 {
   position: absolute;
-  top: 1120px;
+  top: 920px;
   left: 76px;
   height: fit-content;
   height: fit-content;
   z-index: 1;
 }
 
-.ow-li-3{
+.ow-li-3 {
   position: absolute;
-  top: 604px;
+  top: 404px;
   right: 0px;
   height: fit-content;
   height: fit-content;
   z-index: 1;
 }
 
-.ow-li-4{
+.ow-li-4 {
   position: absolute;
-  top: 1458px;
+  top: 1258px;
   right: 0px;
   height: fit-content;
   height: fit-content;
   z-index: 1;
 }
 
-.ow-li-5{
+/* .ow-li-5 {
   position: absolute;
   top: 762px;
   right: 502px;
   height: fit-content;
   height: fit-content;
   z-index: 1;
+} */
+
+.ow-li-5 {
+  position: absolute;
+  top: 782px;
+  left: 30%;
+  height: fit-content;
+  height: fit-content;
+  z-index: 1;
 }
 
 .our-works-info {
+  position: relative;
   display: flex;
   width: 800px;
   flex-direction: column;
   align-items: center;
-  gap: 64px;
+  gap: 60px;
 }
 
 .our-works-info-subtitle {
-  height: 128px;
-  opacity: 0.8;
-  font-family: 'Public Sans', sans-serif;
+  width: 98%;
+  font-family: Public Sans;
   font-weight: 200;
   font-size: 24px;
   line-height: 32px;
   letter-spacing: 1%;
   text-align: center;
-  color: #0A090C;
 }
 
 .ow-title {
@@ -103,12 +117,135 @@ border-radius: 120px 200px 120px 280px;
 }
 
 .beauty-services-button-style-our-works {
-  align-self: start;
+  position: absolute;
+  top: 200px;
+  left: 76px;
+  z-index: 1;
+}
+
+.beauty-services-button-style-our-works-mob {
+  display: none !important;
 }
 
 .our-works-appoinment {
   position: absolute;
-  right: 22.5%;
-  top: 775px;
+  right: -130px;
+  bottom: 535px;
   z-index: 10;
+}
+
+.our-works-title {
+  display: none;
+}
+
+@media (max-width: 1750px) {
+
+  .our-works-images-list {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1150px) {
+
+  .our-works-image-5 {
+    margin-top: 26px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 229 / 187;
+  }
+
+  .our-works-appoinment {
+    right: -50px;
+  }
+
+  .our-works-section {
+    width: 100%;
+    max-width: 1920px;
+    height: 1562px;
+  }
+}
+
+@media (max-width: 950px) {
+  .our-works-info {
+    width: 90%;
+  }
+
+  .our-works-appoinment {
+    right: -10px;
+  }
+}
+
+@media (max-width: 900px) {
+  .our-works-section {
+    height: fit-content;
+  }
+
+  .our-works-appoinment {
+    right: -10px;
+    bottom: 40%;
+  }
+}
+
+@media (max-width: 765px) {
+  .beauty-services-button-style-our-works {
+    display: none !important;
+  }
+
+  .beauty-services-button-style-our-works-mob {
+    display: flex !important;
+    align-self: start !important;
+  }
+
+  .ow-title {
+    display: none;
+  }
+
+  .our-works-image-5 {
+    margin-top: 0px;
+    border-radius: 104px 140px 104px 240px;
+  }
+
+  .our-works-appoinment {
+    left: 0px;
+    bottom: 0px;
+  }
+
+  .our-works-info {
+    gap: 24px;
+  }
+
+  .our-works-section {
+    height: fit-content;
+    padding: 32px 16px;
+  }
+
+  .our-works-info-subtitle {
+    font-family: Public Sans;
+    font-weight: 200;
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 1%;
+  }
+
+  .our-works-title {
+    display: block;
+    align-self: start;
+    font-family: Playfair Display;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 47px;
+    max-width: 246px;
+  }
+
+  .our-works-span {
+    margin-left: 70px;
+  }
+
+  .our-works-title span {
+    font-family: Great Vibes;
+    font-weight: 400;
+    font-size: 70px;
+    line-height: 31px;
+    /* line-height: 40px; */
+  }
 }

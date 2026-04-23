@@ -376,6 +376,11 @@
 }
 
 @media (max-width: 440) {
+  .section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   .sectionWrapper {
     gap: 24px;
   }

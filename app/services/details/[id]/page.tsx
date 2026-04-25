@@ -8,11 +8,11 @@ import { serviceDetailsMock, iServiceExtended } from '@/app/utils/mockFiles';
 import SideMenu from '@/app/components/side-menu/side-menu';
 import AppointmentButton from '@/app/utils/ui/make-an-appointment/make-an-appointment';
 
-type PageProps = { params: { id: string } };
+type PageProps = { params: Promise<{ id: string }> };
 
-export default function ServiceDetails({ params }: PageProps) {
-  console.log("paraaams", params.id);
-  const setService: iServiceExtended = serviceDetailsMock[params.id];
+export default async function ServiceDetails({ params }: PageProps) {
+  const { id } = await params;
+  const setService: iServiceExtended = serviceDetailsMock[id];
   const detailsTitles: string[] = setService.details.map(detail => detail.title);
   return (
     <div className={styles.page}>
@@ -44,7 +44,6 @@ export default function ServiceDetails({ params }: PageProps) {
                 {setService.master.title}
               </p>
               <AppointmentButton className={styles.appoinmentButton} />
-              {/* Side navigation menu */}
               <SideMenu className={styles.asideMenu} services={detailsTitles} />
             </div>
           </div>

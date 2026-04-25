@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
       <article className={styles.footer_intro}>
         <Logo size="medium" color="white"/>
         <div className={styles.footer_intro_text}>
-          <p className={styles.footer_intro_text_subtitle}>Let's go</p>
+          <p className={styles.footer_intro_text_subtitle}>Let&apos;s go</p>
           <h4 className={styles.footer_intro_text_title}>Book your appointment now<br /> and refresh your look!</h4>
         </div>
       </article>
@@ -69,9 +69,6 @@ const Footer: React.FC = () => {
       </div>
       <div className={styles.footer_bottom_line}>
         <ScrollToTopButton />
-        {/* <button className="footer-arrow-up">
-          <Image src="/images/footer/footerArrow.svg" alt="arrow up" width={42} height={18} />
-        </button> */}
         <p className={styles.footer_copyright}>©2025 All rights reserved. WWL</p>
         <ul className={styles.footer_bottom_line_sotial}>
           {social.map((http, key) => (

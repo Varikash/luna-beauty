@@ -34,13 +34,13 @@ const OurWorks: React.FC = () => {
         link="/services"
       />
         <Image
-          src={ourWorksMock.image6}
+          src={ourWorksMock.image5}
           alt={"image-5"}
           width={916}
           height={748}
           className="our-works-image-5"
         />
-        < AppointmentButton className="our-works-appoinment" />
+        <AppointmentButton className="our-works-appoinment" />
       </div>
       <ul className="our-works-images-list">
         <li className="our-works-images-list-item ow-li-1">
@@ -79,17 +79,7 @@ const OurWorks: React.FC = () => {
             className="our-works-image-4"
           />
         </li>
-        {/* <li className="our-works-images-list-item ow-li-5">
-          <Image
-            src={ourWorksMock.image5}
-            alt={"image-5"}
-            width={916}
-            height={748}
-            className="our-works-image-5"
-          />
-        </li> */}
       </ul>
-      {/* < AppointmentButton className="our-works-appoinment" /> */}
     </section>
   );
 };

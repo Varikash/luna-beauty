@@ -68,8 +68,6 @@ const Header: React.FC<HeaderProps> = ({ type }) => {
         </div>
       </header>
 
-
-      {/* Полноэкранное меню */}
       {
         isMenuOpen && (
           <div className="fullscreen-menu">
@@ -89,8 +87,8 @@ const Header: React.FC<HeaderProps> = ({ type }) => {
                   </div>
                   <ul className="sotial-menu-nav">
                     {socialHeader.map((link) => (
-                      <li>
-                        <a key={link.name} href={link.link} className="burg-soc-link">
+                      <li key={link.name}>
+                        <a href={link.link} className="burg-soc-link">
                           {link.name}
                         </a>
                       </li>

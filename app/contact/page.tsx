@@ -42,8 +42,8 @@ export default function ContactUs() {
               />
               <ul className={styles.social_menu}>
                 {socialHeader.map((link) => (
-                  <li>
-                    <a key={link.name} href={link.link} className={styles.soc_li}>
+                  <li key={link.name}>
+                    <a href={link.link} className={styles.soc_li}>
                       {link.name}
                     </a>
                   </li>

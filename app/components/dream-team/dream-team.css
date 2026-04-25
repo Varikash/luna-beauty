@@ -132,8 +132,7 @@
   .dream-team {
     padding: 40px 20px 60px;
     gap: 32px;
-    background-size: 280px 520px;
-    background-position: left 16px top 24px;
+    background-image: none;
   }
 
   .dream-team-aside > img {

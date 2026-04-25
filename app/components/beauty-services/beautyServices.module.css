@@ -446,7 +446,7 @@
   }
 }
 
-@media (max-width: 1070) {
+@media (max-width: 1070px) {
 
   /* вторая страница */
   .beautyServicesSectionPageTwo {
@@ -455,9 +455,9 @@
   }
 }
 
-@media (max-width: 850) {
+@media (max-width: 850px) {
   .beautyServicesSection {
-    padding-top: 200px;
+    padding: 200px 16px 120px 16px;
     gap: 32px;
   }
 }
@@ -514,7 +514,7 @@
   }
 }
 
-@media (max-width: 568) {
+@media (max-width: 568px) {
 
   /* вторая страница */
   .beautyServicesSectionPageTwo {
@@ -543,9 +543,9 @@
   }
 }
 
-@media (max-width: 440) {
+@media (max-width: 440px) {
   .beautyServicesSection {
-    padding-top: 100px;
+    padding: 100px 12px 120px 12px;
   }
 }
 

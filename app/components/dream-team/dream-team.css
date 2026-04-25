@@ -9,6 +9,7 @@
   background-repeat: no-repeat;
   background-position: left 87px top 45px;
   background-size: 490px 886px;
+  overflow: hidden;
 }
 
 .dream-team-aside {
@@ -22,7 +23,8 @@
   align-items: center;
   gap: 32px;
   margin-top: 30px;
-  width: 66%;
+  flex: 1;
+  min-width: 0;
 }
 
 .dream-team-master-list {
@@ -89,4 +91,102 @@
   font-size: 24px;
   line-height: 32px;
   letter-spacing: 1%;
+}
+
+@media (max-width: 1333px) {
+  .dream-team {
+    flex-direction: column;
+    gap: 40px;
+    padding: 60px 40px;
+    min-height: auto;
+  }
+
+  .dream-team-aside {
+    width: 100%;
+  }
+
+  .dream-team-master-list-container {
+    width: 100%;
+    flex: 0 0 auto;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 740px) {
+  .dream-team {
+    padding: 40px 20px 60px;
+    gap: 32px;
+    background-size: 280px 520px;
+    background-position: left 16px top 24px;
+  }
+
+  .dream-team-aside > img {
+    width: 220px;
+    height: auto;
+  }
+
+  .dream-team-text {
+    margin-top: 20px;
+    margin-bottom: 24px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .dream-team-master-list {
+    width: 100%;
+    padding-top: 72px;
+  }
+
+  .dream-team-slider-track {
+    gap: 16px;
+  }
+
+  .slider-item {
+    min-width: 100%;
+    flex: 0 0 100%;
+  }
+
+  .slider-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .slider-btn img {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 550px) {
+  .dream-team-master-list-container {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .dream-team-master-list {
+    padding-top: 0;
+  }
+
+  .slider-controls-dt {
+    position: static;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 440px) {
+  .dream-team {
+    padding: 32px 16px 48px;
+    gap: 24px;
+    background-size: 240px 440px;
+  }
+
+  .dream-team-aside > img {
+    width: 180px;
+  }
+
+  .dream-team-text {
+    font-size: 15px;
+    line-height: 22px;
+  }
 }

@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import DreamTeamButton from '@/app/utils/ui/dt-button/dt-button';
 import './dream-team.css';
@@ -8,7 +8,24 @@ import { mastersMock } from '@/app/utils/mockFiles';
 
 const DreamTeam = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [stepPx, setStepPx] = useState(0);
+  const trackRef = useRef<HTMLUListElement>(null);
   const itemsPerPage = 1;
+
+  useEffect(() => {
+    const updateStep = () => {
+      const track = trackRef.current;
+      if (!track) return;
+      const firstItem = track.firstElementChild as HTMLElement | null;
+      if (!firstItem) return;
+      const itemWidth = firstItem.getBoundingClientRect().width;
+      const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
+      setStepPx(itemWidth + gap);
+    };
+    updateStep();
+    window.addEventListener('resize', updateStep);
+    return () => window.removeEventListener('resize', updateStep);
+  }, []);
 
   const nextSlide = () => {
     setCurrentIndex((prev) =>
@@ -48,9 +65,10 @@ const DreamTeam = () => {
         </div>
         <div className="dream-team-master-list">
           <ul
+            ref={trackRef}
             className="dream-team-slider-track"
             style={{
-              transform: `translateX(-${currentIndex * 50}%)`,
+              transform: `translateX(-${currentIndex * stepPx}px)`,
             }}
           >
             {mastersMock.map((master, index) => (

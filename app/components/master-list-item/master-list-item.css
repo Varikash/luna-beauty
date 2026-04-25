@@ -102,3 +102,82 @@
   top: 53px;
   right: 226px;
 }
+
+@media (max-width: 740px) {
+  .master-list-item {
+    width: 100%;
+    min-height: auto;
+    padding: 16px 16px 24px;
+    gap: 16px;
+  }
+
+  .master-list-item:hover {
+    border-bottom-right-radius: 0;
+  }
+
+  .master-image-status {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .master-image-status > img:first-child {
+    width: 100%;
+    height: auto;
+  }
+
+  .master-info-top {
+    padding-top: 0;
+    gap: 10px;
+  }
+
+  .master-info {
+    padding: 6px 14px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .master-status {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .master-info-bottom {
+    width: 100%;
+    gap: 12px;
+  }
+
+  .master-name {
+    font-size: 32px;
+    line-height: 36px;
+  }
+
+  .master-skills {
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .master-list-star {
+    display: none;
+  }
+
+  .master-list-appoinment {
+    top: auto;
+    bottom: 180px;
+    right: 16px;
+  }
+
+  .master-list-item .master-hover-element {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 440px) {
+  .master-name {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  .master-list-appoinment {
+    bottom: 160px;
+  }
+}

@@ -1,16 +1,21 @@
 .footer {
+  width: 100%;
+  background: #323134;
+  background-image: url('/images/footer/footerCurve.jpg');
+  background-repeat: no-repeat;
+  background-position: calc(50% + 598px) top;
+  background-size: 281px 1056px;
+}
+
+.footer_container {
   position: relative;
   max-width: 1920px;
   width: 100%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 110px;
   padding: 96px 128px 48px 76px;
-  background: #323134;
-  background-image: url('/images/footer/footerCurve.jpg');
-  background-repeat: no-repeat;
-  background-position: left 1558px top;
-  background-size: 281px 1056px;
 }
 
 .footer_intro {
@@ -231,11 +236,14 @@
 @media (max-width: 1000px) {
 
   .footer {
-    gap: 24px;
     height: auto;
     background-image: none;
     background-position: left bottom;
     background-size: contain;
+  }
+
+  .footer_container {
+    gap: 24px;
   }
 
   .footer_image_rounded {
@@ -333,7 +341,7 @@
     max-width: 100%;
   }
 
-  .footer {
+  .footer_container {
     padding: 32px 15px;
   }
 

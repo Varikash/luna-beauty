@@ -1,0 +1,142 @@
+.section {
+  width: 100%;
+  max-width: 1920px;
+  padding: 0 77px;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(520px, 1fr) 884px;
+  gap: 64px;
+  align-items: start;
+}
+
+.content {
+  padding: 64px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+.title {
+  color: #0a090c;
+  font-family: var(--font-playfair-display);
+  font-weight: 400;
+  font-size: 96px;
+  line-height: 96px;
+}
+
+.titleLead,
+.titleAccent {
+  font-family: var(--font-great-vibes);
+  font-weight: 400;
+  font-size: 136px;
+  line-height: 96px;
+}
+
+.text {
+  font-family: var(--font-public-sans);
+  font-weight: 200;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0.24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 490px;
+}
+
+.content :global(.beauty-button.about-hero-specialists) {
+  align-self: flex-start;
+}
+
+.media {
+  position: relative;
+}
+
+.imageWrap {
+  position: relative;
+  width: 884px;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-image: url('/images/about/team.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+  border-top-left-radius: 96px;
+  border-top-right-radius: 220px;
+  border-bottom-right-radius: 96px;
+  border-bottom-left-radius: 220px;
+}
+
+.appointment {
+  position: absolute;
+  left: -98px;
+  top: 527px;
+}
+
+@media (max-width: 1280px) {
+  .inner {
+    grid-template-columns: 1fr;
+  }
+
+  .media {
+    display: grid;
+    place-items: center;
+  }
+
+  .imageWrap {
+    width: min(884px, 100%);
+  }
+
+  .appointment {
+    left: 50%;
+    top: auto;
+    bottom: -40px;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 0 16px;
+  }
+
+  .content {
+    padding: 24px 0 0;
+    gap: 24px;
+  }
+
+  .title {
+    font-size: 32px;
+    line-height: 31px;
+  }
+
+  .titleLead,
+  .titleAccent {
+    font-size: 48px;
+    line-height: 31px;
+  }
+
+  .text {
+    font-size: 18px;
+    line-height: 25px;
+    max-width: none;
+  }
+
+  .content :global(.beauty-button.about-hero-specialists) {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .imageWrap {
+    width: 343px;
+    aspect-ratio: 343 / 414;
+    border-radius: 0;
+  }
+
+  .appointment {
+    bottom: -60px;
+  }
+}
+

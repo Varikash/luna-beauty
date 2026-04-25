@@ -74,12 +74,28 @@
   background: #95A3A0;
 }
 
+.slider-btn-prev:hover img,
+.slider-btn-prev:active img,
+.slider-btn-prev:focus-visible img {
+  filter: brightness(0) invert(1) !important;
+}
+
 .slider-btn-next {
   background: #95A3A0;
 }
 
+.slider-btn-next img {
+  filter: brightness(0) invert(1) !important;
+}
+
 .slider-btn-next:hover {
   background: #fff;
+}
+
+.slider-btn-next:hover img,
+.slider-btn-next:active img,
+.slider-btn-next:focus-visible img {
+  filter: brightness(0) saturate(100%) invert(62%) sepia(7%) saturate(379%) hue-rotate(113deg) brightness(95%) contrast(89%) !important;
 }
 
 .dream-team-text {
@@ -139,11 +155,12 @@
 
   .dream-team-slider-track {
     gap: 16px;
+    width: max-content;
   }
 
   .slider-item {
-    min-width: 100%;
-    flex: 0 0 100%;
+    width: 360px;
+    flex: 0 0 360px;
   }
 
   .slider-btn {
@@ -188,5 +205,14 @@
   .dream-team-text {
     font-size: 15px;
     line-height: 22px;
+  }
+
+  .dream-team-slider-track {
+    width: 100%;
+  }
+
+  .slider-item {
+    width: 100%;
+    flex: 0 0 100%;
   }
 }

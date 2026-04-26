@@ -93,7 +93,7 @@
   margin: 0;
   font-family: Playfair Display;
   font-weight: 400;
-  font-size: 72px;
+  font-size: 48px;
   line-height: 80px;
   letter-spacing: -2%;
 }
@@ -129,8 +129,393 @@
   max-width: 520px;
   font-family: Public Sans;
   font-weight: 200;
-  font-size: 28px;
-  line-height: 40px;
+  font-size: 24px;
+  line-height: 32px;
   letter-spacing: 1%;
   color: #2B2B2B;
+}
+
+@media (max-width: 1807px) {
+  .our-masters-header-container {
+    gap: 80px;
+  }
+}
+
+@media (max-width: 1750px) {
+  .our-masters-featured-card {
+    max-width: 920px;
+    padding: 40px;
+    gap: 48px;
+  }
+
+  .our-masters-featured-media > span {
+    width: 320px !important;
+    height: auto !important;
+    display: block !important;
+  }
+
+  .our-masters-featured-photo {
+    width: 320px !important;
+    height: auto !important;
+  }
+}
+
+@media (max-width: 1700px) {
+  .vine-title-om {
+    font-size: 96px;
+    line-height: 84px;
+  }
+
+  .champagne-title-om {
+    font-size: 132px;
+    line-height: 84px;
+  }
+
+  .our-masters-subtitle {
+    width: 640px;
+    font-size: 22px;
+    line-height: 30px;
+  }
+}
+
+@media (max-width: 1550px) {
+  .vine-title-om {
+    font-size: 84px;
+    line-height: 76px;
+  }
+
+  .champagne-title-om {
+    font-size: 118px;
+    line-height: 76px;
+  }
+
+  .our-masters-subtitle {
+    width: 560px;
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+@media (max-width: 1470px) {
+  .our-masters-header-container {
+    gap: 56px;
+  }
+
+  .vine-title-om {
+    font-size: 76px;
+    line-height: 68px;
+  }
+
+  .champagne-title-om {
+    font-size: 108px;
+    line-height: 68px;
+  }
+
+  .our-masters-subtitle {
+    width: 520px;
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  .our-masters-featured-card {
+    max-width: 860px;
+    padding: 32px;
+    gap: 40px;
+  }
+
+  .our-masters-featured-media > span {
+    width: 300px !important;
+  }
+
+  .our-masters-featured-photo {
+    width: 300px !important;
+  }
+
+  .our-masters-featured-name {
+    font-size: 40px;
+    line-height: 56px;
+  }
+
+  .our-masters-featured-pill {
+    margin-top: 20px;
+    font-size: 15px;
+    line-height: 20px;
+    padding: 8px 16px;
+  }
+
+  .our-masters-featured-status {
+    margin-top: 16px;
+    font-size: 17px;
+    line-height: 26px;
+  }
+
+  .our-masters-featured-skills {
+    font-size: 21px;
+    line-height: 30px;
+  }
+}
+
+@media (max-width: 1335px) {
+  .our-masters-header-container {
+    gap: 44px;
+  }
+
+  .vine-title-om {
+    font-size: 68px;
+    line-height: 62px;
+  }
+
+  .champagne-title-om {
+    font-size: 96px;
+    line-height: 62px;
+  }
+
+  .our-masters-subtitle {
+    width: 460px;
+    font-size: 17px;
+    line-height: 24px;
+  }
+
+  .our-masters-featured-card {
+    max-width: 780px;
+    padding: 28px;
+    gap: 32px;
+  }
+
+  .our-masters-featured-media > span {
+    width: 270px !important;
+  }
+
+  .our-masters-featured-photo {
+    width: 270px !important;
+  }
+
+  .our-masters-featured-name {
+    font-size: 36px;
+    line-height: 50px;
+  }
+
+  .our-masters-featured-pill {
+    margin-top: 18px;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 7px 14px;
+  }
+
+  .our-masters-featured-status {
+    margin-top: 14px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .our-masters-featured-skills {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+@media (max-width: 1260px) {
+  .our-masters-header-container {
+    gap: 36px;
+  }
+
+  .vine-title-om {
+    font-size: 62px;
+    line-height: 58px;
+  }
+
+  .champagne-title-om {
+    font-size: 88px;
+    line-height: 58px;
+  }
+
+  .our-masters-subtitle {
+    width: 420px;
+    font-size: 16px;
+    line-height: 23px;
+  }
+
+  .our-masters-featured-card {
+    max-width: 730px;
+    padding: 24px;
+    gap: 28px;
+  }
+
+  .our-masters-featured-media > span {
+    width: 250px !important;
+  }
+
+  .our-masters-featured-photo {
+    width: 250px !important;
+  }
+
+  .our-masters-featured-name {
+    font-size: 34px;
+    line-height: 48px;
+  }
+
+  .our-masters-featured-pill {
+    margin-top: 16px;
+    font-size: 13px;
+    line-height: 18px;
+    padding: 7px 13px;
+  }
+
+  .our-masters-featured-status {
+    margin-top: 12px;
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .our-masters-featured-skills {
+    font-size: 19px;
+    line-height: 27px;
+  }
+}
+
+@media (max-width: 1115px) {
+  .our-masters-header-container {
+    gap: 28px;
+  }
+
+  .vine-title-om {
+    font-size: 54px;
+    line-height: 52px;
+  }
+
+  .champagne-title-om {
+    font-size: 78px;
+    line-height: 52px;
+  }
+
+  .our-masters-subtitle {
+    width: 380px;
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .our-masters-featured-card {
+    max-width: 670px;
+    padding: 20px;
+    gap: 24px;
+  }
+
+  .our-masters-featured-media > span {
+    width: 230px !important;
+  }
+
+  .our-masters-featured-photo {
+    width: 230px !important;
+  }
+
+  .our-masters-featured-name {
+    font-size: 30px;
+    line-height: 44px;
+  }
+
+  .our-masters-featured-pill {
+    margin-top: 14px;
+    font-size: 12px;
+    line-height: 18px;
+    padding: 6px 12px;
+  }
+
+  .our-masters-featured-status {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .our-masters-featured-skills {
+    font-size: 18px;
+    line-height: 26px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .our-masters-header-container {
+    gap: 24px;
+  }
+
+  .vine-title-om {
+    font-size: 48px;
+    line-height: 48px;
+  }
+
+  .champagne-title-om {
+    font-size: 70px;
+    line-height: 48px;
+  }
+
+  .our-masters-subtitle {
+    width: 340px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .our-masters-featured-card {
+    max-width: 620px;
+    padding: 18px;
+    gap: 20px;
+  }
+
+  .our-masters-featured-media > span {
+    width: 210px !important;
+  }
+
+  .our-masters-featured-photo {
+    width: 210px !important;
+  }
+
+  .our-masters-featured-name {
+    font-size: 28px;
+    line-height: 40px;
+  }
+
+  .our-masters-featured-pill {
+    margin-top: 12px;
+    font-size: 12px;
+    line-height: 16px;
+    padding: 6px 11px;
+  }
+
+  .our-masters-featured-status {
+    margin-top: 10px;
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  .our-masters-featured-skills {
+    font-size: 17px;
+    line-height: 24px;
+  }
+}
+
+@media (max-width: 980px) {
+  .our-masters-header-container {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .our-masters-header-left {
+    gap: 24px;
+  }
+
+  .our-masters-header {
+    margin-top: 0;
+  }
+
+  .our-masters-comment {
+    display: none;
+  }
+
+  .our-masters-subtitle {
+    width: 100%;
+    max-width: 740px;
+  }
+
+  .our-masters-featured-card {
+    max-width: none;
+    width: 100%;
+  }
 }

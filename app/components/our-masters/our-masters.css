@@ -5,6 +5,7 @@
 .our-masters-header-container {
   display: flex;
   gap: 96px;
+  margin-bottom: 33px;
 }
 
 .our-masters-header-left {
@@ -60,4 +61,76 @@
   font-size: 24px;
   line-height: 32px;
   letter-spacing: 1%;
+}
+
+.our-masters-featured-card {
+  width: 100%;
+  max-width: 980px;
+  padding: 48px;
+  box-sizing: border-box;
+  display: flex;
+  gap: 56px;
+  background: #FFFFFF;
+  border: 1px solid #E4E4E4;
+}
+
+.our-masters-featured-media {
+  flex-shrink: 0;
+}
+
+.our-masters-featured-photo {
+  display: block;
+  object-fit: cover;
+}
+
+.our-masters-featured-content {
+  display: flex;
+  flex-direction: column;
+  padding-top: 8px;
+}
+
+.our-masters-featured-name {
+  margin: 0;
+  font-family: Playfair Display;
+  font-weight: 400;
+  font-size: 72px;
+  line-height: 80px;
+  letter-spacing: -2%;
+}
+
+.our-masters-featured-pill {
+  margin: 24px 0 0 0;
+  width: fit-content;
+  padding: 10px 20px;
+  border-radius: 999px;
+  background-color: #A9714B;
+  color: #FFFFFF;
+  font-family: Public Sans;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 1%;
+  text-transform: uppercase;
+}
+
+.our-masters-featured-status {
+  margin: 20px 0 0 0;
+  white-space: pre-line;
+  font-family: Public Sans;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 1%;
+  color: #000000;
+}
+
+.our-masters-featured-skills {
+  margin: auto 0 0 0;
+  max-width: 520px;
+  font-family: Public Sans;
+  font-weight: 200;
+  font-size: 28px;
+  line-height: 40px;
+  letter-spacing: 1%;
+  color: #2B2B2B;
 }

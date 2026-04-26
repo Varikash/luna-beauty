@@ -5,10 +5,10 @@
 }
 
 .inner {
-  display: grid;
-  grid-template-columns: minmax(520px, 1fr) 884px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   gap: 64px;
-  align-items: start;
 }
 
 .content {
@@ -75,31 +75,119 @@
   top: 527px;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1774px) {
+  .title {
+    font-size: 88px;
+    line-height: 88px;
+  }
+
+  .titleLead,
+  .titleAccent {
+    font-size: 124px;
+    line-height: 88px;
+  }
+
+  .text {
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  .imageWrap {
+    width: 760px !important;
+  }
+}
+
+@media (max-width: 1610px) {
+  .title {
+    font-size: 76px;
+    line-height: 76px;
+  }
+
+  .titleLead,
+  .titleAccent {
+    font-size: 108px;
+    line-height: 76px;
+  }
+
+  .text {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .imageWrap {
+    width: 600px !important;
+  }
+
+  .appointment {
+    top: 408px;
+  }
+}
+
+@media (max-width: 1330px) {
+  .title {
+    font-size: 64px;
+    line-height: 64px;
+  }
+
+  .titleLead,
+  .titleAccent {
+    font-size: 92px;
+    line-height: 64px;
+  }
+
+  .text {
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  .imageWrap {
+    width: 520px !important;
+  }
+
+  .appointment {
+    top: 352px;
+    left: -49px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .content {
+    gap: 40px;
+  }
+
+  .title {
+    font-size: 48px;
+    line-height: 48px;
+  }
+
+  .titleLead,
+  .titleAccent {
+    font-size: 68px;
+    line-height: 48px;
+  }
+
+  .text {
+    gap: 24px;
+  }
+
+  .imageWrap {
+    width: 450px !important;
+  }
+}
+
+@media (max-width: 980px) {
+  .section {
+    padding: 0 16px;
+  }
+
   .inner {
-    grid-template-columns: 1fr;
+    flex-direction: column;
   }
 
   .media {
     display: grid;
     place-items: center;
-  }
-
-  .imageWrap {
-    width: min(884px, 100%);
-  }
-
-  .appointment {
-    left: 50%;
-    top: auto;
-    bottom: -40px;
-    transform: translateX(-50%);
-  }
-}
-
-@media (max-width: 768px) {
-  .section {
-    padding: 0 16px;
+    width: 100%;
   }
 
   .content {
@@ -130,13 +218,18 @@
   }
 
   .imageWrap {
-    width: 343px;
+    width: 100% !important;
     aspect-ratio: 343 / 414;
     border-radius: 0;
+    background-image: url('/images/about/team_sm.webp');
+    background-position: center bottom;
   }
 
   .appointment {
+    left: 50%;
+    top: auto;
     bottom: -60px;
+    transform: translateX(-50%);
   }
 }
 

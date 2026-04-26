@@ -1,14 +1,22 @@
 .cooper_section {
-  max-width: 1920px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 76px;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  overflow-x: clip;
   background-color: #A9714B;
   background-image: url('/images/cooper/Curve.svg');
   background-repeat: no-repeat;
   background-position: left -35px top 142px;
   background-size: 1988px 449px;
+}
+
+.cooper_container {
+  max-width: 1920px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 76px;
 }
 
 /* лево */
@@ -90,7 +98,7 @@
 }
 
 @media (max-width: 1499px) {
-  .cooper_section {
+  .cooper_container {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
@@ -156,8 +164,11 @@
 }
 
 @media (max-width: 568px) {
-  .cooper_section {
+  .cooper_container {
     padding: 32px 16px;
+  }
+
+  .cooper_section {
     background-position: left -235px top 180px;
     background-size: 692px 157px;
   }

@@ -7,12 +7,14 @@ import Footer from "@/app/components/footer/footer";
 import { serviceDetailsMock, iServiceExtended } from '@/app/utils/mockFiles';
 import SideMenu from '@/app/components/side-menu/side-menu';
 import AppointmentButton from '@/app/utils/ui/make-an-appointment/make-an-appointment';
+import { notFound } from "next/navigation";
 
 type PageProps = { params: Promise<{ id: string }> };
 
 export default async function ServiceDetails({ params }: PageProps) {
   const { id } = await params;
-  const setService: iServiceExtended = serviceDetailsMock[id];
+  const setService = (serviceDetailsMock as Record<string, iServiceExtended | undefined>)[id];
+  if (!setService) notFound();
   const detailsTitles: string[] = setService.details.map(detail => detail.title);
   return (
     <div className={styles.page}>

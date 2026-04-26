@@ -312,10 +312,45 @@ export const mastersMock: IMaster[] = [
   },
   {
     image: "/images/masters/3.jpg",
-    name: "Nelia Mihai",
+    name: "Amelia Carter",
+    info: "MAKEUP ARTIST",
+    skills: "Soft glam, bridal, and editorial looks with a focus on skin prep and long wear.",
+    status: "Certified artist,\n8 years of experience",
+  },
+  {
+    image: "/images/masters/1.jpg",
+    name: "Sophia Reed",
+    info: "BROW SPECIALIST",
+    skills: "Brow shaping and lamination tailored to your face geometry for a natural lift.",
+    status: "Senior specialist,\n7 years of experience",
+  },
+  {
+    image: "/images/masters/2.jpg",
+    name: "Mia Thompson",
+    info: "HAIR STYLIST",
+    skills: "Blowouts, styling, and occasion hair with healthy shine as a priority.",
+    status: "Top stylist,\n10 years of experience",
+  },
+  {
+    image: "/images/masters/3.jpg",
+    name: "Olivia Hayes",
+    info: "WAXING EXPERT",
+    skills: "Gentle technique and clean results, with extra care for sensitive skin.",
+    status: "Salon pro,\n5 years of experience",
+  },
+  {
+    image: "/images/masters/1.jpg",
+    name: "Isabella Moore",
+    info: "LASH TECH",
+    skills: "Classic and light volume sets designed for comfort and balanced eye shape.",
+    status: "Certified lash tech,\n4 years of experience",
+  },
+  {
+    image: "/images/masters/2.jpg",
+    name: "Emily Bennett",
     info: "NAIL MASTER",
-    skills: "Artist who enhances beauty with expert cosmetic techniques!",
-    status: "Skilled professional,\n6 years of experience",
+    skills: "Clean manicure, structured gel, and minimal nail art with flawless finishing.",
+    status: "Nail specialist,\n6 years of experience",
   },
 ]
 

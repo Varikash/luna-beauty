@@ -14,6 +14,14 @@
   gap: 35px;
 }
 
+.our-masters-title-line {
+  display: inline;
+}
+
+.our-masters-mobile-lead {
+  font: inherit;
+}
+
 .vine-title-om {
   font-family: Playfair Display;
   font-weight: 400;
@@ -492,6 +500,10 @@
 }
 
 @media (max-width: 980px) {
+  .our-masters {
+    padding-top: 0;
+  }
+
   .our-masters-header-container {
     flex-direction: column;
     gap: 24px;
@@ -499,6 +511,31 @@
 
   .our-masters-header-left {
     gap: 24px;
+  }
+
+  .our-masters-title-line {
+    display: block;
+  }
+
+  .our-masters-title-line:first-child {
+    padding-left: 12px;
+  }
+
+  .our-masters-mobile-lead {
+    font-family: Great Vibes;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 31px;
+  }
+
+  .vine-title-om {
+    font-size: 32px;
+    line-height: 31px;
+  }
+
+  .champagne-title-om {
+    font-size: 48px;
+    line-height: 31px;
   }
 
   .our-masters-header {
@@ -512,10 +549,11 @@
   .our-masters-subtitle {
     width: 100%;
     max-width: 740px;
+    font-size: 18px;
+    line-height: 25px;
   }
 
   .our-masters-featured-card {
-    max-width: none;
-    width: 100%;
+    display: none;
   }
 }

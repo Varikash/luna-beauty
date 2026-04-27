@@ -1,18 +1,31 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
-import DreamTeamButton from '@/app/utils/ui/dt-button/dt-button';
 import './our-masters.css';
 import MasterListItem from '@/app/components/master-list-item/master-list-item';
 import { mastersMock } from '@/app/utils/mockFiles';
+import { useMediaQuery } from '@/app/utils/hooks/useMediaQuery';
 
 const OurMasters = () => {
+  const isMobile = useMediaQuery('(max-width: 980px)');
   const featuredMaster = mastersMock[0];
+  const mastersToRender = isMobile ? mastersMock : mastersMock.slice(1);
 
-  const formatNavText = (text: string) => {
+  const formatWord = (word: string) => {
     return (
       <span className="vine-title-om">
-        <span className="champagne-title-om">{text.charAt(0)}</span>
-        {text.slice(1)}
+        <span className="champagne-title-om">{word.charAt(0)}</span>
+        {word.slice(1)}
+      </span>
+    );
+  };
+
+  const formatWordMobileLead = (word: string) => {
+    return (
+      <span className="vine-title-om">
+        <span className="our-masters-mobile-lead">{word.charAt(0)}</span>
+        {word.slice(1)}
       </span>
     );
   };
@@ -24,7 +37,8 @@ const OurMasters = () => {
           <div className="our-masters-header">
             <Image className="our-masters-comment" src="/images/ocr/b-studio-london.svg" alt="comment-picture" width={230} height={244} />
             <h2 className="our-masters-title">
-              {formatNavText("Our masters")}
+              <span className="our-masters-title-line">{formatWord('Our')}</span>{' '}
+              <span className="our-masters-title-line">{formatWordMobileLead('Masters')}</span>
             </h2>
           </div>
           <p className="our-masters-subtitle">Experience our elegant beauty salon in the heart of London, where every corner is designed to inspire. Indulge.</p>
@@ -52,9 +66,9 @@ const OurMasters = () => {
         <ul
           className="our-masters-list"
         >
-          {mastersMock.map((master, index) => (
-            <li key={"slide" + index} className="slider-item">
-              <MasterListItem key={index} innerKey={index} master={master} type="master-card-border" />
+          {mastersToRender.map((master, index) => (
+            <li key={`slide-${master.name}-${index}`} className="slider-item">
+              <MasterListItem innerKey={index} master={master} type="master-card-border" />
             </li>
           ))}
         </ul>

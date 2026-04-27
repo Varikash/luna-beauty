@@ -49,10 +49,20 @@
 
 .our-masters-list {
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(565px, 1fr));
   gap: 31px;
   list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.our-masters-list .slider-item {
+  max-width: none;
+}
+
+.our-masters .master-list-item {
+  width: 100%;
 }
 
 .our-masters-comment {
@@ -80,6 +90,13 @@
   gap: 56px;
   background: #FFFFFF;
   border: 1px solid #E4E4E4;
+  text-decoration: none;
+  color: inherit;
+  transition: border-bottom-right-radius 0.3s ease;
+}
+
+.our-masters-featured-card:hover {
+  border-bottom-right-radius: 80px;
 }
 
 .our-masters-featured-media {
@@ -555,5 +572,38 @@
 
   .our-masters-featured-card {
     display: none;
+  }
+}
+
+@media (max-width: 1327px) {
+  .our-masters-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 740px) {
+  .our-masters-list {
+    grid-template-columns: 1fr;
+  }
+
+  .our-masters .master-list-appoinment.appointment-button {
+    width: 115px;
+    height: 115px;
+  }
+
+  .our-masters .master-list-appoinment .appointment-text {
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  .our-masters .master-list-item {
+    width: 100%;
+  }
+}
+
+@media (max-width: 441px) {
+  .our-masters {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }

@@ -57,6 +57,49 @@
   line-height: 96px;
 } 
 
+@media (max-width: 980px) {
+  .beautyServicesHead {
+    padding: 24px 0 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .beautyServicesHeadText,
+  .beautyServicesHeadTextPageThree {
+    width: 100%;
+    margin-top: 0;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 24px;
+  }
+
+  .title {
+    font-size: 32px;
+    line-height: 31px;
+    max-width: none;
+    text-align: left;
+    text-align-last: auto;
+  }
+
+  .title span {
+    font-size: 48px;
+    line-height: 31px;
+  }
+
+  .beautyServicesHeadSubtitle {
+    font-size: 18px;
+    line-height: 25px;
+    max-width: none;
+    text-align: left;
+  }
+
+  :global(.beauty-button).beautyServicesButtonStyle {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 
 @media (max-width: 1660) {
   .title {

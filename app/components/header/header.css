@@ -99,13 +99,19 @@
 
 .fullscreen-menu-container {
   padding-top: 32px;
-  width: 1768px;
+  width: 100%;
+  max-width: 1768px;
   max-height: 1024px;
   height: 100%;
   background-image: url('/images/footer/footerCurve.jpg');
   background-repeat: repeat-y;
   background-position: right 0px top -10px;
   background-size: 281px 1056px;
+}
+
+/* The reused Footer is only shown as the lower part of the mobile menu */
+.menu-footer {
+  display: none;
 }
 
 .fullscreen-menu-header {
@@ -155,7 +161,8 @@
   transition: color 0.3s ease;
 }
 
-.menu-nav-link:hover {
+.menu-nav-link:hover,
+.menu-nav-link.active {
   color: #C78F69;
 }
 
@@ -203,6 +210,114 @@
 .logo-mobile {
   display: none;
 
+}
+
+/* ----------  Fullscreen menu — intermediate (desktop) states  ---------- */
+
+/* Hide the decorative photo once the centred nav gets close to it */
+@media (max-width: 1440px) {
+  .burger-photo-container {
+    display: none;
+  }
+}
+
+/* ----------  Fullscreen menu — mobile / tablet  ----------
+   Below this width the menu becomes a vertical, scrollable sheet:
+   logo + CLOSE on top, the navigation, then the reused Footer
+   (form, contacts, links, photo, socials) as its lower section. */
+@media (max-width: 1024px) {
+  .fullscreen-menu {
+    padding: 0;
+    align-items: stretch;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .fullscreen-menu-container {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: none;
+    padding: 16px 16px 0;
+    background-image: none;
+  }
+
+  .fullscreen-menu-header {
+    align-items: center;
+  }
+
+  .fullscreen-menu-header .header-section {
+    width: auto;
+  }
+
+  /* desktop-only decorations */
+  .burger-photo-container,
+  .sotial-menu-nav,
+  .menu-contact-desktop {
+    display: none;
+  }
+
+  .close-button {
+    justify-content: flex-end;
+    width: auto;
+    font-size: 14px;
+    gap: 10px;
+  }
+
+  .close-button img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .fullscreen-menu-nav {
+    align-items: flex-start;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  /* The nav text uses the global decorative classes with fixed 136px/96px
+     sizes; scale them down for the mobile sheet. */
+  .fullscreen-menu-nav .vine-title {
+    font-size: 40px;
+    line-height: 48px;
+  }
+
+  .fullscreen-menu-nav .champagne-title {
+    font-size: 54px;
+    line-height: 40px;
+    margin-bottom: 0;
+  }
+
+  /* show the reused Footer, edge-to-edge under the navigation */
+  .menu-footer {
+    display: block;
+    margin: 24px -16px 0;
+  }
+}
+
+@media (max-width: 568px) {
+  .fullscreen-menu-container {
+    padding: 16px 16px 0;
+  }
+
+  .fullscreen-menu-nav .vine-title {
+    font-size: 34px;
+    line-height: 42px;
+  }
+
+  .fullscreen-menu-nav .champagne-title {
+    font-size: 46px;
+  }
+
+  .close-button {
+    font-size: 13px;
+    gap: 8px;
+  }
+
+  .close-button img {
+    width: 26px;
+    height: 26px;
+  }
 }
 
 @media (max-width: 1070px) {

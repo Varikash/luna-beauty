@@ -1,11 +1,13 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Logo from '../logo/logo';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { navLinkHeader, socialHeader } from '@/app/utils/mockFiles';
 import './header.css';
 import AppointmentButton from "@/app/utils/ui/make-an-appointment/make-an-appointment";
+import Footer from "../footer/footer";
 
 interface HeaderProps {
   type: "homepage" | "otherpages";
@@ -13,10 +15,24 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ type }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  // A nav link is active on its exact route or any nested route beneath it
+  // ("/" only matches the home page exactly).
+  const isActive = (link: string) =>
+    link === '/' ? pathname === '/' : pathname === link || pathname.startsWith(`${link}/`);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  // Block page scroll while the fullscreen menu is open
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
 
   const formatNavText = (text: string) => {
     return (
@@ -107,7 +123,7 @@ const Header: React.FC<HeaderProps> = ({ type }) => {
                     />
                   </button>
                 </div>
-                <div className='header-section header-address-container'>
+                <div className='header-section header-address-container menu-contact-desktop'>
                   <a
                     href="https://maps.app.goo.gl/9akphzwrHiV6arBU6"
                     className='burger-address'
@@ -129,11 +145,21 @@ const Header: React.FC<HeaderProps> = ({ type }) => {
               </div>
               <nav className="fullscreen-menu-nav">
                 {navLinkHeader.map((link) => (
-                  <Link key={link.title} href={link.link} className="menu-nav-link" onClick={toggleMenu}>
+                  <Link
+                    key={link.title}
+                    href={link.link}
+                    className={`menu-nav-link ${isActive(link.link) ? 'active' : ''}`}
+                    onClick={toggleMenu}
+                  >
                     {formatNavText(link.title)}
                   </Link>
                 ))}
               </nav>
+              {/* Reuses the already-responsive Footer as the lower part of the
+                  mobile menu (form, contacts, links, photo, socials). Hidden on desktop. */}
+              <div className="menu-footer">
+                <Footer hideIntro />
+              </div>
             </div>
           </div>
         )

@@ -138,7 +138,7 @@
 
 
 
-@media (max-width: 1800) {
+@media (max-width: 1800px) {
   .section {
     background-position: 75% 37%;
     background-size: 430px 550px;
@@ -177,7 +177,7 @@
 }
 
 
-@media (max-width: 1660) {
+@media (max-width: 1660px) {
   .section {
     max-width: none;
     background-position: 70% 30%;
@@ -221,7 +221,7 @@
 }
 
 
-@media (max-width: 1430) {
+@media (max-width: 1430px) {
   .sectionWrapper {
     margin: 0 100px;
   }
@@ -233,7 +233,7 @@
 }
 
 
-@media (max-width: 1320) {
+@media (max-width: 1320px) {
   .title {
     font-size: 70px;
   }
@@ -251,7 +251,7 @@
   }
 }
 
-@media (max-width: 1254) {
+@media (max-width: 1254px) {
   .section {
     background-position: 80% 20%;
   }
@@ -284,11 +284,12 @@
 
 
 
-@media (max-width: 1075) {
+@media (max-width: 1075px) {
 
   .section {
     padding: 0px 77px 0px 77px;
     margin-top: 50px;
+    min-height: auto;
     background: none;
   }
 
@@ -319,16 +320,28 @@
     display: none;
   }
 
+  /* Take the circle out of the .wrap flow and anchor it to the section,
+     so it overlaps the bottom-centre of the photo at any screen width. */
+  .wrap {
+    position: static;
+  }
+
   .appointment {
-    top: 253%;
-    left: 40%;
+    position: absolute;
+    top: auto;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 148px;
+    height: 148px;
   }
 
   .imageSmall {
     position: static;
     display: block;
     width: 100%;
-    height: 454px;
+    aspect-ratio: 1 / 1;
+    max-height: 454px;
     background-image: url('/images/hero/1920/hero-team-xs.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -336,12 +349,15 @@
   }
 
   .sectionWrapper {
+    position: relative;
+    /* reserve room for the lower half of the circle */
+    padding-bottom: 90px;
     margin: 0;
   }
 
 }
 
-@media (max-width: 740) {
+@media (max-width: 740px) {
   .title {
     font-size: 48px;
   }
@@ -349,25 +365,11 @@
   .title span {
     font-size: 70px;
   }
-
-  .appointment {
-    left: 38%;
-  }
 }
 
-@media (max-width: 650) {
-  .appointment {
-    left: 36%
-  }
-}
-
-@media (max-width: 550) {
+@media (max-width: 550px) {
   .title {
     line-height: 31px;
-  }
-
-  .appointment {
-    left: 32%
   }
 
   .imageSmall {
@@ -375,7 +377,7 @@
   }
 }
 
-@media (max-width: 440) {
+@media (max-width: 440px) {
   .section {
     padding-left: 20px;
     padding-right: 20px;
@@ -393,11 +395,6 @@
   .title span {
     font-size: 48px;
   }
-
-  .appointment {
-    left: 28%
-  }
-
 
   .serviceList {
     gap: 16px;

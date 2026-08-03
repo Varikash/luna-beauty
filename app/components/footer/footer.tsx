@@ -7,18 +7,26 @@ import FooterForm from "../../components/footer-form/footer-form";
 import AppointmentButton from "@/app/utils/ui/make-an-appointment/make-an-appointment";
 import styles from "./footer.module.css"
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  /** Hides the "Book your appointment now" intro — used when the footer is
+   *  reused as the lower part of the mobile menu, which starts at the form. */
+  hideIntro?: boolean;
+}
+
+const Footer: React.FC<FooterProps> = ({ hideIntro = false }) => {
 
   return (
     <footer className={styles.footer}>
       <div className={styles.footer_container}>
-        <article className={styles.footer_intro}>
-          <Logo size="medium" color="white"/>
-          <div className={styles.footer_intro_text}>
-            <p className={styles.footer_intro_text_subtitle}>Let&apos;s go</p>
-            <h4 className={styles.footer_intro_text_title}>Book your appointment now<br /> and refresh your look!</h4>
-          </div>
-        </article>
+        {!hideIntro && (
+          <article className={styles.footer_intro}>
+            <Logo size="medium" color="white"/>
+            <div className={styles.footer_intro_text}>
+              <p className={styles.footer_intro_text_subtitle}>Let&apos;s go</p>
+              <h4 className={styles.footer_intro_text_title}>Book your appointment now<br /> and refresh your look!</h4>
+            </div>
+          </article>
+        )}
         <article className={styles.footer_form_sidebar_container}>
           <FooterForm className={styles.footer_form} />
           <div className={styles.footer_form_sidebar}>

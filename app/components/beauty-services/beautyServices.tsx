@@ -154,9 +154,16 @@ const BeautyServices: React.FC<BeautyServicesProps> = ({ type }) => {
             0{index + 1}
           </span>
           <article className={style.bsCardArticlePThree}>
-            <h3 className={style.bsCardTitlePThree}>
-              {service.title}
-            </h3>
+            <div className={style.bsCardHeadPThree}>
+              <h3 className={style.bsCardTitlePThree}>
+                {service.title}
+              </h3>
+              <BeautyButton
+                text="MORE DETAILS"
+                className={style.beautyServicesButtonStylePThree}
+                link={`/services/details/${service.link}`}
+              />
+            </div>
             <p className={style.bsCardTextPThree}>
               {service.text}
             </p>
@@ -185,11 +192,6 @@ const BeautyServices: React.FC<BeautyServicesProps> = ({ type }) => {
               </>
             </ul>
           </article>
-          <BeautyButton
-            text="MORE DETAILS"
-            className={style.beautyServicesButtonStylePThree}
-            link={`/services/details/${service.link}`}
-          />
         </CardWrapper>
       ))}
     </ul>

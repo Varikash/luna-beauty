@@ -28,6 +28,7 @@ const BeautyServicesHeader: React.FC<{ type?: string }> = ({ type }) => {
             alt="BeautyServices"
             width={479}
             height={214}
+            className={style.titleImagePageThree}
           />
           <div className={style.beautyServicesHeadTextPageThree}>
             <p className={style.beautyServicesHeadSubtitle}>

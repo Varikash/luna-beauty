@@ -26,7 +26,7 @@
 .beautyServicesSectionPageThree {
   position: relative;
   width: 100%;
-  padding: 40px 76px 85px 76px;
+  padding: 40px clamp(16px, 3.96vw, 76px) 85px clamp(16px, 3.96vw, 76px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,7 +60,11 @@
 }
 
 .beautyServicesListPageThree {
-  width: 100%;
+  /* Cards live in the LEFT zone only. The width scales with the viewport so the
+     whole two-zone layout shrinks proportionally (title, images, nav, circle
+     all shrink too) instead of the card growing into the right zone. */
+  align-self: flex-start;
+  width: min(1187px, 62vw);
   display: flex;
   flex-direction: column;
   list-style: none;
@@ -267,6 +271,15 @@
   gap: 16px;
 }
 
+/* Images shrink proportionally (200px → 96px) AND never exceed a third of the
+   card width, so they scale down with the rest of the card. */
+.bsImagesListPThree img {
+  width: min(calc((100% - 32px) / 3), clamp(96px, 10.4vw, 200px));
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
 .bsCardArticlePThree {
   margin: 0px;
   ;
@@ -277,35 +290,52 @@
 }
 
 .bsCardTitlePThree {
-  width: 100%;
+  min-width: 0;
   font-family: var(--font-playfair-display);
   font-weight: 400;
-  font-size: 48px;
-  line-height: 48px;
+  font-size: clamp(26px, 2.5vw, 48px);
+  line-height: 1.05;
   /* letter-spacing: -0.05em; */
   color: #0A090C;
 }
 
 .bsCardTextPThree {
-  width: 555px;
+  width: 100%;
+  max-width: 555px;
   font-family: var(--font-public-sans);
   font-weight: 200;
-  font-size: 24px;
-  line-height: 32px;
+  font-size: clamp(15px, 1.25vw, 24px);
+  line-height: 1.35;
   letter-spacing: 1%;
   color: #0A090C;
 }
 
+/* Title + MORE DETAILS share a header row so the button is in flow (top-right)
+   and never overlaps the description / images below it. */
+.bsCardHeadPThree {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
 .beautyServicesButtonStylePThree {
-  width: 247px;
-  position: absolute;
-  z-index: 2;
-  top: 40px;
-  right: 43px;
+  flex-shrink: 0;
+  width: clamp(150px, 13vw, 247px);
+}
+
+/* Combined selector beats the global `.beauty-button { font-size: 18px }`
+   so the button text actually shrinks and never overflows the pill. */
+:global(.beauty-button).beautyServicesButtonStylePThree {
+  font-size: clamp(11px, 0.92vw, 18px);
+  gap: clamp(6px, 0.8vw, 16px);
+  padding: 16px clamp(14px, 2vw, 32px);
 }
 
 .bsCardListPThree {
-  width: 900px;
+  width: 100%;
+  max-width: 900px;
   margin-top: 3px;
   padding-left: 0px;
   letter-spacing: 0.01em;
@@ -319,8 +349,8 @@
   font-family: var(--font-public-sans);
   text-transform: uppercase;
   font-weight: 600;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: clamp(13px, 0.94vw, 18px);
+  line-height: 1.35;
   letter-spacing: 1%;
   color: #0A090C;
 
@@ -338,8 +368,18 @@
 
 .bsAppoinment {
   position: absolute;
-  right: 397px;
+  /* Circle scales down and slides toward the right edge as the page narrows,
+     so it always sits in the right zone next to the shrinking cards. Vertical
+     position stays fixed so it never rides up over the intro text. */
+  right: clamp(24px, calc(32.4vw - 225px), 397px);
   top: 316px;
+  width: clamp(132px, 10.2vw, 196px);
+  height: clamp(132px, 10.2vw, 196px);
+}
+
+.bsAppoinment :global(.appointment-text) {
+  font-size: clamp(12px, 0.94vw, 18px);
+  line-height: 1.2;
 }
 
 
@@ -560,5 +600,108 @@
 
   .cardImage {
     margin: 0;
+  }
+}
+
+/* ============================================================
+   Third page (services) cards — responsive
+   768px–up: the two-zone layout (cards left, nav + circle right) is kept and
+   everything scales proportionally via clamp()/vw (see base rules above), so
+   the card never grows into the right zone.
+   ≤768px: the structure changes — the card becomes a vertical stack matching
+   the mobile design (Figma 392:3096) and the background image is dropped.
+   ============================================================ */
+@media (max-width: 768px) {
+  .beautyServicesSectionPageThree {
+    padding: 40px 16px 60px 16px;
+    background-image: none;
+  }
+
+  /* No room for the right zone on phones — it moves into the header instead */
+  .bsAppoinment {
+    display: none;
+  }
+
+  .beautyServicesListPageThree {
+    width: 100%;
+  }
+
+  /* Unwrap the <article> so the counter, header row, images and nav become
+     direct flex items of the card and can be reordered. */
+  .bsCardArticlePThree {
+    display: contents;
+  }
+
+  .serviceCounterPageThree {
+    order: 1;
+    margin-top: 0;
+    font-size: 14px;
+  }
+
+  /* Header row stacks: title above the MORE DETAILS button */
+  .bsCardHeadPThree {
+    order: 2;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .bsCardTitlePThree {
+    font-size: 32px;
+    line-height: 32px;
+  }
+
+  .beautyServicesButtonStylePThree {
+    width: auto;
+    /* auto margin overrides the global .beauty-button { align-self: end } */
+    margin-right: auto;
+  }
+
+  :global(.beauty-button).beautyServicesButtonStylePThree {
+    font-size: 14px;
+  }
+
+  .bsImagesListPThree {
+    order: 3;
+    width: 100%;
+    gap: 8px;
+  }
+
+  /* Three equal squares that fill the row — large on tablet, small on phone */
+  .bsImagesListPThree img {
+    width: calc((100% - 16px) / 3);
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+
+  /* Description is dropped on mobile per the design */
+  .bsCardTextPThree {
+    display: none;
+  }
+
+  /* Sub-services become a single vertical list without "|" separators */
+  .bsCardListPThree {
+    order: 4;
+    width: 100%;
+    margin-top: 0;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 6px;
+  }
+
+  .cardListItemI {
+    display: none;
+  }
+
+  .bsCardListItemTextPThree {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .lastLi {
+    padding-left: 0;
+    font-size: 14px;
+    line-height: 20px;
   }
 }

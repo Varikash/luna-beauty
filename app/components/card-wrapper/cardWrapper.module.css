@@ -25,12 +25,13 @@
 }
 
 .cardWrapperPageThree {
-  width: 1187px;
+  width: 100%;
+  max-width: 1187px;
   min-height: 496px;
-  padding: 40px 120px 37px 40px;
+  padding: clamp(20px, 2.1vw, 40px) clamp(28px, 6.25vw, 120px) clamp(18px, 1.9vw, 37px) clamp(20px, 2.1vw, 40px);
   background-color: white;
   display: flex;
-  gap: 32px;
+  gap: clamp(12px, 1.6vw, 32px);
   position: relative;
   border: 1px solid #E4E4E4;
 }
@@ -144,5 +145,16 @@
     padding: 8px 14px;
     height: fit-content;
     width: 344px;
+  }
+}
+
+/* Services (page3) card keeps its horizontal two-zone layout (scaling down via
+   clamp) until 768px, then stacks vertically to match the mobile design. */
+@media (max-width: 768px) {
+  .cardWrapperPageThree {
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px 16px;
+    min-height: auto;
   }
 }

@@ -1,11 +1,12 @@
-/* Navigation styles for page3 */
-/* .services-navigation {
+/* Navigation styles for page3 — pinned to the right side of the section,
+   just below the "MAKE AN APPOINTMENT" circle (matches Figma node 119:1411). */
+.services_navigation {
   position: absolute;
+  /* Slides toward the edge with the layout; vertical position stays fixed */
   top: 619px;
-  right: 76px;
-  width: 100%;
-  margin-bottom: 32px;
-} */
+  right: clamp(16px, 3.96vw, 76px);
+  z-index: 5;
+}
 
 .services_nav_list {
   display: flex;
@@ -23,9 +24,9 @@
   border: none;
   font-family: var(--font-public-sans);
   font-weight: 400;
-  font-size: 18px;
-  line-height: 24px;
-  letter-spacing: 3px;
+  font-size: clamp(13px, 0.94vw, 18px);
+  line-height: 1.35;
+  letter-spacing: clamp(1px, 0.16vw, 3px);
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -55,6 +56,14 @@
 
 .active {
   color: #A9714B;
+}
+
+/* The two-zone layout (with the side nav) is kept and scaled down to 768px;
+   below that the page switches to the stacked mobile layout, so hide it. */
+@media (max-width: 768px) {
+  .services_navigation {
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {

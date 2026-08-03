@@ -65,7 +65,7 @@ const SideMenu: React.FC<SideMenuProps> = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, [services, activeService, onActiveServiceChange, isClient]);
   return (
-    <nav className={`${styles.services_navigation} ${className}`}>
+    <nav className={`${styles.services_navigation} ${className ?? ''}`.trim()}>
       <ul className={styles.services_nav_list}>
         {services.map((service, index) => (
           <li key={`nav-${index}`}>

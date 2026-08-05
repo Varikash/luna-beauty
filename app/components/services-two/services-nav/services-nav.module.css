@@ -1,0 +1,131 @@
+.bar {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid var(--lb-line);
+  border-bottom: 1px solid var(--lb-line);
+}
+
+.inner {
+  width: 100%;
+  max-width: 1768px;
+  margin: 0 auto;
+  padding: clamp(8px, 0.8vw, 14px) var(--lb-gutter);
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 1.5vw, 24px);
+  /* keeps the fade masks glued to the scroller edges */
+  position: relative;
+}
+
+.label {
+  flex: 0 0 auto;
+  font-family: var(--font-public-sans);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--lb-ink-soft);
+  white-space: nowrap;
+}
+
+.scroller {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  /* room for the focus ring / chip shadow while scrolling */
+  padding: 4px 0;
+}
+
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.chip {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: clamp(8px, 0.7vw, 12px) clamp(14px, 1.2vw, 22px);
+  border: 1px solid var(--lb-sand);
+  border-radius: 999px;
+  background: #ffffff;
+  font-family: var(--font-public-sans);
+  font-weight: 500;
+  font-size: clamp(11px, 0.82vw, 14px);
+  line-height: 1.2;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lb-ink);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.chip:hover {
+  border-color: var(--lb-copper);
+  color: var(--lb-copper);
+}
+
+.chipIndex {
+  font-size: 0.72em;
+  letter-spacing: 0.04em;
+  color: var(--lb-ink-soft);
+  transition: color 0.25s ease;
+}
+
+.chip.active {
+  background: var(--lb-copper);
+  border-color: var(--lb-copper);
+  color: #ffffff;
+}
+
+.chip.active .chipIndex {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* Compact "book" pill on the right — desktop only, the hero CTA covers mobile */
+.book {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: var(--lb-ink);
+  color: #ffffff;
+  font-family: var(--font-public-sans);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: background-color 0.25s ease;
+}
+
+.book:hover {
+  background: var(--lb-copper);
+}
+
+@media (max-width: 1280px) {
+  .label {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .book {
+    display: none;
+  }
+}

@@ -1,0 +1,13 @@
+.catalogue {
+  width: 100%;
+  background: #ffffff;
+  /* the anchor target sits above the first block, under the sticky bar */
+  scroll-margin-top: 0;
+}
+
+.shell {
+  width: 100%;
+  max-width: 1768px;
+  margin: 0 auto;
+  padding: clamp(16px, 2vw, 40px) var(--lb-gutter) clamp(32px, 4vw, 80px);
+}

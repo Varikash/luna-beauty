@@ -1,0 +1,228 @@
+.hero {
+  width: 100%;
+  padding: clamp(24px, 3vw, 56px) 0 clamp(32px, 4vw, 72px);
+}
+
+.top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(24px, 4vw, 72px);
+  align-items: end;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-public-sans);
+  font-weight: 600;
+  font-size: clamp(10px, 0.75vw, 13px);
+  line-height: 1.4;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--lb-copper);
+}
+
+.eyebrow::after {
+  content: "";
+  flex: 1 1 auto;
+  height: 1px;
+  max-width: 120px;
+  background: var(--lb-sand);
+}
+
+.title {
+  margin-top: clamp(10px, 1.2vw, 20px);
+  display: flex;
+  flex-direction: column;
+  font-weight: 400;
+}
+
+.script {
+  font-family: var(--font-great-vibes);
+  font-size: clamp(56px, 13vw, 168px);
+  line-height: 0.9;
+  color: var(--lb-copper);
+}
+
+.serif {
+  margin-top: clamp(-8px, -0.6vw, 0px);
+  padding-left: clamp(0px, 4vw, 78px);
+  font-family: var(--font-playfair-display);
+  font-size: clamp(34px, 7.6vw, 104px);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--lb-ink);
+}
+
+.aside {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 2vw, 32px);
+  padding-bottom: clamp(4px, 1vw, 18px);
+}
+
+.lead {
+  font-family: var(--font-public-sans);
+  font-weight: 200;
+  font-size: clamp(15px, 1.15vw, 22px);
+  line-height: 1.5;
+  color: var(--lb-ink);
+  max-width: 46ch;
+}
+
+.lead b {
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(12px, 1.2vw, 20px);
+}
+
+/* Overrides the global `.beauty-button { align-self: end }` so the pill sits
+   with the rest of the row instead of hugging the bottom of the flex line. */
+:global(.beauty-button).heroButton {
+  align-self: auto;
+  flex: 0 1 auto;
+  min-width: 0;
+  height: auto;
+  padding: 14px clamp(16px, 1.8vw, 28px);
+  font-size: clamp(12px, 0.9vw, 16px);
+  gap: clamp(8px, 0.8vw, 14px);
+}
+
+:global(.beauty-button).heroButton img {
+  width: clamp(20px, 1.7vw, 32px);
+  height: auto;
+}
+
+.ghostLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-public-sans);
+  font-weight: 600;
+  font-size: clamp(12px, 0.9vw, 15px);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--lb-ink);
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--lb-sand);
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.ghostLink:hover {
+  color: var(--lb-copper);
+  border-color: var(--lb-copper);
+}
+
+.ghostLink span {
+  transition: transform 0.25s ease;
+}
+
+.ghostLink:hover span {
+  transform: translateX(4px);
+}
+
+/* ---------- stats ---------- */
+
+.stats {
+  margin-top: clamp(28px, 4vw, 64px);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--lb-line);
+  list-style: none;
+}
+
+.stat {
+  padding: clamp(14px, 1.6vw, 26px) clamp(10px, 1.4vw, 24px);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-left: 1px solid var(--lb-line);
+}
+
+.stat:first-child {
+  padding-left: 0;
+  border-left: none;
+}
+
+.statValue {
+  font-family: var(--font-playfair-display);
+  font-weight: 400;
+  font-size: clamp(28px, 3.2vw, 56px);
+  line-height: 1.05;
+  color: var(--lb-ink);
+}
+
+.statLabel {
+  font-family: var(--font-public-sans);
+  font-weight: 400;
+  font-size: clamp(11px, 0.8vw, 15px);
+  line-height: 1.35;
+  color: var(--lb-ink-soft);
+}
+
+@media (max-width: 1024px) {
+  .top {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    gap: clamp(20px, 3vw, 32px);
+  }
+
+  .aside {
+    padding-bottom: 0;
+  }
+
+  .serif {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stat {
+    border-left: none;
+    border-bottom: 1px solid var(--lb-line);
+    padding-left: 0;
+    padding-right: 12px;
+  }
+
+  .stat:nth-child(even) {
+    padding-left: 14px;
+    border-left: 1px solid var(--lb-line);
+  }
+
+  .stat:nth-last-child(-n + 2) {
+    border-bottom: none;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  :global(.beauty-button).heroButton {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+
+  .ghostLink {
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 360px) {
+  .script {
+    font-size: 54px;
+  }
+
+  .serif {
+    font-size: 32px;
+  }
+}

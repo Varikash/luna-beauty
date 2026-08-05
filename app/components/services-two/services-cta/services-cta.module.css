@@ -1,0 +1,129 @@
+.section {
+  width: 100%;
+  padding: clamp(32px, 4vw, 80px) var(--lb-gutter);
+  background: #ffffff;
+}
+
+.band {
+  width: 100%;
+  max-width: 1768px;
+  margin: 0 auto;
+  padding: clamp(28px, 3.6vw, 72px) clamp(20px, 3vw, 64px);
+  background: var(--lb-sage);
+  border-top-left-radius: clamp(32px, 5vw, 96px);
+  border-bottom-right-radius: clamp(32px, 5vw, 96px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(20px, 3vw, 56px);
+}
+
+.eyebrow {
+  font-family: var(--font-public-sans);
+  font-weight: 600;
+  font-size: clamp(10px, 0.76vw, 13px);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.title {
+  margin-top: clamp(8px, 0.9vw, 16px);
+  font-family: var(--font-playfair-display);
+  font-weight: 400;
+  font-size: clamp(26px, 3.4vw, 56px);
+  line-height: 1.1;
+  color: #ffffff;
+}
+
+.title em {
+  font-family: var(--font-great-vibes);
+  font-style: normal;
+  font-size: 1.2em;
+}
+
+.text {
+  margin-top: clamp(10px, 1vw, 18px);
+  max-width: 48ch;
+  font-family: var(--font-public-sans);
+  font-weight: 200;
+  font-size: clamp(14px, 1vw, 19px);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.actions {
+  margin-top: clamp(16px, 1.8vw, 30px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(12px, 1.2vw, 20px);
+}
+
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: clamp(12px, 1.1vw, 18px) clamp(18px, 1.8vw, 32px);
+  border-radius: 999px;
+  font-family: var(--font-public-sans);
+  font-weight: 600;
+  font-size: clamp(11px, 0.85vw, 15px);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.primary {
+  background: #ffffff;
+  color: var(--lb-ink);
+  border: 1px solid #ffffff;
+}
+
+.primary:hover {
+  background: var(--lb-copper);
+  border-color: var(--lb-copper);
+  color: #ffffff;
+}
+
+.secondary {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.secondary:hover {
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* The round "make an appointment" badge, only where there is room for it */
+.circle {
+  flex: 0 0 auto;
+  width: clamp(150px, 13vw, 196px);
+  height: clamp(150px, 13vw, 196px);
+}
+
+.circle :global(.appointment-text) {
+  font-size: clamp(12px, 0.95vw, 18px);
+  line-height: 1.2;
+}
+
+@media (max-width: 900px) {
+  .circle {
+    display: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .primary,
+  .secondary {
+    justify-content: center;
+  }
+}

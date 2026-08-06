@@ -4,59 +4,46 @@ import CardWrapper from "@/app/components/card-wrapper/card-wrapper";
 import OurClientsRecommended from "@/app/components/our-clients-recommended/ourClientsRecommended";
 import Header from "@/app/components/header/header";
 import Footer from "@/app/components/footer/footer";
-import { serviceDetailsMock, iServiceExtended } from '@/app/utils/mockFiles';
-import SideMenu from '@/app/components/side-menu/side-menu';
-import AppointmentButton from '@/app/utils/ui/make-an-appointment/make-an-appointment';
+import { servicesCatalogMock, findServiceByLink } from '@/app/utils/mockServicesTwo';
+import ServiceHead from './service-head';
 import { notFound } from "next/navigation";
 
 type PageProps = { params: Promise<{ id: string }> };
 
+/** Every category in the catalogue gets its own pre-rendered detail page */
+export function generateStaticParams() {
+  return servicesCatalogMock.map((service) => ({ id: service.link }));
+}
+
+export async function generateMetadata({ params }: PageProps) {
+  const { id } = await params;
+  const service = findServiceByLink(id);
+  if (!service) return {};
+  return {
+    title: `${service.title} — Luna Beauty`,
+    description: service.description,
+  };
+}
+
 export default async function ServiceDetails({ params }: PageProps) {
   const { id } = await params;
-  const setService = (serviceDetailsMock as Record<string, iServiceExtended | undefined>)[id];
-  if (!setService) notFound();
-  const detailsTitles: string[] = setService.details.map(detail => detail.title);
+  const service = findServiceByLink(id);
+  if (!service) notFound();
+
   return (
     <div className={styles.page}>
       <Header type="otherpages" />
       <main className={styles.main}>
         <section className={styles.beautyServiceDetail}>
-          <div className={styles.beautyServiceHead}>
-            <div className={styles.titleWrapper}>
-              <nav className={styles.navigateButton}>
-                <Image src="/images/ui/arrow-left.svg" alt="Previous" width={24} height={24} />Back to all services
-              </nav>
-              <h2 className={`vine-title ${styles.header}`}>{serviceDetailsMock.makeup.title}</h2>
-              <h2 className={`vine-title ${styles.header_mobile}`}><span className={styles.header_mobile_span}>{serviceDetailsMock.makeup.title[0]}</span>{serviceDetailsMock.makeup.title.slice(1)}</h2>
-            </div>
-            <div className={styles.beautyServiceHeadAside}>
-              <div className={styles.imageWrapper}>
-                <Image
-                  src={setService.master.image}
-                  alt="BeautyServices"
-                  className={styles.beautyServiceHeadImage}
-                  width={148}
-                  height={148}
-                />
-              </div>
-              <p className={styles.master_name}>
-                {setService.master.name}
-              </p>
-              <p className={styles.beautyServiceHeadAsideSubtitle}>
-                {setService.master.title}
-              </p>
-              <AppointmentButton className={styles.appoinmentButton} />
-              <SideMenu className={styles.asideMenu} services={detailsTitles} />
-            </div>
-          </div>
+          <ServiceHead service={service} />
           <div className={styles.beautyServiceWtfContainer}>
             <ul className={styles.beautyServiceWtf}>
-              {setService.details.map((service, index) =>
-                <CardWrapper type="page4" ikey={index} id={service.title} key={index}>
+              {service.treatments.map((treatment, index) =>
+                <CardWrapper type="page4" ikey={index} id={treatment.title} key={treatment.title}>
                   <div>
                     <div className={styles.cardHeader}>
                       <span className={styles.serviceCounter}>
-                        0{index + 1}
+                        {String(index + 1).padStart(2, '0')}
                       </span>
                       <a
                         href="https://example.com/booking"
@@ -75,10 +62,10 @@ export default async function ServiceDetails({ params }: PageProps) {
                     </div>
                     <div className={styles.cardTextWrapper}>
                       <h3 className={styles.cardTitle}>
-                        {service.title}
+                        {treatment.title}
                       </h3>
                       <p className={styles.cardText}>
-                        {service.text}
+                        {treatment.text}
                       </p>
                       <Image
                         src="/images/bs/calendarButton.svg"
@@ -91,13 +78,13 @@ export default async function ServiceDetails({ params }: PageProps) {
                   </div>
                   <div className={styles.cardFooter}>
                     <div className={styles.cardListItem}>
-                      <p className={styles.cardTime}>{service.time}</p>
+                      <p className={styles.cardTime}>{treatment.duration}</p>
                       <div className={styles.cardListItemI}>|</div>
-                      <p className={styles.cardPrice}>{service.price}</p>
+                      <p className={styles.cardPrice}>{treatment.price}</p>
                     </div>
                     <Image
-                      src={service.images}
-                      alt={service.title}
+                      src={treatment.image}
+                      alt={treatment.title}
                       width={208}
                       height={208}
                       className={styles.cardImage}

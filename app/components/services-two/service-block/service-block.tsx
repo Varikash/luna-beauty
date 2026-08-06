@@ -78,7 +78,7 @@ const ServiceBlock: React.FC<ServiceBlockProps> = ({ service, index }) => {
 
         <div className={style.foot}>
           <Link href={detailsHref} className={style.viewAll}>
-            View all {service.treatmentsTotal} treatments
+            View all {service.treatments.length} treatments
             <span aria-hidden="true">→</span>
           </Link>
 

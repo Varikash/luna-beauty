@@ -73,6 +73,8 @@
 
 .navigateButton {
   padding-left: 10px;
+  align-self: flex-start;
+  text-decoration: none;
   display: flex;
   align-items: center;
   gap: 28px;
@@ -260,6 +262,63 @@
   margin-right: 15px;
 }
 
+/* ===== master switcher (several masters per category) ===== */
+
+.mastersSwitch {
+  display: flex;
+  justify-content: flex-end;
+  /* clears the absolutely positioned 148px portrait above it */
+  margin-top: 158px;
+  margin-right: 15px;
+}
+
+.switchAvatar {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 auto;
+  padding: 0;
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+  overflow: hidden;
+  background: none;
+  cursor: pointer;
+  margin-left: -10px;
+  opacity: 0.55;
+  filter: grayscale(1);
+  transition: opacity 0.25s ease, filter 0.25s ease, transform 0.25s ease;
+}
+
+.switchAvatar:first-child {
+  margin-left: 0;
+}
+
+.switchAvatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.switchAvatar:hover {
+  opacity: 0.85;
+  filter: grayscale(0);
+}
+
+.switchAvatarActive,
+.switchAvatarActive:hover {
+  opacity: 1;
+  filter: none;
+  border-color: #CBC1B8;
+  transform: scale(1.12);
+  z-index: 2;
+}
+
+/* the switcher already cleared the portrait, so the name sits right under it */
+.mastersSwitch + .master_name {
+  margin-top: 14px;
+}
+
 /* ===== MEDIA QUERIES ===== */
 
 @media (max-width: 1750px) {
@@ -351,6 +410,16 @@
   .master_name {
     margin-top: 20px;
     text-align: left;
+  }
+
+  /* portrait is back in the flow here — no clearance needed */
+  .mastersSwitch {
+    margin-top: 18px;
+    margin-right: 0;
+  }
+
+  .mastersSwitch + .master_name {
+    margin-top: 14px;
   }
 }
 
@@ -472,6 +541,16 @@
     margin-bottom: 16px;
     font-size: 41px;
     line-height: 41px;
+  }
+
+  /* aside is left-aligned on mobile, so the avatar row follows it */
+  .mastersSwitch {
+    justify-content: flex-start;
+    margin-top: 16px;
+  }
+
+  .mastersSwitch + .master_name {
+    margin-top: 16px;
   }
 
 }

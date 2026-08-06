@@ -4,16 +4,13 @@ import CardWrapper from "@/app/components/card-wrapper/card-wrapper";
 import OurClientsRecommended from "@/app/components/our-clients-recommended/ourClientsRecommended";
 import Header from "@/app/components/header/header";
 import Footer from "@/app/components/footer/footer";
-import { serviceDetailsMock } from '@/app/utils/mockFiles';
 import { contacts, socialHeader } from '@/app/utils/mockFiles';
-import SideMenu from '@/app/components/side-menu/side-menu';
 import AppointmentButton from '@/app/utils/ui/make-an-appointment/make-an-appointment';
 import ContactForm from "@/app/components/contact-form/contact-form";
 
 
 export default function ContactUs() {
 
-  const detailsTitles = serviceDetailsMock.makeup.details.map(detail => detail.title);
   return (
     <div className={styles.page}>
       <Header type="otherpages" />

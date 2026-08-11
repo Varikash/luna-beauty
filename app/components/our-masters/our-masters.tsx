@@ -6,6 +6,7 @@ import Link from 'next/link';
 import './our-masters.css';
 import MasterListItem from '@/app/components/master-list-item/master-list-item';
 import { mastersMock } from '@/app/utils/mockFiles';
+import { masterHref } from '@/app/utils/mockMasters';
 import { useMediaQuery } from '@/app/utils/hooks/useMediaQuery';
 
 const OurMasters = () => {
@@ -32,7 +33,7 @@ const OurMasters = () => {
   };
 
   return (
-    <section className="our-masters">
+    <section className="our-masters" id="masters">
       <article className="our-masters-header-container">
         <div className="our-masters-header-left">
           <div className="our-masters-header">
@@ -45,7 +46,11 @@ const OurMasters = () => {
           <p className="our-masters-subtitle">Experience our elegant beauty salon in the heart of London, where every corner is designed to inspire. Indulge.</p>
         </div>
         {/* <MasterListItem innerKey={93} master={mastersMock[0]} type="master-card-border" /> */}
-        <Link href="/example" className="our-masters-featured-card" aria-label="Featured master">
+        <Link
+          href={masterHref(featuredMaster.name)}
+          className="our-masters-featured-card"
+          aria-label={`${featuredMaster.name} — open profile`}
+        >
           <div className="our-masters-featured-media">
             <Image
               className="our-masters-featured-photo"

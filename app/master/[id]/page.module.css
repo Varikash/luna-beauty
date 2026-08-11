@@ -1,0 +1,754 @@
+/**
+ * /master/<slug> — built from the Figma frames "1920/Master" (desktop) and
+ * "Master Mobile" (375). The design has no intermediate states, so everything
+ * between the two is interpolated with clamp() on the same short breakpoint
+ * ladder the services-two components use.
+ *
+ * --lb-gutter resolves to exactly 76px at 1920 and 16px at 375 — both gutters
+ * the design asks for.
+ */
+
+.page {
+  --lb-ink: #0a090c;
+  --lb-ink-soft: #6b6862;
+  --lb-copper: #a9714b;
+  --lb-copper-soft: #c78f69;
+  --lb-sage: #95a3a0;
+  --lb-sand: #cbc1b8;
+  --lb-line: #e4e4e4;
+  --lb-cream: #f7f4f1;
+
+  --lb-gutter: clamp(16px, 3.96vw, 76px);
+  /* the round appointment button: 196 desktop → 148 mobile.
+     12vw keeps it near 172 at 1440 instead of dropping straight to the floor */
+  --lb-book: clamp(148px, 12vw, 196px);
+
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #ffffff;
+  overflow-x: clip;
+}
+
+.main {
+  width: 100%;
+  max-width: 1920px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================== HERO ============================== */
+
+.hero {
+  width: 100%;
+  /* the full-bleed rule the design puts right under the header */
+  border-top: 1px solid var(--lb-line);
+  padding: clamp(24px, 3.6vw, 70px) 0 clamp(32px, 4.7vw, 90px);
+}
+
+.heroShell {
+  width: 100%;
+  max-width: 1768px;
+  margin: 0 auto;
+  padding: 0 var(--lb-gutter);
+  display: grid;
+  /* portrait 568 · bio 488 · aside 486 */
+  grid-template-columns: minmax(0, 568fr) minmax(0, 488fr) minmax(0, 486fr);
+  grid-template-areas:
+    'back     back  aside'
+    'portrait bio   aside';
+  column-gap: clamp(24px, 3.5vw, 68px);
+  row-gap: clamp(16px, 1.7vw, 32px);
+  align-items: start;
+}
+
+.backLink {
+  grid-area: back;
+  align-self: start;
+  justify-self: start;
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 1.5vw, 28px);
+  font-family: var(--font-public-sans);
+  font-weight: 600;
+  font-size: clamp(14px, 0.94vw, 18px);
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--lb-sand);
+  transition: color 0.2s ease;
+}
+
+.backLink:hover {
+  color: var(--lb-copper);
+}
+
+/* ---- portrait + book button ---- */
+
+.portraitCol {
+  grid-area: portrait;
+  position: relative;
+  width: 100%;
+}
+
+.portrait {
+  position: relative;
+  width: 100%;
+  /* 568 x 796 */
+  aspect-ratio: 568 / 796;
+  overflow: hidden;
+  /* TL 0 · TR 96 · BR 0 · BL 96 */
+  border-radius: 0 clamp(32px, 5vw, 96px) 0 clamp(32px, 5vw, 96px);
+}
+
+.portrait img {
+  object-fit: cover;
+}
+
+/* the button straddles the photo's bottom-right corner, half in half out */
+.book {
+  position: absolute;
+  right: calc(var(--lb-book) / -2);
+  bottom: calc(var(--lb-book) / -2);
+  z-index: 3;
+  width: var(--lb-book);
+  height: var(--lb-book);
+}
+
+.book :global(.appointment-text) {
+  font-size: clamp(12px, 0.95vw, 18px);
+  line-height: 1.2;
+}
+
+/* ---- bio column ---- */
+
+.bio {
+  grid-area: bio;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  /* the design drops the text 64px below the photo's top edge */
+  padding-top: clamp(0px, 3.3vw, 64px);
+}
+
+.eyebrow {
+  font-family: var(--font-public-sans);
+  font-weight: 500;
+  font-size: clamp(14px, 1.46vw, 28px);
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--lb-copper);
+}
+
+.name {
+  font-family: var(--font-playfair-display);
+  font-weight: 400;
+  font-size: clamp(32px, 2.5vw, 48px);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: var(--lb-ink);
+}
+
+.intro {
+  font-family: var(--font-public-sans);
+  font-weight: 200;
+  font-size: clamp(18px, 1.25vw, 24px);
+  line-height: 1.34;
+  letter-spacing: 0.01em;
+  color: var(--lb-ink);
+}
+
+.chips {
+  list-style: none;
+  margin: clamp(8px, 1vw, 16px) 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chips li {
+  font-family: var(--font-public-sans);
+  font-weight: 500;
+  font-size: clamp(13px, 0.94vw, 18px);
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  color: var(--lb-ink);
+}
+
+/* ---- right column: starred strapline + landscape photo ---- */
+
+.aside {
+  grid-area: aside;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 3.3vw, 64px);
+  /* strapline sits 43px below the hero's top edge */
+  padding-top: clamp(0px, 2.2vw, 43px);
+}
+
+/* the star sits at the block's left edge, the copy is set right (Frame 416) */
+.strapline {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  margin-left: auto;
+  max-width: 372px;
+}
+
+.strapline p {
+  width: 100%;
+  font-family: var(--font-public-sans);
+  font-weight: 400;
+  font-size: clamp(14px, 0.83vw, 16px);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  text-align: right;
+  color: var(--lb-ink);
+}
+
+.straplineStar {
+  width: clamp(28px, 1.82vw, 35px);
+  height: clamp(28px, 1.82vw, 35px);
+}
+
+.sidePhoto {
+  position: relative;
+  width: 100%;
+  /* 486 x 397 */
+  aspect-ratio: 486 / 397;
+  overflow: hidden;
+}
+
+.sidePhoto img {
+  object-fit: cover;
+}
+
+/* ============================== STORY ============================== */
+
+.story {
+  position: relative;
+  width: 100%;
+  background: var(--lb-line);
+  padding: clamp(32px, 5vw, 96px) 0;
+  overflow: hidden;
+}
+
+/* arc + curve + hairlines, all 1px white; dropped on mobile like in the design */
+.storyDecor {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.storyShell {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1768px;
+  margin: 0 auto;
+  padding: 0 var(--lb-gutter);
+  display: grid;
+  /* left 568 · right 868 */
+  grid-template-columns: minmax(0, 568fr) minmax(0, 868fr);
+  column-gap: clamp(24px, 4.2vw, 80px);
+  align-items: start;
+}
+
+.storyLeft,
+.storyRight {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.storyLeft {
+  gap: clamp(24px, 5vw, 96px);
+}
+
+.storyRight {
+  gap: clamp(24px, 3.3vw, 64px);
+  /* the right column starts lower than the left one */
+  padding-top: clamp(0px, 3.3vw, 64px);
+}
+
+.storyLead {
+  font-family: var(--font-playfair-display);
+  font-weight: 400;
+  font-size: clamp(24px, 1.67vw, 32px);
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  color: var(--lb-ink);
+}
+
+.storyWide {
+  position: relative;
+  width: 100%;
+  /* 868 x 464 */
+  aspect-ratio: 868 / 464;
+  overflow: hidden;
+}
+
+.storyTall {
+  position: relative;
+  width: 100%;
+  /* 568 x 668 */
+  aspect-ratio: 568 / 668;
+  overflow: hidden;
+}
+
+.storyWide img,
+.storyTall img {
+  object-fit: cover;
+}
+
+.storyBody {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 1.7vw, 32px);
+  max-width: 718px;
+}
+
+.storyBody p {
+  font-family: var(--font-public-sans);
+  font-weight: 200;
+  font-size: clamp(18px, 1.25vw, 24px);
+  line-height: 1.34;
+  letter-spacing: 0.01em;
+  color: var(--lb-ink);
+}
+
+.storyStar {
+  align-self: flex-end;
+  width: clamp(48px, 3.75vw, 72px);
+  height: clamp(48px, 3.75vw, 72px);
+  margin-top: clamp(16px, 3.6vw, 69px);
+}
+
+/* ============================== SERVICES ============================== */
+
+.services {
+  width: 100%;
+  padding: clamp(32px, 6.25vw, 120px) 0 clamp(40px, 5vw, 96px);
+}
+
+.servicesShell {
+  width: 100%;
+  max-width: 1768px;
+  margin: 0 auto;
+  padding: 0 var(--lb-gutter);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 2.5vw, 48px);
+}
+
+.servicesHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: clamp(24px, 4vw, 76px);
+}
+
+/* the two title words overlap by 17px in the design */
+.servicesTitle:global(.vine-title) {
+  font-size: clamp(34px, 5vw, 96px);
+  line-height: 1;
+  letter-spacing: normal;
+  color: #141414;
+}
+
+.titleLine {
+  display: block;
+}
+
+/* the design indents the first word and overlaps the two lines by 17px
+   (clamp needs the smaller number first, which for negatives is the -17) */
+.titleLineFirst {
+  padding-left: clamp(24px, 5.3vw, 102px);
+}
+
+.titleLineLast {
+  margin-top: clamp(-17px, -0.9vw, -9px);
+}
+
+.servicesTitle :global(.champagne-title) {
+  font-size: clamp(48px, 7.1vw, 136px);
+  line-height: 0.55;
+  margin-bottom: 0;
+}
+
+.servicesAside {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: clamp(24px, 5.8vw, 112px);
+  max-width: 490px;
+}
+
+.servicesSubtitle {
+  font-family: var(--font-public-sans);
+  font-weight: 200;
+  font-size: clamp(18px, 1.25vw, 24px);
+  line-height: 1.34;
+  letter-spacing: 0.01em;
+  text-align: right;
+  white-space: pre-line;
+  color: var(--lb-ink);
+}
+
+:global(.beauty-button).servicesButton {
+  align-self: flex-end;
+  flex: 0 0 auto;
+  font-size: clamp(14px, 0.94vw, 18px);
+  border-color: var(--lb-sand);
+}
+
+/* ---- slider ---- */
+
+.sliderControls {
+  display: flex;
+  gap: 16px;
+}
+
+.sliderBtn {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: #ffffff;
+  cursor: pointer;
+  transition: background 0.3s ease, opacity 0.3s ease;
+}
+
+.sliderBtnNext {
+  background: var(--lb-sage);
+}
+
+.sliderBtnNext img {
+  filter: brightness(0) invert(1);
+}
+
+.sliderBtnPrev:hover:not(:disabled) {
+  background: var(--lb-sage);
+}
+
+.sliderBtnPrev:hover:not(:disabled) img {
+  filter: brightness(0) invert(1);
+}
+
+.sliderBtnNext:hover:not(:disabled) {
+  background: #ffffff;
+}
+
+.sliderBtnNext:hover:not(:disabled) img {
+  filter: none;
+}
+
+.sliderBtn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.trackViewport {
+  width: 100%;
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  align-items: stretch;
+  gap: 32px;
+  transform: translateX(var(--shift, 0px));
+  transition: transform 0.45s ease;
+}
+
+/* the card is a <li> from CardWrapper — keep it from shrinking in the track */
+.track > li {
+  flex: 0 0 568px;
+  max-width: 568px;
+}
+
+/* ============================== RESPONSIVE ============================== */
+
+/* 1280 — the aside drops under the hero, still two columns above it */
+@media (max-width: 1280px) {
+  .heroShell {
+    grid-template-columns: minmax(0, 568fr) minmax(0, 488fr);
+    grid-template-areas:
+      'back     back'
+      'portrait bio'
+      'aside    aside';
+  }
+
+  .aside {
+    flex-direction: row;
+    align-items: flex-end;
+    gap: clamp(20px, 3vw, 48px);
+    padding-top: clamp(16px, 2vw, 32px);
+  }
+
+  .strapline {
+    margin-left: 0;
+    align-items: flex-start;
+    flex: 1 1 auto;
+  }
+
+  .strapline p {
+    text-align: left;
+  }
+
+  .sidePhoto {
+    flex: 0 0 clamp(280px, 40vw, 486px);
+  }
+
+  .track > li {
+    flex-basis: 500px;
+    max-width: 500px;
+  }
+}
+
+/* 1024 — the portrait gives up width to the copy, but the two columns stay:
+   stacking this early would leave half the row empty */
+@media (max-width: 1024px) {
+  .heroShell {
+    grid-template-columns: minmax(0, 420fr) minmax(0, 560fr);
+    column-gap: clamp(20px, 3vw, 40px);
+  }
+
+  .bio {
+    padding-top: clamp(8px, 2vw, 24px);
+  }
+
+  .storyShell {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: clamp(24px, 4vw, 48px);
+  }
+
+  .storyRight {
+    padding-top: 0;
+  }
+
+  .storyStar {
+    display: none;
+  }
+}
+
+/* 900 — the services head stacks */
+@media (max-width: 900px) {
+  .servicesHead {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: clamp(16px, 3vw, 32px);
+  }
+
+  .servicesAside {
+    align-items: flex-start;
+    max-width: 100%;
+  }
+
+  .servicesSubtitle {
+    text-align: left;
+  }
+
+  :global(.beauty-button).servicesButton {
+    align-self: flex-start;
+  }
+}
+
+/* 768 — the mobile design: the hero reorders and the portrait becomes a circle */
+@media (max-width: 768px) {
+  .hero {
+    border-top: none;
+    /* on mobile the rule sits between the hero and the story instead */
+    border-bottom: 1px solid var(--lb-line);
+    padding: 40px 0 32px;
+  }
+
+  .heroShell {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: none;
+    row-gap: 16px;
+  }
+
+  /* let the bio's children join the grid so they can be reordered */
+  .bio {
+    display: contents;
+  }
+
+  .backLink,
+  .portraitCol,
+  .eyebrow,
+  .name,
+  .intro,
+  .chips,
+  .aside {
+    grid-area: auto;
+    grid-column: 1;
+  }
+
+  .backLink { order: 1; }
+  .name { order: 2; }
+  .eyebrow { order: 3; }
+  .chips { order: 4; margin-top: 0; }
+  .portraitCol { order: 5; }
+  .intro { order: 6; }
+  .aside { order: 7; }
+
+  /* the eyebrow becomes a copper pill */
+  .eyebrow {
+    justify-self: start;
+    padding: 6px 16px;
+    border-radius: 32px;
+    background: var(--lb-copper);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.43;
+    letter-spacing: 0.01em;
+  }
+
+  /* portrait shrinks to a 148px circle with the button beside it, not over it */
+  .portraitCol {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    max-width: none;
+    margin-top: 8px;
+  }
+
+  .portrait {
+    flex: 0 0 148px;
+    width: 148px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+  }
+
+  .book {
+    position: static;
+    width: 148px;
+    height: 148px;
+  }
+
+  .aside {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    padding-top: 0;
+  }
+
+  .strapline {
+    max-width: none;
+    gap: 8px;
+  }
+
+  .sidePhoto {
+    flex: 0 0 auto;
+    aspect-ratio: 340 / 258;
+  }
+
+  /* the whole decoration layer is absent from the mobile design */
+  .storyDecor {
+    display: none;
+  }
+
+  .story {
+    padding: 32px 0;
+  }
+
+  .storyShell {
+    row-gap: 24px;
+  }
+
+  .storyLeft,
+  .storyRight {
+    gap: 24px;
+  }
+
+  /* mobile crops: 344x344 and 344x464 */
+  .storyWide {
+    aspect-ratio: 1;
+  }
+
+  .storyTall {
+    aspect-ratio: 344 / 464;
+  }
+
+  /* the design shows the lead, then both photos, then the body */
+  .storyLeft {
+    display: contents;
+  }
+
+  .storyRight {
+    display: contents;
+  }
+
+  .storyLead { order: 1; }
+  .storyWide { order: 2; }
+  .storyTall { order: 3; }
+  .storyBody { order: 4; }
+
+  .services {
+    padding: 32px 0 40px;
+  }
+
+  .servicesShell {
+    gap: 24px;
+  }
+
+  :global(.beauty-button).servicesButton {
+    align-self: stretch;
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* cards stack vertically — no horizontal overflow left for the arrows to move */
+  .track {
+    flex-direction: column;
+    gap: 16px;
+    transform: none;
+  }
+
+  .track > li {
+    flex: 0 0 auto;
+    max-width: none;
+    width: 100%;
+  }
+
+  .sliderControls {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .name {
+    font-size: 32px;
+  }
+
+  .titleLineLast {
+    padding-left: 24px;
+  }
+}
+
+@media (max-width: 400px) {
+  .portraitCol {
+    gap: 16px;
+  }
+
+  .portrait,
+  .book {
+    flex-basis: 132px;
+    width: 132px;
+    height: 132px;
+  }
+}

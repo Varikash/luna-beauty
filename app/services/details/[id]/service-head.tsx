@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { IServiceCategory } from '@/app/utils/mockServicesTwo';
+import { masterHref } from '@/app/utils/mockMasters';
 import SideMenu from '@/app/components/side-menu/side-menu';
 import AppointmentButton from '@/app/utils/ui/make-an-appointment/make-an-appointment';
 import styles from './page.module.css';
@@ -73,7 +74,9 @@ const ServiceHead: React.FC<ServiceHeadProps> = ({ service }) => {
           </div>
         )}
 
-        <p className={styles.master_name}>{master.name}</p>
+        <Link href={masterHref(master.name)} className={styles.master_name}>
+          {master.name}
+        </Link>
         <p className={styles.beautyServiceHeadAsideSubtitle}>
           {master.bio ?? master.role}
         </p>

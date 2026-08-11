@@ -1,7 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import './master-list-item.css';
 import { IMaster } from '@/app/utils/mockFiles';
+import { masterHref } from '@/app/utils/mockMasters';
 import AppointmentButton from "@/app/utils/ui/make-an-appointment/make-an-appointment";
 
 interface MasterListItemProps {
@@ -15,6 +17,14 @@ const MasterListItem: React.FC<MasterListItemProps> = ({ innerKey, master, type 
     <div className={`master-list-item ${type === "page1"
       ? ""
       : "master-card-border"}`} key={innerKey + master.name}>
+      {/* Stretched link: the whole card opens the profile. It cannot wrap the
+          card because AppointmentButton is itself an anchor — nesting is
+          invalid — so it overlays instead, and the button paints above it. */}
+      <Link
+        href={masterHref(master.name)}
+        className="master-card-link"
+        aria-label={`${master.name} — open profile`}
+      />
       <div className="master-image-status">
         <Image
           src={master.image}

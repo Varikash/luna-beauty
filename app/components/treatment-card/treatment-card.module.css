@@ -1,0 +1,166 @@
+/**
+ * Treatment card — moved here verbatim from
+ * app/services/details/[id]/page.module.css so the master page can use the
+ * same card. The card box itself (568x640, 1px #E4E4E4 border, 40px padding)
+ * lives in cardWrapper.module.css under .cardWrapperPageFour.
+ */
+
+.cardHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  position: relative;
+}
+
+.serviceCounter {
+  font-family: var(--font-public-sans);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: #0A090C;
+}
+
+.calendarIcon {
+  width: 48px;
+  height: 48px;
+}
+
+.calendarLink {
+  display: inline-block;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.cardTitle {
+  width: 100%;
+  font-family: var(--font-playfair-display);
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 48px;
+  letter-spacing: -2.5px;
+  color: #0A090C;
+  margin-top: 4px;
+}
+
+.cardText {
+  width: 100%;
+  font-family: var(--font-public-sans);
+  font-weight: 200;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0.2px;
+  color: #0A090C;
+}
+
+.cardTextWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cardFooter {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.cardImage {
+  object-fit: cover;
+}
+
+.cardTime {
+  font-family: var(--font-public-sans);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.01em;
+}
+
+.cardPrice {
+  font-family: var(--font-public-sans);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: #A9714B;
+}
+
+.cardListItemI {
+  font-family: var(--font-public-sans);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 26px;
+  color: #95A3A0;
+}
+
+.cardListItem {
+  display: flex;
+  gap: 8px;
+}
+
+.calendarIconMobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .serviceCounter {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .cardTitle {
+    font-size: 32px;
+    line-height: 36px;
+    letter-spacing: -1.55px;
+  }
+
+  .cardText {
+    font-size: 18px;
+    line-height: 25px;
+    margin-top: 0px;
+  }
+
+  .cardFooter {
+    flex-direction: row-reverse;
+    gap: 20px;
+    margin-top: 8px;
+  }
+
+  .cardImage {
+    width: 40%;
+    height: auto;
+  }
+}
+
+@media (max-width: 440px) {
+  .cardFooter {
+    gap: 20px;
+    align-items: end;
+  }
+
+  /* below 440 the booking icon moves from the header down next to the copy */
+  .calendarIcon {
+    display: none;
+  }
+
+  .calendarIconMobile {
+    display: block;
+    width: 48px;
+    height: 48px;
+  }
+
+  .cardImage {
+    width: 96px;
+    height: 96px;
+  }
+
+  .cardTime,
+  .cardPrice {
+    font-size: 13px;
+  }
+}

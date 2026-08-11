@@ -262,17 +262,31 @@
   flex: 0 0 auto;
 }
 
+/* each avatar links to its master's page; the overlap lives on the link so
+   :first-child still refers to the first avatar in the row */
+.avatarLink {
+  display: block;
+  border-radius: 50%;
+  margin-left: -12px;
+  transition: transform 0.25s ease;
+}
+
+.avatarLink:first-child {
+  margin-left: 0;
+}
+
+.avatarLink:hover {
+  transform: translateY(-3px);
+  z-index: 2;
+}
+
 .avatar {
+  display: block;
   width: clamp(34px, 2.6vw, 46px);
   height: clamp(34px, 2.6vw, 46px);
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid #ffffff;
-  margin-left: -12px;
-}
-
-.avatar:first-child {
-  margin-left: 0;
 }
 
 .mastersText {

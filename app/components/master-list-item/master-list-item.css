@@ -82,10 +82,19 @@
   letter-spacing: 1%;
 }
 
+/* covers the card so the whole thing opens /master/<slug> */
+.master-card-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
 .master-list-appoinment {
   position: absolute;
   top: 292px;
   right: 72px;
+  /* stays clickable above the stretched card link */
+  z-index: 2;
 }
 
 .master-hover-element {

@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { IServiceCategory } from '@/app/utils/mockServicesTwo';
+import { masterHref } from '@/app/utils/mockMasters';
 import style from './service-block.module.css';
 
 interface ServiceBlockProps {
@@ -85,14 +86,20 @@ const ServiceBlock: React.FC<ServiceBlockProps> = ({ service, index }) => {
           <div className={style.masters}>
             <div className={style.avatars}>
               {service.masters.map((master, masterIndex) => (
-                <Image
+                <Link
                   key={`${service.id}-master-${masterIndex}`}
-                  src={master.image}
-                  alt={master.name}
-                  width={46}
-                  height={46}
-                  className={style.avatar}
-                />
+                  href={masterHref(master.name)}
+                  className={style.avatarLink}
+                  title={master.name}
+                >
+                  <Image
+                    src={master.image}
+                    alt={master.name}
+                    width={46}
+                    height={46}
+                    className={style.avatar}
+                  />
+                </Link>
               ))}
             </div>
             <p className={style.mastersText}>

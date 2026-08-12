@@ -25,12 +25,28 @@
 }
 
 .contact {
+  position: relative;
   width: 100%;
   padding: clamp(16px, 1.72vw, 33px) 0 clamp(32px, 5vw, 96px);
 }
 
+.decor {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.decor path {
+  fill: none;
+  stroke: var(--lb-line);
+  vector-effect: non-scaling-stroke;
+}
+
 .shell {
   position: relative;
+  z-index: 1;
   width: 100%;
   max-width: 1920px;
   margin: 0 auto;
@@ -290,6 +306,10 @@ a.infoText:hover {
 }
 
 @media (max-width: 768px) {
+  .decor {
+    display: none;
+  }
+
   .shell {
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas: none;

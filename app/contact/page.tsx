@@ -12,6 +12,18 @@ export default function ContactUs() {
       <Header type="otherpages" />
       <main className={styles.main}>
         <section className={styles.contact}>
+          <svg
+            className={styles.decor}
+            viewBox="0 0 1920 1301"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path d="M80 713C80 319.221 397.206 0 788.5 0C1061.67 0 1298.74 155.583 1416.97 383.5" />
+            <path d="M788 0L1912 0" />
+            <path d="M1418 1L1418 1301" />
+          </svg>
+
           <div className={styles.shell}>
             <span className={styles.divider} aria-hidden="true" />
 

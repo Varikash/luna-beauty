@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import { getImageProps } from 'next/image';
 import Header from '@/app/components/header/header';
 import Footer from '@/app/components/footer/footer';
 import ContactForm from '@/app/components/contact-form/contact-form';
@@ -6,12 +6,23 @@ import AppointmentButton from '@/app/utils/ui/make-an-appointment/make-an-appoin
 import { contacts, socialHeader } from '@/app/utils/mockFiles';
 import styles from './page.module.css';
 
+const EMPTY_IMAGE =
+  "data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='1'%20height='1'/%3E";
+
+const { props: photoProps } = getImageProps({
+  src: '/images/contact/left.jpg',
+  alt: 'A client smiling in the Luna Beauty salon',
+  width: 852,
+  height: 1196,
+  sizes: '(max-width: 1024px) 35vw, 30vw',
+});
+
 export default function ContactUs() {
   return (
     <div className={styles.page}>
       <Header type="otherpages" />
       <main className={styles.main}>
-        <section className={styles.contact}>
+        <section className={styles.contact} aria-labelledby="contact-heading">
           <svg
             className={styles.decor}
             viewBox="0 0 1920 1301"
@@ -25,10 +36,8 @@ export default function ContactUs() {
           </svg>
 
           <div className={styles.shell}>
-            <span className={styles.divider} aria-hidden="true" />
-
             <div className={styles.head}>
-              <h1 className={styles.title}>
+              <h1 className={styles.title} id="contact-heading">
                 <span className={styles.wordBook}>
                   <span className={styles.script}>B</span>ook
                 </span>
@@ -42,19 +51,14 @@ export default function ContactUs() {
 
             <div className={styles.stage}>
               <div className={styles.photoCol}>
-                <div className={styles.photoFrame}>
-                  <Image
-                    src="/images/contact/left.jpg"
-                    alt="A client smiling in the Luna Beauty salon"
-                    fill
-                    sizes="(max-width: 768px) 0px, (max-width: 1024px) 60vw, 30vw"
-                    className={styles.photo}
-                  />
-                </div>
+                <picture className={styles.photoFrame}>
+                  <source media="(max-width: 768px)" srcSet={EMPTY_IMAGE} />
+                  <img {...photoProps} fetchPriority="high" className={styles.photo} />
+                </picture>
                 <AppointmentButton className={styles.book} />
               </div>
 
-              <ul className={styles.socials}>
+              <ul className={styles.socials} aria-label="Luna Beauty on social media">
                 {socialHeader.map((link) => (
                   <li key={link.name}>
                     <a
@@ -64,6 +68,7 @@ export default function ContactUs() {
                       className={styles.socialLink}
                     >
                       {link.name}
+                      <span className={styles.srOnly}> (opens in a new tab)</span>
                     </a>
                   </li>
                 ))}

@@ -18,6 +18,8 @@ const ServiceBlock: React.FC<ServiceBlockProps> = ({ service, index }) => {
   const preview = service.treatments.slice(0, PREVIEW_COUNT);
   const detailsHref = `/services/details/${service.link}`;
   const mastersCount = service.masters.length;
+  /** "£20" reads as a price, "On request" reads as a sentence — only the first takes "from" */
+  const hasNumericPrice = /\d/.test(service.priceFrom);
 
   return (
     <section
@@ -33,7 +35,8 @@ const ServiceBlock: React.FC<ServiceBlockProps> = ({ service, index }) => {
             sizes="(max-width: 1000px) 100vw, 42vw"
           />
           <figcaption className={style.priceTag}>
-            from <b>{service.priceFrom}</b>
+            {hasNumericPrice && 'from '}
+            <b>{service.priceFrom}</b>
           </figcaption>
         </figure>
         {sides.map((image, imageIndex) => (
@@ -79,7 +82,9 @@ const ServiceBlock: React.FC<ServiceBlockProps> = ({ service, index }) => {
 
         <div className={style.foot}>
           <Link href={detailsHref} className={style.viewAll}>
-            View all {service.treatments.length} treatments
+            {service.treatments.length > 0
+              ? `View all ${service.treatments.length} treatments`
+              : `More about ${service.title.toLowerCase()}`}
             <span aria-hidden="true">→</span>
           </Link>
 

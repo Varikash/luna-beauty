@@ -121,6 +121,14 @@
   width: 100%;
 }
 
+/* Shown when the client has not supplied a treatment menu for the category yet */
+.menuOnRequest {
+  max-width: 620px;
+  margin: 0;
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  line-height: 1.6;
+}
+
 .appoinmentButton {
   position: absolute;
   left: -140px;

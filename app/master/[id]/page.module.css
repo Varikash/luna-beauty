@@ -392,6 +392,17 @@
   max-width: 490px;
 }
 
+/* Stands in for the treatment slider when the client has not supplied a menu */
+.servicesEmpty {
+  max-width: 620px;
+  margin: 0;
+  font-family: var(--font-public-sans);
+  font-weight: 200;
+  font-size: clamp(18px, 1.25vw, 24px);
+  line-height: 1.5;
+  color: var(--lb-ink);
+}
+
 .servicesSubtitle {
   font-family: var(--font-public-sans);
   font-weight: 200;

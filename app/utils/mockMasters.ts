@@ -1,36 +1,40 @@
 /**
  * Master profiles for /master/<slug>.
  *
+ * Biographies, roles, years of experience and languages come from
+ * "Luna Beauty studio staff description.docx" supplied by the client — the
+ * story paragraphs below are the client's own copy, not placeholders.
+ *
  * Nothing here duplicates data that already exists elsewhere:
- *  - who works in which category, and the treatment menu with prices, is
- *    derived from `servicesCatalogMock` (mockServicesTwo.ts);
- *  - the hero eyebrow ("NAIL MASTER") and the two chips under the bio
- *    ("Salon owner," / "14 years of experience") come from `mastersMock`
+ *  - who works in which category, and the treatment menu, is derived from
+ *    `servicesCatalogMock` (mockServicesTwo.ts);
+ *  - the hero eyebrow ("NAIL TECHNICIAN") and the two chips under the bio
+ *    ("Salon owner," / "12 years of experience") come from `mastersMock`
  *    (mockFiles.ts) — the Figma hero block maps 1:1 onto `IMaster.info` and
  *    `IMaster.status`;
  *  - only what neither source knows (the long story, photo slots, the
  *    decorative word in "<Nail> Services") lives in MASTER_EXTRAS below.
  *
  * So a master's page can never disagree with the services catalogue about what
- * they do or what it costs.
+ * they do.
  */
 
 import {
   servicesCatalogMock,
   type ITreatment,
+  type IServiceCategory,
   type IServiceMaster,
 } from './mockServicesTwo';
 import { mastersMock } from './mockFiles';
 
 /**
- * Placeholder for a story that has not been written yet. Only Daniela Celan's
- * story exists in the design; grep TODO_STORY to find every master still
- * waiting for real copy.
+ * Fallback for a master added to the catalogue before the client supplies their
+ * story. Every one of the six current masters has real copy in MASTER_EXTRAS.
  */
 const TODO_STORY =
   "This master's full story is still being written. Ask them about it when you sit in the chair — they tell it better than we could.";
 
-/** "Daniela Celan" → "daniela-celan" — the /master/<slug> route segment */
+/** "Dana" → "dana" — the /master/<slug> route segment */
 export const masterSlug = (name: string): string =>
   name
     .toLowerCase()
@@ -118,101 +122,150 @@ type MasterExtras = Partial<
     | 'story'
     | 'servicesWord'
   >
->;
+> & {
+  /** Overrides the rotating fallbacks below, slot by slot */
+  photos?: Partial<IMasterPhotos>;
+};
 
 /**
  * Profile facts neither the catalogue nor `mastersMock` carries. Keyed by slug;
  * a missing entry just falls back to derived values.
  */
 const MASTER_EXTRAS: Record<string, MasterExtras> = {
-  'daniela-celan': {
-    eyebrow: 'NAIL MASTER',
-    role: 'Salon owner · Nail master',
-    experience: 14,
+  dana: {
+    eyebrow: 'FOUNDER · NAIL TECHNICIAN',
+    role: 'Founder · Nail technician',
+    experience: 12,
     servicesWord: 'Nail',
-    languages: ['English', 'Romanian'],
-    // Copy below is taken verbatim from the Figma master page (frame 1920/Master)
+    languages: ['English', 'Russian', 'Romanian'],
     intro:
-      'I’m Dana, and while you might know my name, I’d love to share the story behind the doors. I’ve been doing nails for over 10 years, and my passion for drawing and creativity has always driven me to seek more by connecting with people. Even though I\'m an introvert, I truly enjoy listening to and sharing wonderful stories with others.',
+      'Hi, I’m Dana, the founder of LUNA Beauty Studio & Academy. With over 12 years of experience in the beauty industry, my passion has always been to deliver exceptional results while raising the standards of professionalism, education and client care.',
     storyLead:
-      'My journey began at 14, when I had my first job working on a sewing machine for three years. Alongside that, I worked in a factory, and in my spare time, I dabbled in nails as a hobby.',
+      'My journey began with a simple fascination for beautiful nails, but it quickly became much more than that.',
     story: [
-      'Deciding to turn my passion into a career, I took my first course, and that’s when my love for nails grew even stronger.',
-      'I worked in a salon in Moldova for two years and in Italy for five years as a waitress and barista, all while continuing to pursue my passion for nails in my free time.',
-      'Finally, I moved to England and have spent the last six years continuously crafting beautiful nails.',
-      'Coming to England I worked at two different salons, each with its own management style.',
-      'These experiences gave me the opportunity to learn about both managing a business and growing as an individual. Now, as a salon owner, I’ve learned how to create a harmonious space for my team while ensuring a comfortable and welcoming environment for our clients.',
+      'Through years of continuous education, hands-on experience and working in different countries, I developed a deep understanding that beauty isn’t just about how something looks—it’s about precision, health, confidence and trust.',
+      'That vision inspired me to create LUNA Beauty Studio: a luxury space where every client feels welcomed, listened to and genuinely cared for. We believe that every appointment should be more than just a treatment—it should be an experience where quality is never compromised.',
+      'Today, together with my talented team, we specialise in luxury nail services, Russian manicures, pedicures, brows, lashes, waxing, permanent makeup and professional makeup. Every service is performed with attention to detail, premium products and a commitment to maintaining the highest hygiene standards.',
+      'As an educator and founder of LUNA Academy, I continue to train future beauty professionals because I believe education is the foundation of excellence. By constantly learning and sharing knowledge, we ensure that every client who visits LUNA benefits from the latest techniques, safest practices and the highest level of expertise.',
+      'One of the things I value most is building genuine relationships with my clients. Many of them have been with us for years, and their trust is what inspires me to keep growing, improving and creating an environment where everyone feels comfortable and confident.',
+      'For me, beauty is not about following trends—it’s about enhancing your natural beauty, helping you feel your best, and giving you a moment to relax in the middle of a busy life.',
+      'Whether you’re visiting us for your very first appointment or you’ve been part of the LUNA family for years, my promise remains the same: exceptional quality, honest advice, meticulous attention to detail, and an experience you’ll always look forward to.',
     ],
+    photos: {
+      heroSide: '/images/masters/dana-3.webp',
+      storyWide: '/images/services/nails-extensions-2.webp',
+      storyTall: '/images/masters/dana-2.webp',
+    },
   },
-  'nelia-mihai': {
+  nelya: {
     eyebrow: 'MAKEUP ARTIST',
     role: 'Makeup artist',
-    experience: 6,
-    servicesWord: 'Makeup',
-    languages: ['English', 'Romanian'],
-    storyLead:
-      'Skin prep is half the work. Give me twenty minutes on the base and the makeup will still look fresh at midnight.',
-    story: [TODO_STORY],
-  },
-  'amelia-carter': {
-    eyebrow: 'BRIDAL SPECIALIST',
-    role: 'Bridal specialist',
-    experience: 8,
-    servicesWord: 'Bridal',
-    languages: ['English'],
-    storyLead:
-      'I map every look to the dress, the light and the length of the day — so it holds from the first photo to the last dance.',
-    story: [TODO_STORY],
-  },
-  'isabella-moore': {
-    eyebrow: 'LASH TECH',
-    role: 'Lash tech · Makeup artist',
     experience: 4,
-    servicesWord: 'Lash',
-    languages: ['English'],
+    servicesWord: 'Makeup',
+    languages: ['English', 'Russian'],
+    intro:
+      'With over 4 years of experience in the beauty industry, Nelya is a dedicated and passionate makeup artist committed to enhancing each client’s natural beauty with precision and artistry.',
     storyLead:
-      'Balance and proportion first. The set should look like your own lashes, only better rested.',
-    story: [TODO_STORY],
+      'Specialising in bridal, occasion and editorial makeup, she creates elegant, long-lasting looks tailored to each individual’s features, style and vision.',
+    story: [
+      'Whether you prefer a soft, radiant finish or timeless glamour, Nelya takes the time to understand your expectations and deliver results that make you feel confident and beautiful.',
+      'Known for her professionalism, attention to detail, and calm, friendly approach, she believes every appointment should be a relaxing and enjoyable experience. Her client-focused philosophy ensures that every look is personalised, comfortable to wear, and flawlessly executed.',
+      'Fluent in English and Russian, Nelya welcomes clients from diverse backgrounds and is dedicated to providing exceptional service from consultation to the final touch.',
+      'At LUNA Beauty Studio, Nelya is proud to help every client look and feel their absolute best for life’s most memorable moments.',
+    ],
+    photos: {
+      heroSide: '/images/services/makeup-editorial-2.webp',
+      storyWide: '/images/services/makeup-special-occasion.webp',
+      storyTall: '/images/services/makeup-bridal.webp',
+    },
   },
-  'sophia-reed': {
-    eyebrow: 'BROW SPECIALIST',
-    role: 'Brow specialist',
-    experience: 7,
-    servicesWord: 'Brow',
-    languages: ['English'],
-    storyLead:
-      'Shape first, pigment second. I never start pigment work before we both agree on the drawing.',
-    story: [TODO_STORY],
-  },
-  'olivia-hayes': {
-    eyebrow: 'WAXING EXPERT',
-    role: 'Waxing expert',
-    experience: 5,
-    servicesWord: 'Waxing',
-    languages: ['English'],
-    storyLead:
-      'Sensitive skin is not a problem to work around, it just sets the pace of the session.',
-    story: [TODO_STORY],
-  },
-  'emily-bennett': {
-    eyebrow: 'NAIL SPECIALIST',
-    role: 'Nail specialist',
-    experience: 6,
+  tanya: {
+    eyebrow: 'NAIL TECHNICIAN',
+    role: 'Nail technician',
+    experience: 4,
     servicesWord: 'Nail',
-    languages: ['English'],
+    languages: ['English', 'Russian'],
+    intro:
+      'What once seemed impossible has become Tanya’s passion and profession. She never imagined herself working in the nail industry, but taking that first step changed her life.',
     storyLead:
-      'Structure first, colour second. The natural nail underneath is always the priority.',
-    story: [TODO_STORY],
+      'With over 4 years of experience, Tanya specialises in creating beautiful, long-lasting nails with precision, care and exceptional attention to detail.',
+    story: [
+      'From once feeling nervous about holding an e-file to becoming a trusted nail technician known for clean Russian manicures and refined cuticle work, her journey is a testament to dedication, perseverance and continuous growth.',
+      'Tanya believes every client deserves healthy, durable nails that remain beautiful long after leaving the salon. Her meticulous approach, combined with an artistic eye and commitment to quality, allows her to create elegant manicures that are both practical and long-lasting.',
+      'Passionate about continuous education, Tanya is always refining her techniques and staying up to date with the latest industry standards to provide the highest level of care and craftsmanship.',
+      'Fluent in English and Russian, and currently learning Spanish, she enjoys welcoming clients from different backgrounds and creating a warm, relaxing experience for everyone who visits LUNA Beauty Studio.',
+    ],
+    photos: {
+      heroSide: '/images/services/nails-french-tip.webp',
+      storyWide: '/images/services/nails-extensions-2.webp',
+      storyTall: '/images/services/nails-clean-manicure-2.webp',
+    },
   },
-  'mia-thompson': {
-    eyebrow: 'PEDICURE MASTER',
-    role: 'Pedicure master',
+  lola: {
+    eyebrow: 'NAIL TECHNICIAN',
+    role: 'Nail technician',
     experience: 10,
-    servicesWord: 'Pedicure',
-    languages: ['English'],
+    servicesWord: 'Nail',
+    languages: ['English', 'Russian', 'Ukrainian'],
+    intro:
+      'With over 10 years of experience in the nail industry, Lola has built a reputation for her exceptional craftsmanship, professionalism and unwavering attention to detail. Her passion for creating flawless nails is reflected in every service she provides.',
     storyLead:
-      'Feet carry you all day — they deserve the same slow, careful ritual as the hands.',
-    story: [TODO_STORY],
+      'Known for her perfectionist approach, Lola believes that every manicure should combine beauty, precision and durability.',
+    story: [
+      'Whether creating a timeless, elegant set or a bespoke nail design, she works meticulously to ensure each client leaves with nails that not only look stunning but remain strong, healthy and beautiful for weeks.',
+      'Her calm, patient nature, combined with her commitment to excellence, allows clients to relax and enjoy a truly luxurious salon experience. Lola continually refines her skills, embraces new techniques and stays up to date with the latest industry innovations, ensuring every treatment is delivered to the highest professional standard.',
+      'Fluent in English, Russian and Ukrainian, Lola welcomes clients from diverse backgrounds and is dedicated to providing a personalised experience where every client feels comfortable, valued and cared for.',
+      'At LUNA Beauty Studio, Lola takes pride in delivering beautiful, long-lasting results while building lasting relationships through trust, quality and exceptional client care.',
+    ],
+    photos: {
+      heroSide: '/images/services/nails-extensions-3.webp',
+      storyWide: '/images/services/pedicure-aesthetic.webp',
+      storyTall: '/images/services/nails-rubber-base.webp',
+    },
+  },
+  maryna: {
+    eyebrow: 'BROWS & PMU SPECIALIST',
+    role: 'Brows & PMU specialist',
+    experience: 10,
+    servicesWord: 'Brow',
+    languages: ['English', 'Russian', 'Ukrainian'],
+    intro:
+      'With over 10 years of experience in the beauty industry, Maryna is a highly skilled Brows and Permanent Makeup Specialist, recognised for her precision, artistry and exceptional client care.',
+    storyLead:
+      'Her passion lies in creating beautifully balanced brows that enhance each client’s natural features while preserving their individuality.',
+    story: [
+      'Specialising in Brow Shaping, Brow Lamination, Powder Brows and the latest Hair Stroke Brows technique, Maryna offers bespoke treatments designed to achieve the most natural-looking results. Using an advanced single-needle technique, Hair Stroke Brows create ultra-fine, realistic hair-like strokes with minimal skin trauma, helping restore the appearance of naturally full brows with exceptional softness and precision.',
+      'Known for her meticulous attention to detail and warm, reassuring approach, Maryna takes the time to understand every client’s goals, ensuring each treatment is tailored to complement their facial features and lifestyle. Her expertise in client communication allows every appointment to feel relaxed, informative and enjoyable.',
+      'Fluent in English, Russian and Ukrainian, Maryna welcomes clients from all backgrounds and is dedicated to providing a luxury experience built on trust, professionalism and outstanding results.',
+      'At LUNA Beauty Studio, Maryna is proud to combine advanced techniques with artistic precision to create naturally beautiful brows that help every client look and feel their very best.',
+    ],
+    photos: {
+      heroSide: '/images/services/brows-hd-2.webp',
+      storyWide: '/images/services/pmu-lip-blush-2.webp',
+      storyTall: '/images/services/pmu-hair-stroke-2.webp',
+    },
+  },
+  nataliia: {
+    eyebrow: 'WAXING SPECIALIST',
+    role: 'Waxing specialist',
+    experience: 6,
+    servicesWord: 'Waxing',
+    languages: ['Ukrainian', 'Russian'],
+    intro:
+      'With over 6 years of experience in professional waxing, Nataliia is dedicated to helping clients feel confident through beautifully smooth skin and exceptional client care. Known for her meticulous technique, professionalism and impeccable hygiene standards.',
+    storyLead:
+      'Alongside a successful career in Business Management, Nataliia chose to follow her passion for the beauty industry.',
+    story: [
+      'That decision allows her to combine her professional expertise with a genuine love for helping people feel their best. Her strong organisational skills, reliability and commitment to excellence are reflected in every client experience.',
+      'Nataliia believes that waxing should be as comfortable and stress-free as possible. Her calm approach, excellent etiquette and client-first mindset help even first-time clients feel relaxed, informed and completely at ease throughout their appointment.',
+      'Fluent in Ukrainian and Russian, and currently developing her English language skills, Nataliia enjoys welcoming clients from diverse backgrounds and is continually expanding her knowledge to provide the highest standard of care.',
+      'At LUNA Beauty Studio, Nataliia is proud to deliver professional waxing treatments with precision, compassion and outstanding attention to detail, helping every client leave feeling confident, comfortable and beautifully cared for.',
+    ],
+    photos: {
+      heroSide: '/images/services/waxing-3.webp',
+      storyWide: '/images/services/waxing-4.webp',
+      storyTall: '/images/services/waxing-1.webp',
+    },
   },
 };
 
@@ -237,17 +290,31 @@ const priceValue = (price: string): number => {
 };
 
 /** Walk the catalogue once and fold it into one profile per master name */
+/**
+ * A treatment belongs on a master's page only when the catalogue does not
+ * restrict it to someone else — "Ingrown Toenails" is Dana's alone, so it must
+ * not show up on Tanya's or Lola's menu even though all three do pedicures.
+ */
+const treatmentsPerformedBy = (
+  service: IServiceCategory,
+  masterName: string
+): ITreatment[] =>
+  service.treatments.filter(
+    (treatment) => !treatment.masters || treatment.masters.includes(masterName)
+  );
+
 const buildProfiles = (): IMasterProfile[] => {
   const byName = new Map<string, IMasterProfile>();
 
   servicesCatalogMock.forEach((service) => {
     service.masters.forEach((master: IServiceMaster) => {
+      const treatments = treatmentsPerformedBy(service, master.name);
       const category: IMasterCategory = {
         id: service.id,
         title: service.title,
         tagline: service.tagline,
         link: service.link,
-        treatments: service.treatments,
+        treatments,
         priceFrom: service.priceFrom,
         role: master.role,
       };
@@ -256,7 +323,7 @@ const buildProfiles = (): IMasterProfile[] => {
 
       if (existing) {
         existing.categories.push(category);
-        existing.treatments.push(...service.treatments);
+        existing.treatments.push(...treatments);
         if (priceValue(service.priceFrom) < priceValue(existing.priceFrom)) {
           existing.priceFrom = service.priceFrom;
         }
@@ -289,14 +356,17 @@ const buildProfiles = (): IMasterProfile[] => {
         storyLead: extras.storyLead ?? master.bio ?? TODO_STORY,
         story: extras.story ?? [TODO_STORY],
         photos: {
-          portrait: master.image,
-          heroSide: HERO_SIDE_PHOTOS[index % HERO_SIDE_PHOTOS.length],
-          storyWide: STORY_WIDE_PHOTOS[index % STORY_WIDE_PHOTOS.length],
-          storyTall: STORY_TALL_PHOTOS[index % STORY_TALL_PHOTOS.length],
+          portrait: extras.photos?.portrait ?? master.image,
+          heroSide:
+            extras.photos?.heroSide ?? HERO_SIDE_PHOTOS[index % HERO_SIDE_PHOTOS.length],
+          storyWide:
+            extras.photos?.storyWide ?? STORY_WIDE_PHOTOS[index % STORY_WIDE_PHOTOS.length],
+          storyTall:
+            extras.photos?.storyTall ?? STORY_TALL_PHOTOS[index % STORY_TALL_PHOTOS.length],
         },
         servicesWord: extras.servicesWord ?? service.title.split(' ')[0],
         categories: [category],
-        treatments: [...service.treatments],
+        treatments: [...treatments],
         priceFrom: service.priceFrom,
       });
     });

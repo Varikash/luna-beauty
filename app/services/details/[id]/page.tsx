@@ -36,16 +36,23 @@ export default async function ServiceDetails({ params }: PageProps) {
         <section className={styles.beautyServiceDetail}>
           <ServiceHead service={service} />
           <div className={styles.beautyServiceWtfContainer}>
-            <ul className={styles.beautyServiceWtf}>
-              {service.treatments.map((treatment, index) => (
-                <TreatmentCard
-                  key={treatment.title}
-                  treatment={treatment}
-                  index={index}
-                  anchorId={treatment.title}
-                />
-              ))}
-            </ul>
+            {service.treatments.length > 0 ? (
+              <ul className={styles.beautyServiceWtf}>
+                {service.treatments.map((treatment, index) => (
+                  <TreatmentCard
+                    key={treatment.title}
+                    treatment={treatment}
+                    index={index}
+                    anchorId={treatment.title}
+                  />
+                ))}
+              </ul>
+            ) : (
+              <p className={styles.menuOnRequest}>
+                The full {service.title.toLowerCase()} menu and prices are available
+                on request — get in touch and we will walk you through every option.
+              </p>
+            )}
           </div>
         </section>
         <OurClientsRecommended />

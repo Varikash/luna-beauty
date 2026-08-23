@@ -82,7 +82,10 @@ const ServiceHead: React.FC<ServiceHeadProps> = ({ service }) => {
         </p>
 
         <AppointmentButton className={styles.appoinmentButton} />
-        <SideMenu className={styles.asideMenu} services={treatmentTitles} />
+        {/* A category whose menu the client has not supplied yet has nothing to scroll to */}
+        {treatmentTitles.length > 0 && (
+          <SideMenu className={styles.asideMenu} services={treatmentTitles} />
+        )}
       </div>
     </div>
   );

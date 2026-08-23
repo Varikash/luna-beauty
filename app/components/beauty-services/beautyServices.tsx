@@ -9,6 +9,13 @@ import { servicesMock, servicesExtendedMock } from '@/app/utils/mockFiles';
 import AppointmentButton from '@/app/utils/ui/make-an-appointment/make-an-appointment';
 import style from './beautyServices.module.css';
 
+/**
+ * The booking promo tile is a grid item of its own, not a service. It follows
+ * the fourth card so it lands in the fifth slot the design — and the
+ * `li:nth-child(5)` mobile rule — expects.
+ */
+const PROMO_AFTER_INDEX = 3;
+
 interface BeautyServicesProps {
   type?: "page1" | "page2" | "page3";
 }
@@ -28,7 +35,57 @@ const BeautyServices: React.FC<BeautyServicesProps> = ({ type }) => {
     <ul className={style.beautyServicesListPageOne}>
       {servicesMock.map((service, index) => (
         <React.Fragment key={"bs-page-1" + index}>
-          {index === 4 ? (
+          <CardWrapper type="page1" ikey={index} key={"cardkey" + index}>
+            <div className={style.cardHeader}>
+              <span className={style.serviceCounter}>
+                0{index + 1}
+              </span>
+              <a
+                href="https://example.com/booking"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={style.calendarLink}
+              >
+                <Image
+                  src="/images/bs/calendarButton.svg"
+                  alt="Calendar Icon"
+                  width={48}
+                  height={48}
+                  className={style.calendarIcon}
+                />
+              </a>
+            </div>
+            <h3 className={style.cardTitle}>
+              {service.title}
+            </h3>
+            <p className={style.cardText}>
+              {service.text}
+            </p>
+            <Image
+              src={service.image}
+              alt={service.title}
+              width={268}
+              height={268}
+              className={style.cardImage}
+            />
+            <ul className={style.cardList}>
+              <>
+                {service.nav.map((item, navIndex) => (
+                  <li className={style.cardListItem} key={navIndex}>
+                    <p className={style.cardListItemText}>{item}</p>
+                    <div className={style.cardListItemI}>|</div>
+                  </li>
+                ))}
+                <li
+                  className={style.lastLi}
+                  key={"bs-1-nav" + "last"}>
+                  <Link key={service.title} href={`/services/details/${service.link}`}>View all</Link>
+                </li>
+              </>
+            </ul>
+          </CardWrapper>
+
+          {index === PROMO_AFTER_INDEX && (
             <li>
               <a
                 href="https://example.com/booking"
@@ -50,56 +107,6 @@ const BeautyServices: React.FC<BeautyServicesProps> = ({ type }) => {
                 />
               </a>
             </li>
-          ) : (
-            <CardWrapper type="page1" ikey={index} key={"cardkey" + index}>
-              <div className={style.cardHeader}>
-                <span className={style.serviceCounter}>
-                  0{index + 1}
-                </span>
-                <a
-                  href="https://example.com/booking"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={style.calendarLink}
-                >
-                  <Image
-                    src="/images/bs/calendarButton.svg"
-                    alt="Calendar Icon"
-                    width={48}
-                    height={48}
-                    className={style.calendarIcon}
-                  />
-                </a>
-              </div>
-              <h3 className={style.cardTitle}>
-                {service.title}
-              </h3>
-              <p className={style.cardText}>
-                {service.text}
-              </p>
-              <Image
-                src={service.image}
-                alt={service.title}
-                width={268}
-                height={268}
-                className={style.cardImage}
-              />
-              <ul className={style.cardList}>
-                <>
-                  {service.nav.map((item, navIndex) => (
-                    <li className={style.cardListItem} key={navIndex}>
-                      <p className={style.cardListItemText}>{item}</p>
-                      <div className={style.cardListItemI}>|</div>
-                    </li>
-                  ))}
-                  <li
-                    className={style.lastLi}
-                    key={"bs-1-nav" + "last"}>
-                    <Link key={service.title} href={`/services/details/${service.link}`}>View all</Link>
-                  </li>
-                </>
-              </ul>
-            </CardWrapper>
           )}
         </React.Fragment>
       ))}
@@ -110,7 +117,6 @@ const BeautyServices: React.FC<BeautyServicesProps> = ({ type }) => {
   const page2List = useMemo(() => (
     <ul className={style.beautyServicesListPageTwo}>
       {servicesMock.map((service, index) => (
-        index !== 4 ? (
           <Link key={service.title + " li"} href={"/services/details/" + service.link}>
             <CardWrapper type="page2" ikey={index} key={"cardkey" + index}>
               <div className={style.imageWrapperPageTwo}>
@@ -122,12 +128,12 @@ const BeautyServices: React.FC<BeautyServicesProps> = ({ type }) => {
                   className={style.cardImagePageTwo}
                 />
                 <span className={style.serviceCounterPageTwoPad}>
-                  0{index === 5 ? index : index + 1}
+                  0{index + 1}
                 </span>
               </div>
               <div className={style.cardHeaderPageTwo}>
               <span className={style.serviceCounterPageTwo}>
-                  0{index === 5 ? index : index + 1}
+                  0{index + 1}
                 </span>
                 <h3 className={style.cardTitlePageTwo}>
                   {service.title}
@@ -141,7 +147,7 @@ const BeautyServices: React.FC<BeautyServicesProps> = ({ type }) => {
                 />
               </div>
             </CardWrapper>
-          </Link>) : null
+          </Link>
       ))}
     </ul>
   ), []);

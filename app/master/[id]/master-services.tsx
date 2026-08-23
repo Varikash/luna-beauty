@@ -79,6 +79,14 @@ const MasterServices: React.FC<{ master: IMasterProfile }> = ({ master }) => {
           </div>
         </div>
 
+        {treatments.length === 0 ? (
+          /* A master whose menu the client has not supplied yet — no empty slider */
+          <p className={style.servicesEmpty}>
+            The full menu and prices are available on request — get in touch and
+            we will walk you through every option.
+          </p>
+        ) : (
+          <>
         <div className={style.sliderControls}>
           <button
             type="button"
@@ -117,6 +125,8 @@ const MasterServices: React.FC<{ master: IMasterProfile }> = ({ master }) => {
             ))}
           </ul>
         </div>
+          </>
+        )}
       </div>
     </section>
   );

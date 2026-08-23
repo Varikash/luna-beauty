@@ -37,88 +37,94 @@ export interface IRecommended {
 
 export const servicesMock: IService[] = [
   {
-    title: "Makeup",
-    image: "/images/bs/services1.jpg",
-    text: "Natural beauty with professional techniques, using high-quality products!",
-    nav: ["Pre-makeup facial", "Event/Party", "Flower girl makeup", "Junior make-up", "Bridesmaids trial"],
-    link: "makeup",
-  },
-  {
-    title: "Waxing",
-    image: "/images/bs/services2.jpg",
-    text: "Service ensures smooth, long-lasting results with gentle techniques!",
-    nav: ["Waxing Men", "Waxing Ladies", "Brazilian bikini", "Half leg", "Full/Half Arm", "Extra area"],
-    link: "waxing"
-  },
-  {
     title: "Manicure/\u200BExtensions",
-    image: "/images/bs/services3.jpg",
-    text: "Offering durability, style, and a polished look tailored to individual preferences!",
-    nav: ["Gel extension", "Tip gel extension", "Cuticle oil", "Design 10 nails", "Clean manicure"],
-    link: "manicure"
-  },
-  {
-    title: "Semi permanent makeup",
-    image: "/images/bs/services4.jpg",
-    text: "Enhances beauty with longevity!",
-    nav: ["Luxury lashes lamination", "Eyebrow lamination", "Keratin", "Botox", "SPMU Eyeliner"],
-    link: "semi-permanent"
-  },
-  {
-    title: "mock",
-    image: "/images/bs/services4.jpg",
-    text: "mock",
-    nav: ["mock",],
-    link: "pedicure"
+    image: "/images/services/nails-extensions-2.webp",
+    text: "Advanced Russian manicure technique, flawless cuticle work, and a finish that lasts for weeks.",
+    nav: ["Rubber Base Manicure", "French Tip", "Extensions", "Clean Manicure"],
+    link: "manicure",
   },
   {
     title: "Pedicure",
-    image: "/images/bs/services5.jpg",
-    text: "Beautifies feet, ensuring smooth skin, healthy, and well-groomed appearance.",
-    nav: ["Pedicure&rubber gel", "Clean pedicure", "Pedicure with varnish"],
-    link: "pedicure"
+    image: "/images/services/pedicure-aesthetic.webp",
+    text: "Beyond polished toes — the health, comfort and appearance of your feet come first.",
+    nav: ["Aesthetic Pedicure", "Ingrown Toenails Treatment", "Cracked Heels Treatment"],
+    link: "pedicure",
+  },
+  {
+    title: "Makeup",
+    image: "/images/services/makeup-bridal.webp",
+    text: "Bridal, occasion and editorial looks built for long wear and high-resolution cameras.",
+    nav: ["Bridal Makeup", "Bridesmaids Makeup", "Flower Girl Makeup", "Soft / Natural Makeup", "Special Occasion Makeup"],
+    link: "makeup",
+  },
+  {
+    title: "Brows & Lashes",
+    image: "/images/services/brows-hd-1.webp",
+    text: "Sculpted brows and lifted lashes tailored to your unique facial features.",
+    nav: ["HD Brows", "Brow Lamination", "Lash Lamination"],
+    link: "brows-lashes",
+  },
+  {
+    title: "Permanent makeup",
+    image: "/images/services/pmu-powder-brows-1.webp",
+    text: "Wake up beautiful every day with soft, natural-looking semi-permanent results.",
+    nav: ["Powder Brows", "Hair Stroke Brows", "Lip Blush"],
+    link: "permanent-makeup",
+  },
+  {
+    title: "Waxing",
+    image: "/images/services/waxing-3.webp",
+    text: "Premium waxes and meticulous technique in a private, welcoming environment.",
+    // TODO: the client's document lists no waxing zones — menu still to be supplied.
+    nav: [],
+    link: "waxing",
   },
 ];
 
 export const servicesExtendedMock: IExtService[] = [
   {
-    title: "Makeup",
-    images: ["/images/bs/services1.jpg", "/images/bs/services1.3.jpg", "/images/bs/services1.2.jpg",],
-    text: "Natural beauty with professional techniques, using high-quality products!",
-    nav: ["Travel charge", "Pre-makeup facial", "Even/party", "Flower girl makeup",
-      "Junior make-up", "Bridesmaids trial", "Bridal make-up"],
-    link: "makeup"
-  },
-  {
-    title: "Waxing",
-    images: ["/images/bs/services2.jpg", "/images/bs/services2.2.jpg", "/images/bs/services2.3.jpg"],
-    text: "Service ensures smooth, long-lasting results with gentle techniques!",
-    nav: ["Waxing Men", "Waxing Ladies"],
-    link: "waxing"
-  },
-  {
     title: "Manicure/Extensions",
-    images: ["/images/bs/services1.jpg", "/images/bs/services1.2.jpg", "/images/bs/services1.3.jpg"],
-    text: "Offering durability, style, and a polished look tailored to individual preferences!",
-    nav: ["Travel charge", "Pre-makeup facial", "Even/party", "Flower girl makeup",
-      "Junior make-up", "Bridesmaids trial", "Bridal make-up"],
-    link: "manicure"
-  },
-  {
-    title: "Semi permanent makeup",
-    images: ["/images/bs/services1.jpg", "/images/bs/services1.2.jpg", "/images/bs/services1.3.jpg"],
-    text: "Micropigmentation technique that enhances eyebrows, lips, or eyeliner!",
-    nav: ["Travel charge", "Pre-makeup facial", "Even/party", "Flower girl makeup",
-      "Junior make-up", "Bridesmaids trial", "Bridal make-up"],
-    link: "semi-permanent"
+    images: ["/images/services/nails-extensions-2.webp", "/images/services/nails-french-tip.webp", "/images/services/nails-rubber-base.webp"],
+    text: "Advanced Russian manicure technique, flawless cuticle work, and a finish that lasts for weeks.",
+    nav: ["Rubber Base Manicure", "French Tip", "Extensions", "Clean Manicure"],
+    link: "manicure",
   },
   {
     title: "Pedicure",
-    images: ["/images/bs/services1.jpg", "/images/bs/services1.2.jpg", "/images/bs/services1.3.jpg"],
-    text: "Beautifies feet, ensuring smooth skin, healthy, and well-groomed appearance.",
-    nav: ["Travel charge", "Pre-makeup facial", "Even/party", "Flower girl makeup",
-      "Junior make-up", "Bridesmaids trial", "Bridal make-up"],
-    link: "pedicure"
+    images: ["/images/services/pedicure-aesthetic.webp", "/images/services/pedicure-cracked-heels.webp", "/images/services/pedicure-ingrown-3.webp"],
+    text: "Beyond polished toes — the health, comfort and appearance of your feet come first.",
+    nav: ["Aesthetic Pedicure", "Ingrown Toenails Treatment", "Cracked Heels Treatment"],
+    link: "pedicure",
+  },
+  {
+    title: "Makeup",
+    images: ["/images/services/makeup-bridal.webp", "/images/services/makeup-editorial-1.webp", "/images/services/makeup-soft-natural.webp"],
+    text: "Bridal, occasion and editorial looks built for long wear and high-resolution cameras.",
+    nav: ["Bridal Makeup", "Bridal Makeup Trial", "Bridesmaids Makeup", "Flower Girl Makeup",
+      "Soft / Natural Makeup", "Special Occasion Makeup", "Editorial & Photoshoot Makeup"],
+    link: "makeup",
+  },
+  {
+    title: "Brows & Lashes",
+    images: ["/images/services/brows-hd-1.webp", "/images/services/brows-hd-2.webp", "/images/services/lash-lamination-1.webp"],
+    text: "Sculpted brows and lifted lashes tailored to your unique facial features.",
+    nav: ["HD Brows", "Brow Lamination", "Lash Lamination"],
+    link: "brows-lashes",
+  },
+  {
+    title: "Permanent makeup",
+    images: ["/images/services/pmu-powder-brows-1.webp", "/images/services/pmu-hair-stroke-1.webp", "/images/services/pmu-lip-blush-1.webp"],
+    text: "Wake up beautiful every day with soft, natural-looking semi-permanent results.",
+    nav: ["Powder Brows", "Hair Stroke Brows", "Lip Blush"],
+    link: "permanent-makeup",
+  },
+  {
+    title: "Waxing",
+    images: ["/images/services/waxing-1.webp", "/images/services/waxing-3.webp", "/images/services/waxing-4.webp"],
+    text: "Premium waxes and meticulous technique in a private, welcoming environment.",
+    // TODO: the client's document lists no waxing zones — menu still to be supplied.
+    nav: [],
+    link: "waxing",
   },
 ];
 
@@ -130,6 +136,12 @@ export const ourWorksMock = {
   image5: "/images/ow/5.jpg",
 };
 
+/**
+ * Footer and header menus. There is deliberately no "Our masters" item: the
+ * team lives in the OurMasters section on /about, and a top-level menu entry
+ * pointing at an anchor inside another menu entry read as a dead end. Add it
+ * back only together with a real /masters page.
+ */
 export const navLinks: INav[] = [
   {
     title: "About us",
@@ -138,10 +150,6 @@ export const navLinks: INav[] = [
   {
     title: "Services",
     link: "/services"
-  },
-  {
-    title: "Our experts",
-    link: "/masters"
   },
   {
     title: "Contact",
@@ -161,10 +169,6 @@ export const navLinkHeader: INav[] = [
   {
     title: "Services",
     link: "/services"
-  },
-  {
-    title: "Our masters",
-    link: "/masters"
   },
   {
     title: "Contact us",
@@ -196,82 +200,73 @@ export const socialHeader = [
   }
 ]
 
+/**
+ * The studio team, exactly as described in the client's staff document.
+ * Only first names were supplied — no surnames.
+ */
 export const mastersMock: IMaster[] = [
   {
-    image: "/images/masters/1.jpg",
-    name: "Daniela Celan",
-    info: "NAIL MASTER",
-    skills: "I've been doing nails for over 10 years and my passion keeps growing!",
-    status: "Salon owner,\n14 years of experience",
+    image: "/images/masters/dana.webp",
+    name: "Dana",
+    info: "FOUNDER · NAIL TECHNICIAN",
+    skills: "Russian manicure specialist, educator and founder of LUNA Beauty Studio & Academy.",
+    status: "Salon owner,\n12 years of experience",
   },
   {
-    image: "/images/masters/2.jpg",
-    name: "Nelia Mihai",
-    info: "NAIL MASTER",
-    skills: "Artist who enhances beauty with expert cosmetic techniques!",
-    status: "Skilled professional,\n6 years of experience",
-  },
-  {
-    image: "/images/masters/3.jpg",
-    name: "Amelia Carter",
+    image: "/images/masters/nelya.webp",
+    name: "Nelya",
     info: "MAKEUP ARTIST",
-    skills: "Soft glam, bridal, and editorial looks with a focus on skin prep and long wear.",
-    status: "Certified artist,\n8 years of experience",
+    skills: "Bridal, occasion and editorial makeup tailored to your features, style and vision.",
+    status: "Makeup artist,\n4 years of experience",
   },
   {
-    image: "/images/masters/1.jpg",
-    name: "Sophia Reed",
-    info: "BROW SPECIALIST",
-    skills: "Brow shaping and lamination tailored to your face geometry for a natural lift.",
-    status: "Senior specialist,\n7 years of experience",
+    image: "/images/masters/tanya.webp",
+    name: "Tanya",
+    info: "NAIL TECHNICIAN",
+    skills: "Clean Russian manicures and refined cuticle work with exceptional attention to detail.",
+    status: "Nail technician,\n4 years of experience",
   },
   {
-    image: "/images/masters/2.jpg",
-    name: "Mia Thompson",
-    info: "HAIR STYLIST",
-    skills: "Blowouts, styling, and occasion hair with healthy shine as a priority.",
-    status: "Top stylist,\n10 years of experience",
+    image: "/images/masters/lola.webp",
+    name: "Lola",
+    info: "NAIL TECHNICIAN",
+    skills: "Flawless craftsmanship — nails that stay strong, healthy and beautiful for weeks.",
+    status: "Nail technician,\n10 years of experience",
   },
   {
-    image: "/images/masters/3.jpg",
-    name: "Olivia Hayes",
-    info: "WAXING EXPERT",
-    skills: "Gentle technique and clean results, with extra care for sensitive skin.",
-    status: "Salon pro,\n5 years of experience",
+    image: "/images/masters/maryna.webp",
+    name: "Maryna",
+    info: "BROWS & PMU SPECIALIST",
+    skills: "Brow shaping, lamination, powder brows and the single-needle hair stroke technique.",
+    status: "Brows & PMU specialist,\n10 years of experience",
   },
   {
-    image: "/images/masters/1.jpg",
-    name: "Isabella Moore",
-    info: "LASH TECH",
-    skills: "Classic and light volume sets designed for comfort and balanced eye shape.",
-    status: "Certified lash tech,\n4 years of experience",
-  },
-  {
-    image: "/images/masters/2.jpg",
-    name: "Emily Bennett",
-    info: "NAIL MASTER",
-    skills: "Clean manicure, structured gel, and minimal nail art with flawless finishing.",
-    status: "Nail specialist,\n6 years of experience",
+    // TODO: the client's document says "(foto not included)" — waiting on a portrait.
+    image: "/images/services/waxing-1.webp",
+    name: "Nataliia",
+    info: "WAXING SPECIALIST",
+    skills: "Professional waxing with meticulous technique and impeccable hygiene standards.",
+    status: "Waxing specialist,\n6 years of experience",
   },
 ]
 
 export const clientsRecommendedMock: IRecommended[] = [
   {
-    image: "/images/ocr/hands.jpg",
+    image: "/images/ocr/hands.jpeg",
     name: "Elizabeth Dawson",
     stars: 5,
     subtitle: "Absolutely blown away!",
     text: "Stunning, elegant nails with a perfect glossy finish. I truly appreciated the personalized consultation and the use of high-quality products. Without a doubt, this is the best nail salon in London! If you're looking,this is the place to go. I can't wait to return!"
   },
   {
-    image: "/images/ocr/hands.jpg",
+    image: "/images/ocr/hands.jpeg",
     name: "Sister Margary",
     stars: 4,
     subtitle: "Wowwwwwowowowow wooow owwwo",
     text: "Stunning, elegant nails with a perfect glossy finish. I truly appreciated the personalized consultation and the use of high-quality products. Without a doubt, this is the best nail salon in London! If you're looking,this is the place to go. I can't wait to return!"
   },
   {
-    image: "/images/ocr/hands.jpg",
+    image: "/images/ocr/hands.jpeg",
     name: "Bob Checter",
     stars: 1,
     subtitle: "Ewwww",

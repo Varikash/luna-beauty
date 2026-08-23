@@ -47,6 +47,11 @@ const TreatmentCard: React.FC<TreatmentCardProps> = ({ treatment, index, anchorI
       </div>
       <div className={style.cardTextWrapper}>
         <h3 className={style.cardTitle}>{treatment.title}</h3>
+        {treatment.masters && treatment.masters.length > 0 && (
+          <p className={style.cardMasters}>
+            With {treatment.masters.join(' · ')} only
+          </p>
+        )}
         <p className={style.cardText}>{treatment.text}</p>
         <Image
           src="/images/bs/calendarButton.svg"

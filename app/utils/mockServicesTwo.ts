@@ -1,15 +1,24 @@
 /**
- * Mock data for the services page (/services).
- * Shape is intentionally close to the real API contract so the arrays can be
- * swapped for the real payload without touching the components.
+ * Services catalogue for /services and /services/details/<link>.
+ *
+ * Source of truth: "Luna Beauty studio staff description.docx" supplied by the
+ * client. Every treatment title, description, master and master-to-treatment
+ * assignment below is taken from that document — nothing here is invented.
+ *
+ * What the document does NOT contain (grep the constants to find every gap):
+ *  - prices        → PRICE_TBC
+ *  - durations     → DURATION_TBC
+ *  - the waxing treatment menu (zones) → `waxing.treatments` is empty on purpose
+ *
+ * Shape is unchanged, so the arrays can still be swapped for a real API payload
+ * without touching the components.
  */
 
-/**
- * Placeholder copy for treatments whose description is not written yet.
- * Grep for TODO_TEXT to find every card still waiting for real content.
- */
-const TODO_TEXT =
-  "Description for this treatment is on its way. Our master will walk you through every step of the ritual when you book.";
+/** No price in the client's document yet. Grep PRICE_TBC before launch. */
+const PRICE_TBC = 'On request';
+
+/** No duration in the client's document yet. Grep DURATION_TBC before launch. */
+const DURATION_TBC = '—';
 
 export interface ITreatment {
   title: string;
@@ -21,6 +30,12 @@ export interface ITreatment {
   text: string;
   /** Card image on the detail page */
   image: string;
+  /**
+   * Only set when a treatment is restricted to some of the category's masters
+   * (the document marks Ingrown Toenails as "dana only"). Omitted means every
+   * master listed on the category performs it.
+   */
+  masters?: string[];
 }
 
 export interface IServiceMaster {
@@ -52,252 +67,305 @@ export interface IServiceCategory {
   link: string;
 }
 
+/**
+ * The six people who actually work in the studio. Names are exactly as the
+ * client wrote them — no surnames were supplied.
+ */
+const DANA: IServiceMaster = {
+  name: 'Dana',
+  role: 'Founder · Nail technician',
+  image: '/images/masters/dana.webp',
+  bio: 'Founder of LUNA Beauty Studio & Academy with over 12 years in the industry. Dana specialises in Russian manicure, works as an educator, and built the studio around precision, health and client care.',
+};
+
+const TANYA: IServiceMaster = {
+  name: 'Tanya',
+  role: 'Nail technician',
+  image: '/images/masters/tanya.webp',
+  bio: 'Over 4 years of creating beautiful, long-lasting nails with precision and exceptional attention to detail. Known for clean Russian manicures and refined cuticle work.',
+};
+
+const LOLA: IServiceMaster = {
+  name: 'Lola',
+  role: 'Nail technician',
+  image: '/images/masters/lola.webp',
+  bio: 'Over 10 years in the nail industry, with a reputation for exceptional craftsmanship and a perfectionist approach. Every set combines beauty, precision and durability.',
+};
+
+const NELYA: IServiceMaster = {
+  name: 'Nelya',
+  role: 'Makeup artist',
+  image: '/images/masters/nelya.webp',
+  bio: 'Over 4 years specialising in bridal, occasion and editorial makeup. Nelya creates elegant, long-lasting looks tailored to each individual’s features, style and vision.',
+};
+
+const MARYNA: IServiceMaster = {
+  name: 'Maryna',
+  role: 'Brows & PMU specialist',
+  image: '/images/masters/maryna.webp',
+  bio: 'Over 10 years in the beauty industry, specialising in brow shaping, lamination, powder brows and the hair stroke technique — precise, artistic, and always natural-looking.',
+};
+
+const NATALIIA: IServiceMaster = {
+  name: 'Nataliia',
+  role: 'Waxing specialist',
+  // TODO: the client's document says "(foto not included)" — waiting on a portrait.
+  image: '/images/services/waxing-1.webp',
+  bio: 'Over 6 years in professional waxing, known for meticulous technique, impeccable hygiene standards and a calm, client-first approach that puts first-time clients at ease.',
+};
+
+const NAIL_TEAM = [DANA, TANYA, LOLA];
+
 export const servicesCatalogMock: IServiceCategory[] = [
   {
-    id: "makeup",
-    title: "Makeup",
-    tagline: "Everyday · Bridal · Editorial",
+    id: 'manicure',
+    title: 'Manicure & Extensions',
+    tagline: 'Russian manicure · Structure · Nail art',
     description:
-      "Natural beauty enhanced with professional techniques and high-quality products. From a soft daytime glow to a full bridal look that holds from the ceremony to the last dance.",
+      'Every manicure is tailored to your natural nails, lifestyle and personal preferences. Our technicians are trained in advanced Russian Manicure techniques, renowned for their precision, flawless cuticle work and immaculate finish — because healthy nails are the foundation of beautiful nails.',
     images: [
-      "/images/bs/services1.jpg",
-      "/images/bs/services1.2.jpg",
-      "/images/bs/services1.3.jpg",
+      '/images/services/nails-extensions-2.webp',
+      '/images/services/nails-french-tip.webp',
+      '/images/services/nails-rubber-base.webp',
     ],
     treatments: [
       {
-        title: "Bridal make-up",
-        duration: "1 hr 30 min",
-        price: "£120",
+        title: 'Rubber Base Manicure',
+        duration: DURATION_TBC,
+        price: PRICE_TBC,
         popular: true,
-        text: "The goal is to achieve a timeless and elegant appearance that complements the dress, hairstyle, and overall theme. A well-prepped base ensures a smooth application, while long-wearing, high-quality products keep the makeup fresh from the ceremony to the reception.",
-        image: "/images/bs/services1.jpg",
+        text: 'A strengthening rubber base manicure designed to reinforce natural nails, improve durability, and create a flawless, long-lasting finish.',
+        image: '/images/services/nails-rubber-base.webp',
       },
       {
-        title: "Bridesmaid makeup",
-        duration: "1 hr",
-        price: "£80",
-        text: "The goal is to enhance natural beauty with a polished and cohesive look that suits the bride’s vision while allowing each bridesmaid to feel confident. Soft, radiant skin, defined eyes, and a balanced lip colour create a timeless and flattering effect.",
-        image: "/images/bs/services1.jpg",
+        title: 'French Tip',
+        duration: DURATION_TBC,
+        price: PRICE_TBC,
+        text: 'A timeless French manicure with a clean, precise tip — elegant, balanced, and effortlessly sophisticated.',
+        image: '/images/services/nails-french-tip.webp',
       },
       {
-        title: "Event / party",
-        duration: "1 hr",
-        price: "£60",
-        text: "Whether it's a glamorous evening affair or a vibrant celebration, the key is a flawless base, defined eyes, and a long-wearing finish. While high-quality products help maintain a fresh and radiant look.",
-        image: "/images/bs/services1.2.jpg",
+        title: 'Extensions',
+        duration: DURATION_TBC,
+        price: PRICE_TBC,
+        text: 'Structured nail extensions crafted for strength, symmetry, and refined shape — tailored to a natural or statement finish.',
+        image: '/images/services/nails-extensions-1.webp',
       },
       {
-        title: "Pre-makeup facial",
-        duration: "20 min",
-        price: "£35",
-        text: "Skin prep means giving the skin what it needs so that my “canvas” is ready to receive the makeup application. The skin reacts differently when it is taken care of, it looks smoother and the makeup will stay on longer. This is the reason you should not skip this step.",
-        image: "/images/bs/services1.3.jpg",
-      },
-      {
-        title: "Junior make-up",
-        duration: "45 min",
-        price: "£40",
-        text: "Junior makeup is all about keeping things light, fresh, and age-appropriate. It focuses on enhancing natural beauty with minimal products, using lightweight formulas for a healthy glow. Soft tints, subtle shimmer, and neutral tones work best!",
-        image: "/images/bs/services1.jpg",
-      },
-      {
-        title: "Flower girl makeup",
-        duration: "30 min",
-        price: "£20",
-        text: "At this age, it's best to focus on a light touch—think clear lip gloss, a hint of blush, or a touch of shimmer for fun occasions. Skincare is the most important step, ensuring the skin stays healthy and hydrated.",
-        image: "/images/bs/services1.2.jpg",
-      },
-      {
-        title: "Bridesmaids trial",
-        duration: "1 hr",
-        price: "£60",
-        text: "A bridesmaids' trial makeup session is the perfect opportunity to ensure a cohesive and flattering look for the bridal party. It allows each bridesmaid to test different styles, ensuring their makeup complements the wedding theme, their dress, and personal preferences.",
-        image: "/images/bs/services1.3.jpg",
-      },
-      {
-        title: "Travel charge",
-        duration: "5 min",
-        price: "£0,30",
-        text: "The travel cost for a makeup artist from the salon is charged at 0.30 pence per mile, meaning that for every mile traveled to the client`s location, an additional fee of £0.30 will be applied. This cost covers the artist`s travel expenses and is added to the total service price.",
-        image: "/images/bs/services1.jpg",
+        title: 'Clean Manicure',
+        duration: DURATION_TBC,
+        price: PRICE_TBC,
+        text: 'A meticulous nail preparation focused on cuticle care and nail health — clean, minimal, and perfectly refined.',
+        image: '/images/services/nails-clean-manicure-1.webp',
       },
     ],
-    priceFrom: "£20",
-    masters: [
-      {
-        name: "Nelia Mihai",
-        role: "Makeup artist",
-        image: "/images/masters/2.jpg",
-        bio: "Is a skilled professional makeup artist who enhances beauty with expert cosmetic techniques. She tailors each look to suit different occasions, from everyday glam to special events. With a deep understanding of skin tones and trends.",
-      },
-      {
-        name: "Amelia Carter",
-        role: "Bridal specialist",
-        image: "/images/masters/3.jpg",
-        bio: "Builds soft glam, bridal and editorial looks made for long wear. Amelia maps every look to the dress, the light and the length of the day, so it holds from the first photo to the last dance.",
-      },
-      {
-        name: "Isabella Moore",
-        role: "Makeup artist",
-        image: "/images/masters/4.jpg",
-        bio: "Works with balance and proportion — classic technique, clean lines and a finish that still looks like you. Equally at home with a bare daytime glow and a full evening eye.",
-      },
-    ],
-    link: "makeup",
+    priceFrom: PRICE_TBC,
+    masters: NAIL_TEAM,
+    link: 'manicure',
   },
   {
-    id: "waxing",
-    title: "Waxing",
-    tagline: "Ladies · Men · Sensitive skin",
+    id: 'pedicure',
+    title: 'Pedicure',
+    tagline: 'Care · Comfort · Finish',
     description:
-      "Smooth, long-lasting results with gentle techniques and premium wax. Every session is adapted to your skin type, with extra care where the skin is most sensitive.",
+      'Beyond perfectly polished toes, we focus on the health, comfort and appearance of your feet. From meticulous cuticle work and nail care to smooth heels, every pedicure is performed with exceptional attention to detail in a relaxing and hygienic environment.',
     images: [
-      "/images/bs/services2.jpg",
-      "/images/bs/services2.2.jpg",
-      "/images/bs/services2.3.jpg",
+      '/images/services/pedicure-aesthetic.webp',
+      '/images/services/pedicure-cracked-heels.webp',
+      '/images/services/pedicure-ingrown-3.webp',
     ],
     treatments: [
-      { title: "Brazilian bikini", duration: "40 min", price: "£45", popular: true, text: TODO_TEXT, image: "/images/bs/services2.jpg" },
-      { title: "Full leg", duration: "50 min", price: "£40", text: TODO_TEXT, image: "/images/bs/services2.2.jpg" },
-      { title: "Half leg", duration: "30 min", price: "£25", text: TODO_TEXT, image: "/images/bs/services2.3.jpg" },
-      { title: "Full / half arm", duration: "25 min", price: "£22", text: TODO_TEXT, image: "/images/bs/services2.jpg" },
-      { title: "Waxing men — back", duration: "35 min", price: "£38", text: TODO_TEXT, image: "/images/bs/services2.2.jpg" },
-      { title: "Waxing men — chest", duration: "30 min", price: "£35", text: TODO_TEXT, image: "/images/bs/services2.3.jpg" },
-      { title: "Underarms", duration: "15 min", price: "£16", text: TODO_TEXT, image: "/images/bs/services2.jpg" },
-      { title: "Upper lip & chin", duration: "15 min", price: "£14", text: TODO_TEXT, image: "/images/bs/services2.2.jpg" },
-      { title: "Eyebrow shaping", duration: "20 min", price: "£18", text: TODO_TEXT, image: "/images/bs/services2.3.jpg" },
-      { title: "Full body", duration: "1 hr 45 min", price: "£110", text: TODO_TEXT, image: "/images/bs/services2.jpg" },
-      { title: "Extra area", duration: "15 min", price: "£12", text: TODO_TEXT, image: "/images/bs/services2.2.jpg" },
-    ],
-    priceFrom: "£12",
-    masters: [
       {
-        name: "Olivia Hayes",
-        role: "Waxing expert",
-        image: "/images/masters/6.jpg",
-        bio: "Gentle technique and clean results, with particular care for sensitive skin. Olivia adapts the wax, the temperature and the pace of the session to your skin type.",
+        title: 'Aesthetic Pedicure',
+        duration: DURATION_TBC,
+        price: PRICE_TBC,
+        popular: true,
+        text: 'A refined pedicure focused on clean lines, healthy skin, and a polished, elegant finish.',
+        image: '/images/services/pedicure-aesthetic.webp',
       },
       {
-        name: "Sophia Reed",
-        role: "Waxing expert",
-        image: "/images/masters/5.jpg",
-        bio: "Precise, unhurried work and a calm room. Sophia focuses on aftercare as much as the session itself, so the skin stays smooth and comfortable for longer.",
+        title: 'Ingrown Toenails Treatment',
+        duration: DURATION_TBC,
+        price: PRICE_TBC,
+        text: 'Professional and gentle treatment to relieve discomfort and restore nail health with precision and care.',
+        image: '/images/services/pedicure-ingrown-1.webp',
+        // The document marks this one "dana only".
+        masters: ['Dana'],
+      },
+      {
+        title: 'Cracked Heels Treatment',
+        duration: DURATION_TBC,
+        price: PRICE_TBC,
+        text: 'Intensive care to repair dry, cracked heels — smoothing, hydrating, and restoring softness.',
+        image: '/images/services/pedicure-cracked-heels.webp',
       },
     ],
-    link: "waxing",
+    priceFrom: PRICE_TBC,
+    masters: NAIL_TEAM,
+    link: 'pedicure',
   },
   {
-    id: "manicure",
-    title: "Manicure & Extensions",
-    tagline: "Gel · Structure · Nail art",
+    id: 'makeup',
+    title: 'Makeup',
+    tagline: 'Bridal · Occasion · Editorial',
     description:
-      "Durability, style and a polished finish tailored to your hands. Clean prep, structured gel and a design language that ranges from bare minimal to full art.",
+      'Every look is customised to your features, outfit, lighting and the length of your day. Products are chosen for durability and comfort, so the finish photographs beautifully and holds from the first look to the last dance.',
     images: [
-      "/images/bs/services3.jpg",
-      "/images/bs/services1.3.jpg",
-      "/images/bs/services1.2.jpg",
+      '/images/services/makeup-bridal.webp',
+      '/images/services/makeup-editorial-1.webp',
+      '/images/services/makeup-soft-natural.webp',
     ],
     treatments: [
-      { title: "Gel extension", duration: "2 hr", price: "£65", popular: true, text: TODO_TEXT, image: "/images/bs/services3.jpg" },
-      { title: "Tip gel extension", duration: "1 hr 45 min", price: "£58", text: TODO_TEXT, image: "/images/bs/services1.3.jpg" },
-      { title: "Clean manicure", duration: "45 min", price: "£28", text: TODO_TEXT, image: "/images/bs/services1.2.jpg" },
-      { title: "Manicure with varnish", duration: "1 hr", price: "£34", text: TODO_TEXT, image: "/images/bs/services3.jpg" },
-      { title: "Design 10 nails", duration: "40 min", price: "£25", text: TODO_TEXT, image: "/images/bs/services1.3.jpg" },
-      { title: "Design 2 nails", duration: "15 min", price: "£8", text: TODO_TEXT, image: "/images/bs/services1.2.jpg" },
-      { title: "Gel removal & repair", duration: "30 min", price: "£15", text: TODO_TEXT, image: "/images/bs/services3.jpg" },
-      { title: "Single nail repair", duration: "15 min", price: "£7", text: TODO_TEXT, image: "/images/bs/services1.3.jpg" },
-      { title: "Cuticle oil ritual", duration: "15 min", price: "£10", text: TODO_TEXT, image: "/images/bs/services1.2.jpg" },
-    ],
-    priceFrom: "£7",
-    masters: [
       {
-        name: "Daniela Celan",
-        role: "Salon owner · Nail master",
-        image: "/images/masters/1.jpg",
-        bio: "Fourteen years of shaping, structuring and finishing nails to perfection. Daniela founded the studio and still takes the chair for the work that needs the steadiest hand.",
+        title: 'Bridal Makeup',
+        duration: DURATION_TBC,
+        price: PRICE_TBC,
+        popular: true,
+        text: 'Fully tailored to your personal style, dress and wedding theme. Whether you dream of a soft, romantic glow, timeless elegance, or full glamorous perfection, we create a flawless complexion and long-lasting finish designed to withstand happy tears, endless photos, and hours of celebration. Every product is carefully selected for durability and comfort, ensuring you look radiant from the first look until the last dance.',
+        image: '/images/services/makeup-bridal.webp',
       },
       {
-        name: "Emily Bennett",
-        role: "Nail specialist",
-        image: "/images/masters/7.jpg",
-        bio: "Structure first, colour second. Emily builds extensions that keep their shape for weeks and treats the natural nail underneath as the priority.",
+        title: 'Bridal Makeup Trial',
+        duration: DURATION_TBC,
+        price: PRICE_TBC,
+        text: 'We recommend every bride books a trial before the wedding day. This personalised consultation allows us to refine your chosen look, test products, and ensure every detail is tailored to you.',
+        image: '/images/services/makeup-bridal.webp',
+      },
+      {
+        title: 'Bridesmaids Makeup',
+        duration: DURATION_TBC,
+        price: PRICE_TBC,
+        text: 'Beautifully coordinated makeup designed to complement the bride and the wedding aesthetic while enhancing each bridesmaid’s individual features. Every look is customised to suit different skin tones, face shapes and personal styles, creating an elegant bridal party that photographs beautifully together while allowing everyone to feel confident and comfortable.',
+        image: '/images/services/makeup-bridesmaids.webp',
+      },
+      {
+        title: 'Flower Girl Makeup',
+        duration: DURATION_TBC,
+        price: PRICE_TBC,
+        text: 'A soft, delicate touch of age-appropriate makeup designed to make your little one feel extra special. Using gentle products and subtle shimmer, blush or lip gloss, we create a fresh, natural look that enhances photos while keeping your flower girl comfortable and looking like herself.',
+        image: '/images/services/makeup-flower-girl.webp',
+      },
+      {
+        title: 'Soft / Natural Makeup',
+        duration: DURATION_TBC,
+        price: PRICE_TBC,
+        text: 'Perfect for clients who love understated elegance. This look enhances your natural beauty using lightweight, skin-like products that create a radiant complexion, softly defined eyes, and fresh, healthy-looking skin. Ideal for daytime events, business shoots, baby showers, brunches, or anyone wanting an effortlessly polished appearance.',
+        image: '/images/services/makeup-soft-natural.webp',
+      },
+      {
+        title: 'Special Occasion Makeup',
+        duration: DURATION_TBC,
+        price: PRICE_TBC,
+        text: 'Whether you’re attending a wedding, celebrating a birthday, prom, gala, engagement party, or any important event, this look is customised to suit your outfit, hairstyle, lighting and personal style. Expect a flawless, long-lasting finish that photographs beautifully and lasts comfortably throughout the entire event.',
+        image: '/images/services/makeup-special-occasion.webp',
+      },
+      {
+        title: 'Editorial & Photoshoot Makeup',
+        duration: DURATION_TBC,
+        price: PRICE_TBC,
+        text: 'Designed specifically for professional photography, branding sessions, fashion editorials, commercial campaigns and content creation. This high-definition makeup is crafted to perform beautifully under studio lighting and high-resolution cameras, with precise contouring, skin perfection and expert detailing that translates flawlessly both on camera and in person.',
+        image: '/images/services/makeup-editorial-1.webp',
       },
     ],
-    link: "manicure",
+    priceFrom: PRICE_TBC,
+    masters: [NELYA],
+    link: 'makeup',
   },
   {
-    id: "semi-permanent",
-    title: "Semi permanent makeup",
-    tagline: "Brows · Lashes · Eyeliner",
+    id: 'brows-lashes',
+    title: 'Brows & Lashes',
+    tagline: 'HD Brows · Lamination · Lash lift',
     description:
-      "Micropigmentation and lamination that keep you looking done from the moment you wake up. Shape first, pigment second — always mapped to your own face geometry.",
+      'Beautiful brows and lashes have the power to transform your entire look. Every treatment is tailored to your unique facial features, using premium products and advanced techniques to achieve long-lasting, natural results.',
     images: [
-      "/images/bs/services4.jpg",
-      "/images/bs/services1.jpg",
-      "/images/bs/services2.3.jpg",
+      '/images/services/brows-hd-1.webp',
+      '/images/services/brows-hd-2.webp',
+      '/images/services/lash-lamination-1.webp',
     ],
     treatments: [
-      { title: "Luxury lashes lamination", duration: "1 hr", price: "£55", popular: true, text: TODO_TEXT, image: "/images/bs/services4.jpg" },
-      { title: "Eyebrow lamination", duration: "50 min", price: "£45", text: TODO_TEXT, image: "/images/bs/services1.jpg" },
-      { title: "SPMU eyeliner", duration: "2 hr", price: "£180", text: TODO_TEXT, image: "/images/bs/services2.3.jpg" },
-      { title: "SPMU brows — powder", duration: "2 hr 30 min", price: "£220", text: TODO_TEXT, image: "/images/bs/services4.jpg" },
-      { title: "Brow keratin", duration: "40 min", price: "£35", text: TODO_TEXT, image: "/images/bs/services1.jpg" },
-      { title: "Lash botox", duration: "45 min", price: "£40", text: TODO_TEXT, image: "/images/bs/services2.3.jpg" },
-      { title: "Colour top-up", duration: "1 hr", price: "£70", text: TODO_TEXT, image: "/images/bs/services4.jpg" },
-    ],
-    priceFrom: "£35",
-    masters: [
       {
-        name: "Sophia Reed",
-        role: "Brow specialist",
-        image: "/images/masters/5.jpg",
-        bio: "Brow shaping and lamination mapped to your own face geometry. Shape first, pigment second — Sophia never starts pigment work before the drawing is agreed.",
+        title: 'HD Brows',
+        duration: DURATION_TBC,
+        price: PRICE_TBC,
+        popular: true,
+        text: 'A bespoke brow treatment combining professional mapping, waxing, shaping, tinting and styling to create brows that perfectly complement your facial features. Designed to deliver a polished, symmetrical look while maintaining a natural appearance.',
+        image: '/images/services/brows-hd-1.webp',
       },
       {
-        name: "Isabella Moore",
-        role: "Lash tech",
-        image: "/images/masters/4.jpg",
-        bio: "Classic and light volume sets designed around a balanced eye shape. Isabella works to keep the natural lash healthy under every set she builds.",
+        title: 'Brow Lamination',
+        duration: DURATION_TBC,
+        price: PRICE_TBC,
+        text: 'Transform unruly or sparse brows into fuller, perfectly groomed brows that stay in place for up to 6–8 weeks. Ideal for creating a soft, fluffy and naturally lifted look.',
+        image: '/images/services/brows-hd-2.webp',
+      },
+      {
+        title: 'Lash Lamination',
+        duration: DURATION_TBC,
+        price: PRICE_TBC,
+        text: 'Enhance your natural lashes with a beautiful lift, curl and definition without the need for extensions. This treatment opens the eyes, creates the illusion of longer lashes, and lasts up to 6–8 weeks.',
+        image: '/images/services/lash-lamination-1.webp',
       },
     ],
-    link: "semi-permanent",
+    priceFrom: PRICE_TBC,
+    masters: [MARYNA],
+    link: 'brows-lashes',
   },
   {
-    id: "pedicure",
-    title: "Pedicure",
-    tagline: "Care · Comfort · Finish",
+    id: 'permanent-makeup',
+    title: 'Permanent Makeup',
+    tagline: 'Powder brows · Hair stroke · Lip blush',
     description:
-      "Smooth skin, healthy nails and a well-groomed finish. A slow, careful ritual that treats the feet as seriously as the hands — because they carry you all day.",
+      'Permanent makeup enhances your natural beauty while simplifying your daily routine. Every procedure is individually tailored to create elegant, soft and natural-looking results that complement your facial features.',
     images: [
-      "/images/bs/services5.jpg",
-      "/images/bs/services2.2.jpg",
-      "/images/bs/services3.jpg",
+      '/images/services/pmu-powder-brows-1.webp',
+      '/images/services/pmu-hair-stroke-1.webp',
+      '/images/services/pmu-lip-blush-1.webp',
     ],
     treatments: [
-      { title: "Pedicure & rubber gel", duration: "1 hr 30 min", price: "£60", popular: true, text: TODO_TEXT, image: "/images/bs/services5.jpg" },
-      { title: "Pedicure with varnish", duration: "1 hr 15 min", price: "£45", text: TODO_TEXT, image: "/images/bs/services2.2.jpg" },
-      { title: "Clean pedicure", duration: "1 hr", price: "£38", text: TODO_TEXT, image: "/images/bs/services3.jpg" },
-      { title: "Heel treatment", duration: "30 min", price: "£22", text: TODO_TEXT, image: "/images/bs/services5.jpg" },
-      { title: "Nail correction", duration: "25 min", price: "£18", text: TODO_TEXT, image: "/images/bs/services2.2.jpg" },
-      { title: "Gel removal", duration: "20 min", price: "£12", text: TODO_TEXT, image: "/images/bs/services3.jpg" },
-    ],
-    priceFrom: "£12",
-    masters: [
       {
-        name: "Emily Bennett",
-        role: "Nail specialist",
-        image: "/images/masters/7.jpg",
-        bio: "Structure first, colour second. Emily builds extensions that keep their shape for weeks and treats the natural nail underneath as the priority.",
+        title: 'Powder Brows',
+        duration: DURATION_TBC,
+        price: PRICE_TBC,
+        popular: true,
+        text: 'A soft shading technique that creates beautifully defined brows with a natural powdered makeup effect. Ideal for clients looking for fuller, more symmetrical brows that remain effortlessly beautiful every day.',
+        image: '/images/services/pmu-powder-brows-1.webp',
       },
       {
-        name: "Mia Thompson",
-        role: "Pedicure master",
-        image: "/images/masters/6.jpg",
-        bio: "A slow, careful ritual that treats the feet as seriously as the hands. Mia works on skin and nail health first, and finishes with the polish.",
+        title: 'Hair Stroke Brows',
+        duration: DURATION_TBC,
+        price: PRICE_TBC,
+        text: 'The newest generation of permanent makeup. Using an advanced single-needle technique, ultra-fine hair strokes are carefully created to mimic natural eyebrow hairs with exceptional precision. This method causes minimal skin trauma while delivering beautifully realistic, soft and natural-looking brows that blend seamlessly with your own — perfect for clients with sparse brows or anyone looking to restore their natural appearance.',
+        image: '/images/services/pmu-hair-stroke-1.webp',
+      },
+      {
+        title: 'Lip Blush',
+        duration: DURATION_TBC,
+        price: PRICE_TBC,
+        text: 'A semi-permanent treatment designed to restore colour, improve definition and create the appearance of healthier, more youthful lips. Using premium pigments and a personalised colour match, it subtly enhances your natural lip tone while correcting uneven pigmentation and refining the lip border, for a soft, fresh finish that never looks overdone.',
+        image: '/images/services/pmu-lip-blush-1.webp',
       },
     ],
-    link: "pedicure",
+    priceFrom: PRICE_TBC,
+    masters: [MARYNA],
+    link: 'permanent-makeup',
+  },
+  {
+    id: 'waxing',
+    title: 'Waxing',
+    tagline: 'Private · Gentle · Sensitive skin',
+    description:
+      'Professional waxing in a private, welcoming environment. We use premium-quality waxes and meticulous techniques for effective hair removal with minimal discomfort, respecting even the most sensitive skin — every appointment performed with the highest standards of hygiene and discretion.',
+    images: [
+      '/images/services/waxing-1.webp',
+      '/images/services/waxing-3.webp',
+      '/images/services/waxing-4.webp',
+    ],
+    // TODO: the client's document describes the service but lists no zones.
+    // Left empty on purpose so the site never shows an invented waxing menu.
+    treatments: [],
+    priceFrom: PRICE_TBC,
+    masters: [NATALIIA],
+    link: 'waxing',
   },
 ];
 
@@ -316,10 +384,10 @@ const expertsCount = new Set(
 
 /** Derived from the catalogue so the numbers can never drift from the content */
 export const servicesHeroStats = [
-  { value: String(servicesCatalogMock.length), label: "Service categories" },
-  { value: String(treatmentsCount), label: "Treatments on the menu" },
-  { value: String(expertsCount), label: "Certified experts" },
-  { value: "14", label: "Years in the craft" },
+  { value: String(servicesCatalogMock.length), label: 'Service categories' },
+  { value: String(treatmentsCount), label: 'Treatments on the menu' },
+  { value: String(expertsCount), label: 'Certified experts' },
+  { value: '12', label: 'Years in the craft' },
 ];
 
 /** "Find your master" strip under the catalogue */
@@ -328,45 +396,33 @@ export const servicesTeamMock: (IServiceMaster & {
   services: string[];
 })[] = [
   {
-    name: "Daniela Celan",
-    role: "Salon owner · Nail master",
-    image: "/images/masters/1.jpg",
-    skills: "14 years of shaping, structuring and finishing nails to perfection.",
-    services: ["Manicure", "Pedicure"],
+    ...DANA,
+    skills: 'Over 12 years of Russian manicure, pedicure and nail artistry — founder and educator.',
+    services: ['Manicure', 'Pedicure'],
   },
   {
-    name: "Nelia Mihai",
-    role: "Makeup artist",
-    image: "/images/masters/2.jpg",
-    skills: "Enhances natural beauty with expert cosmetic technique and skin prep.",
-    services: ["Makeup", "SPMU"],
+    ...NELYA,
+    skills: 'Bridal, occasion and editorial makeup built for long wear and high-resolution cameras.',
+    services: ['Makeup'],
   },
   {
-    name: "Amelia Carter",
-    role: "Bridal specialist",
-    image: "/images/masters/3.jpg",
-    skills: "Soft glam, bridal and editorial looks built for long wear.",
-    services: ["Makeup"],
+    ...TANYA,
+    skills: 'Clean Russian manicures and refined cuticle work with exceptional attention to detail.',
+    services: ['Manicure', 'Pedicure'],
   },
   {
-    name: "Isabella Moore",
-    role: "Lash tech",
-    image: "/images/masters/4.jpg",
-    skills: "Classic and light volume sets designed for a balanced eye shape.",
-    services: ["SPMU", "Makeup"],
+    ...LOLA,
+    skills: 'Ten years of flawless craftsmanship — nails that stay strong and beautiful for weeks.',
+    services: ['Manicure', 'Pedicure'],
   },
   {
-    name: "Sophia Reed",
-    role: "Brow specialist",
-    image: "/images/masters/5.jpg",
-    skills: "Brow shaping and lamination mapped to your face geometry.",
-    services: ["SPMU", "Waxing"],
+    ...MARYNA,
+    skills: 'Brow shaping, lamination, powder brows and the single-needle hair stroke technique.',
+    services: ['Brows & Lashes', 'Permanent Makeup'],
   },
   {
-    name: "Olivia Hayes",
-    role: "Waxing expert",
-    image: "/images/masters/6.jpg",
-    skills: "Gentle technique and clean results, with care for sensitive skin.",
-    services: ["Waxing"],
+    ...NATALIIA,
+    skills: 'Six years of professional waxing with meticulous technique and impeccable hygiene.',
+    services: ['Waxing'],
   },
 ];

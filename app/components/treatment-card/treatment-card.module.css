@@ -45,6 +45,17 @@
   margin-top: 4px;
 }
 
+/* Only rendered for treatments restricted to some of the category's masters */
+.cardMasters {
+  width: 100%;
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #6b6875;
+}
+
 .cardText {
   width: 100%;
   font-family: var(--font-public-sans);

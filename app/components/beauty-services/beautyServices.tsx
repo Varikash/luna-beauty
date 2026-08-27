@@ -11,10 +11,17 @@ import style from './beautyServices.module.css';
 
 /**
  * The booking promo tile is a grid item of its own, not a service. It follows
- * the fourth card so it lands in the fifth slot the design — and the
- * `li:nth-child(5)` mobile rule — expects.
+ * the fourth card so it lands in the fifth slot, where the design puts it
+ * (Figma 61:1271 — row 2, middle column).
  */
 const PROMO_AFTER_INDEX = 3;
+
+/**
+ * The home grid shows five service cards plus the promo tile (Figma 61:1444) —
+ * two full rows of three. The rest of the menu lives behind the header's
+ * "EXPLORE ALL OUR SERVICES" link, so the home page stays a teaser.
+ */
+const HOME_CARD_COUNT = 5;
 
 interface BeautyServicesProps {
   type?: "page1" | "page2" | "page3";
@@ -33,28 +40,31 @@ const BeautyServices: React.FC<BeautyServicesProps> = ({ type }) => {
 
   const page1List = useMemo(() => (
     <ul className={style.beautyServicesListPageOne}>
-      {servicesMock.map((service, index) => (
+      {servicesMock.slice(0, HOME_CARD_COUNT).map((service, index) => (
         <React.Fragment key={"bs-page-1" + index}>
           <CardWrapper type="page1" ikey={index} key={"cardkey" + index}>
-            <div className={style.cardHeader}>
-              <span className={style.serviceCounter}>
-                0{index + 1}
-              </span>
-              <a
-                href="https://example.com/booking"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={style.calendarLink}
-              >
-                <Image
-                  src="/images/bs/calendarButton.svg"
-                  alt="Calendar Icon"
-                  width={48}
-                  height={48}
-                  className={style.calendarIcon}
-                />
-              </a>
-            </div>
+            {/* Counter, booking link, title, copy, photo and the sub-service
+                list are direct children of the card grid, so the phone layout
+                can move the booking link below the title (see the card's
+                grid-template-areas) without touching the markup. */}
+            <span className={style.serviceCounter}>
+              0{index + 1}
+            </span>
+            <a
+              href="https://example.com/booking"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={style.calendarLink}
+              aria-label={`Book ${service.title}`}
+            >
+              <Image
+                src="/images/bs/calendarButton.svg"
+                alt=""
+                width={48}
+                height={48}
+                className={style.calendarIcon}
+              />
+            </a>
             <h3 className={style.cardTitle}>
               {service.title}
             </h3>
@@ -86,19 +96,19 @@ const BeautyServices: React.FC<BeautyServicesProps> = ({ type }) => {
           </CardWrapper>
 
           {index === PROMO_AFTER_INDEX && (
-            <li>
+            <li className={style.promoItem}>
               <a
                 href="https://example.com/booking"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={style.placeholderCard}
               >
+                {/* No hard line breaks: the copy re-wraps inside its own
+                    max-width so the tile reads the same at every size. */}
                 <p className={style.placeholderTitle}>
-                  High-quality services,<br />
-                  from professional makeup<br />
-                  and flawless waxing to the<br />
-                  best experts in nails<br />
-                  manicure!</p>
+                  High-quality services, from professional makeup and flawless
+                  waxing to the best experts in nails manicure!
+                </p>
                 <Image
                   src="/images/bs/services-placeholder-btn.png"
                   alt="placeholder-card-pic"

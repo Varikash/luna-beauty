@@ -1,19 +1,38 @@
+/* =============================================================================
+   CARD WRAPPER
+   page1 (home "Beauty Services") is a fluid container-query card — see the
+   header comment in beautyServices.module.css. The other pages keep their
+   existing stepped layouts.
+   ============================================================================ */
+
+/* ── page1: home services card (Figma 61:1026 — 568 × 640, 40px padding) ──
+   `container-type: inline-size` makes the card the reference for every size
+   inside it, so the contents scale with the CARD instead of the viewport.
+   No fixed height: the `media` row (1fr) soaks up spare space, so cards in a
+   row stay equal height without anything being clipped or hidden. */
 .cardWrapperPageOne {
+  container-type: inline-size;
   width: 100%;
-  max-width: 568px;
-  height: 640px;
+  min-width: 0;
+  min-height: clamp(360px, 33.3vw, 640px);
+  padding: clamp(16px, 2.1vw, 40px);
   border: 1px solid #E4E4E4;
   background-color: white;
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 0px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto auto auto 1fr auto;
+  grid-template-areas:
+    "counter calendar"
+    "title   title"
+    "text    text"
+    "media   media"
+    "nav     nav";
+  row-gap: clamp(8px, 0.85vw, 16px);
+  column-gap: 16px;
 }
 
 .cardWrapperPageTwo {
   width: 100%;
-  /* height: 344px; */
   gap: 40px;
   border-bottom: 1px solid #E4E4E4;
   background-color: white;
@@ -50,15 +69,22 @@
   margin-bottom: 0px;
 }
 
-
+/* page1 phone layout (Figma 387:992): the calendar button drops below the
+   title, the description is dropped and the photo becomes a full-width
+   banner — handled in beautyServices.module.css for the children. */
+@media (max-width: 500px) {
+  .cardWrapperPageOne {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "counter"
+      "title"
+      "calendar"
+      "media"
+      "nav";
+  }
+}
 
 @media (max-width: 1868px) {
-  .cardWrapperPageOne {
-    width: 100%;
-    max-width: 500px;
-    height: 600px;
-  }
-
   .cardWrapperPageFour {
     width: 100%;
     max-width: 550px;
@@ -67,10 +93,6 @@
 }
 
 @media (max-width: 1550px) {
-  .cardWrapperPageOne {
-    padding: 25px;
-  }
-
   .cardWrapperPageTwo {
     padding: 32px 40px 32px 0px;
   }
@@ -83,7 +105,6 @@
 @media (max-width: 1160px) {
   .cardWrapperPageTwo {
     width: 100%;
-    /* height: 344px; */
     gap: 40px;
     border-bottom: 1px solid #E4E4E4;
     background-color: white;
@@ -93,25 +114,6 @@
 }
 
 @media (max-width: 765px) {
-  .cardWrapperPageOne {
-    height: 500px;
-  }
-
-  .lastLi {
-    padding: 0px 0px 0px 0px;
-    margin: 0px;
-    display: flex;
-    gap: 8px;
-    /* Остальные свойства lastLi остаются */
-    font-family: var(--font-public-sans);
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 30px;
-    letter-spacing: 1%;
-    text-transform: uppercase;
-    color: #A9714B;
-  }
-
   .cardWrapperPageTwo {
     gap: 16px;
     padding: 24px 0px 32px 0px;
@@ -121,26 +123,15 @@
   .cardWrapperPageFour {
     height: 500px;
   }
-
 }
 
 @media (max-width: 415px) {
-  .cardWrapperPageOne {
-    height: 470px;
-  }
-
   .cardWrapperPageFour {
     height: 470px;
   }
 }
 
 @media (max-width: 390px) {
-  .cardWrapperPageOne {
-    padding: 16px;
-    height: 374px;
-    width: 344px;
-  }
-
   .cardWrapperPageFour {
     padding: 8px 14px;
     height: fit-content;

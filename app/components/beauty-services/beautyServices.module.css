@@ -1,14 +1,25 @@
+/* =============================================================================
+   BEAUTY SERVICES
+   -----------------------------------------------------------------------------
+   page1 (home) is fluid by design instead of stepped:
+   · the section box (padding, gaps, grid) scales with the viewport — clamp()/vw;
+   · everything INSIDE a card scales with the CARD, not the viewport — `cqi`
+     units against the card's own container (see cardWrapper.module.css), so a
+     card reads identically whether the grid runs 3, 2 or 1 column;
+   · only the column count is a breakpoint (3 → 2 → 1); nothing is clipped or
+     hidden to make content fit a fixed height.
+   Reference: Figma "servicii" 61:1444 (1920) and "Frame 401" 387:992 (375).
+   ============================================================================ */
+
 .beautyServicesSection {
   box-sizing: border-box;
   width: 100%;
-  padding: 100px 77px 120px 77px;
+  padding: clamp(56px, 5.2vw, 100px) clamp(16px, 4.01vw, 77px) clamp(64px, 6.25vw, 120px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 96px;
+  gap: clamp(32px, 5vw, 96px);
   background: #FFFFFF;
-  /* background: #F8F8F8; */
 }
 
 .beautyServicesSectionPageTwo {
@@ -20,7 +31,6 @@
   justify-content: center;
   gap: 96px;
   background: #FFFFFF;
-  /* background: #F8F8F8; */
 }
 
 .beautyServicesSectionPageThree {
@@ -40,17 +50,17 @@
 }
 
 /* серединка ================================ */
-.beautyServicesListPageOne {
-  max-width: 1768px;
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(350px, 568px));
-  gap: 32px;
-  list-style: none;
-  justify-content: center;
-  align-items: center;
-}
 
+/* 3 × 568 + 2 × 32 = 1768 at 1920 (design). Tracks are `minmax(0, 1fr)` so a
+   long word can never push the grid wider than the viewport. */
+.beautyServicesListPageOne {
+  width: 100%;
+  max-width: 1768px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 1.67vw, 32px);
+  list-style: none;
+}
 
 .beautyServicesListPageTwo {
   width: 100%;
@@ -71,16 +81,191 @@
   gap: 32px;
 }
 
+/* ── page1 card contents ──────────────────────────────────────────────────
+   Every size below is `cqi` = 1% of the card's width, with a px floor/ceiling:
+   at the 568px design card the middle value resolves to the Figma value
+   (48px title = 9.88cqi, 24px text = 4.94cqi, 18px meta = 3.7cqi …).
+   `cqi` is 1% of the card's CONTENT box (486px inside the 568px design card),
+   which is what those percentages are calibrated against. */
+
+.serviceCounter {
+  grid-area: counter;
+  align-self: center;
+  font-family: var(--font-public-sans);
+  font-weight: 600;
+  font-size: clamp(14px, 3.7cqi, 18px);
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: #0A090C;
+}
+
+.calendarLink {
+  grid-area: calendar;
+  align-self: start;
+  justify-self: end;
+  display: inline-flex;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.calendarLink:hover {
+  transform: scale(1.1);
+}
+
+.calendarIcon {
+  width: 48px;
+  height: 48px;
+}
+
 .cardTitle {
-  width: 100%;
+  grid-area: title;
   font-family: var(--font-playfair-display);
   font-weight: 400;
-  font-size: 48px;
-  line-height: 48px;
-  letter-spacing: -5%;
+  font-size: clamp(30px, 9.88cqi, 48px);
+  line-height: 1;
+  letter-spacing: -0.04em;
   color: #0A090C;
-  margin-top: 4px;
+  /* Long service names may wrap, but must never spill out of the card. */
+  overflow-wrap: break-word;
 }
+
+.cardText {
+  grid-area: text;
+  font-family: var(--font-public-sans);
+  font-weight: 200;
+  font-size: clamp(15px, 4.94cqi, 24px);
+  line-height: 1.34;
+  letter-spacing: 0.01em;
+  color: #0A090C;
+}
+
+/* Design: a 268 × 268 square centred in the 568 card (47cqi), capped so a
+   full-width single-column card doesn't turn it into a giant. The `media` row
+   is the flexible one (1fr), so leftover height becomes air around the image
+   instead of a gap at the bottom of the card. */
+.cardImage {
+  grid-area: media;
+  align-self: center;
+  justify-self: center;
+  width: min(100%, 55.1cqi);
+  max-width: 320px;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center;
+}
+
+.cardList {
+  grid-area: nav;
+  align-self: end;
+  padding-left: 0px;
+  color: #0A090C;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: clamp(6px, 1.65cqi, 8px);
+  row-gap: clamp(2px, 0.82cqi, 6px);
+}
+
+.cardListItem {
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  gap: 8px;
+}
+
+.cardList .cardListItem {
+  align-items: baseline;
+  gap: clamp(6px, 1.65cqi, 8px);
+}
+
+.cardListItemText {
+  font-family: var(--font-public-sans);
+  font-weight: 500;
+  font-size: clamp(13px, 3.7cqi, 18px);
+  line-height: 1.35;
+}
+
+.cardListItemI {
+  font-family: var(--font-public-sans);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 26px;
+  padding-right: 5px;
+  color: #95A3A0;
+}
+
+.cardList .cardListItemI {
+  font-size: clamp(11px, 2.45cqi, 12px);
+  line-height: 1.35;
+  padding-right: 0;
+}
+
+.lastLi {
+  padding: 0px 0px 0px 5px;
+  margin: 0px;
+  display: flex;
+  font-family: var(--font-public-sans);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 30px;
+  letter-spacing: 1%;
+  text-transform: uppercase;
+  color: #A9714B;
+}
+
+.cardList .lastLi {
+  padding-left: 0;
+  font-size: clamp(13px, 3.7cqi, 18px);
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+}
+
+/* ── page1 booking promo tile ─────────────────────────────────────────────
+   Its own container, so the copy and the "BOOK NOW" graphic scale with the
+   tile exactly like the service cards do (design: 568 × 640, r80 top-right). */
+.promoItem {
+  container-type: inline-size;
+  display: flex;
+}
+
+.placeholderCard {
+  cursor: pointer;
+  width: 100%;
+  padding: clamp(24px, 14.1cqi, 80px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(24px, 11.6cqi, 66px);
+  border-top-right-radius: clamp(40px, 14.1cqi, 80px);
+  background-color: #95A3A0;
+  transition: transform 0.2s ease;
+}
+
+.placeholderCard:hover {
+  transform: scale(1.01);
+}
+
+.placeholderTitle {
+  max-width: 61cqi;
+  font-family: var(--font-playfair-display);
+  font-weight: 400;
+  font-size: clamp(20px, 5.63cqi, 32px);
+  line-height: 1.25;
+  letter-spacing: -0.04em;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.placeholderCard img {
+  width: min(100%, 71.8cqi);
+  height: auto;
+}
+
+/* вторая страница ========================== */
 
 .cardTitlePageTwo {
   width: 80%;
@@ -103,67 +288,8 @@
   display: block;
 }
 
-.cardText {
-  width: 100%;
-  font-family: var(--font-public-sans);
-  font-weight: 200;
-  font-size: 24px;
-  line-height: 32px;
-  letter-spacing: 1%;
-  color: #0A090C;
-  margin-top: 15px;
-}
-
-.cardImage {
-  margin-top: 26px;
-  object-fit: cover;
-  margin: 26px auto 0px auto;
-}
-
 .cardImagePageTwo {
   object-fit: cover;
-}
-
-.cardList {
-  margin-top: 26px;
-  padding-left: 0px;
-  letter-spacing: 0.01em;
-  color: #0A090C;
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.cardListItem {
-  padding: 0px 0px 0px 0px;
-  margin: 0px;
-  display: flex;
-  gap: 8px;
-}
-
-.cardListItemText {
-  font-family: var(--font-public-sans);
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 30px;
-}
-
-.cardListItemI {
-  /* border-left: 1px solid #0A090C; */
-  font-family: var(--font-public-sans);
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 26px;
-  padding-right: 5px;
-  color: #95A3A0;
-}
-
-.cardHeader {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-  position: relative;
 }
 
 .cardHeaderPageTwo {
@@ -173,16 +299,6 @@
   justify-content: space-between;
   align-items: center;
   gap: 30px;
-}
-
-.serviceCounter {
-  font-family: var(--font-public-sans);
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 24px;
-  letter-spacing: 1%;
-  text-transform: uppercase;
-  color: #0A090C;
 }
 
 .serviceCounterPageTwo {
@@ -199,6 +315,8 @@
   display: none;
 }
 
+/* Третья страница ========================== */
+
 .serviceCounterPageThree {
   margin-top: 5px;
   font-family: var(--font-public-sans);
@@ -209,61 +327,6 @@
   text-transform: uppercase;
   color: #0A090C;
 }
-
-.calendarIcon {
-  width: 48px;
-  height: 48px;
-}
-
-.lastLi {
-  padding: 0px 0px 0px 5px;
-  margin: 0px;
-  display: flex;
-  font-family: var(--font-public-sans);
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 30px;
-  letter-spacing: 1%;
-  text-transform: uppercase;
-  color: #A9714B;
-}
-
-.placeholderCard {
-  cursor: pointer;
-  padding: 80px;
-  display: flex;
-  gap: 66px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 568px;
-  height: 640px;
-  border-top-right-radius: 80px;
-  background-color: #95A3A0;
-  transition: transform 0.2s ease;
-}
-
-.placeholderCard:hover {
-  transform: scale(1.01);
-}
-
-.placeholderTitle {
-  font-family: var(--font-playfair-display);
-  font-weight: 400;
-  font-size: 32px;
-  line-height: 40px;
-  letter-spacing: -0.05em;
-  /* Преобразование процентов в em для letter-spacing */
-  text-align: center;
-  color: #FFFFFF;
-}
-
-/* .card-arrow-page2 {
-
-} */
-
-/* Третья страница */
 
 .bsImagesListPThree {
   display: flex;
@@ -282,7 +345,6 @@
 
 .bsCardArticlePThree {
   margin: 0px;
-  ;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -295,7 +357,6 @@
   font-weight: 400;
   font-size: clamp(26px, 2.5vw, 48px);
   line-height: 1.05;
-  /* letter-spacing: -0.05em; */
   color: #0A090C;
 }
 
@@ -353,17 +414,6 @@
   line-height: 1.35;
   letter-spacing: 1%;
   color: #0A090C;
-
-}
-
-.calendarLink {
-  display: inline-block;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.calendarLink:hover {
-  transform: scale(1.1);
 }
 
 .bsAppoinment {
@@ -382,81 +432,62 @@
   line-height: 1.2;
 }
 
-
-
-/* @media (max-width: 1880px) {
+/* ============================================================
+   page1 — column count is the only breakpoint. Card widths stay
+   inside a 330–570px band at every viewport, so the cqi-based type
+   never gets a chance to look out of proportion.
+   ============================================================ */
+@media (max-width: 1300px) {
   .beautyServicesListPageOne {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-} */
+}
 
-
-
-@media (max-width: 1867px) {
-  .cardTitle {
-    font-size: 35px;
+@media (max-width: 760px) {
+  .beautyServicesListPageOne {
+    grid-template-columns: minmax(0, 1fr);
   }
 
+  /* Single column = phone layout: the promo tile is not part of the mobile
+     design (Figma 387:992), the header CTA covers the same intent. */
+  .promoItem {
+    display: none;
+  }
+
+  /* One wide card per row: a centred square would float in white space, so the
+     photo becomes a full-width banner (as it does on the phone). */
+  .cardImage {
+    width: 100%;
+    max-width: none;
+    aspect-ratio: 16 / 7;
+    object-position: center 40%;
+  }
+}
+
+/* Phone-shaped card (Figma 387:992): description dropped, calendar button
+   under the title (grid areas live in cardWrapper.module.css) and the photo
+   becomes a full-width 312 × 160 banner. */
+@media (max-width: 500px) {
   .cardText {
-    font-size: 20px;
-    line-height: 25px;
-  }
-
-  .cardListItemText {
-    font-size: 15px;
-    line-height: 20px;
-  }
-
-  .lastLi {
-    font-size: 15px;
-    line-height: 20px;
+    display: none;
   }
 
   .cardImage {
-    width: 233px;
-    height: 233px;
+    width: 100%;
+    max-width: none;
+    aspect-ratio: 312 / 160;
+    object-position: center 40%;
   }
 
-  .placeholderCard {
-    padding: 30px;
-  }
-
-  .placeholderTitle {
-    font-size: 25px;
+  .calendarLink {
+    justify-self: start;
   }
 }
 
-
-@media (max-width: 1482px) {
-  .placeholderCard img {
-    width: 300px;
-    height: 150px;
-  }
-}
-
-
-@media (max-width: 1372px) {
-  .cardTitle {
-    font-size: 25px;
-  }
-
-  .cardText {
-    font-size: 17px;
-    line-height: 19px;
-    margin-top: 5px;
-  }
-
-  .cardList {
-    margin-top: 20px;
-  }
-}
-
+/* ============================================================
+   Second page (about) — unchanged stepped layout
+   ============================================================ */
 @media (max-width: 1160px) {
-  .beautyServicesListPageOne {
-    grid-template-columns: repeat(2, minmax(350px, 568px));
-  }
-
-  /* вторая страница */
   .serviceCounterPageTwo {
     display: none;
   }
@@ -487,57 +518,13 @@
 }
 
 @media (max-width: 1070px) {
-
-  /* вторая страница */
   .beautyServicesSectionPageTwo {
     padding: 32px 40px;
     gap: 66px;
   }
 }
 
-@media (max-width: 850px) {
-  .beautyServicesSection {
-    padding: 200px 16px 60px 16px;
-    gap: 32px;
-  }
-}
-
 @media (max-width: 765px) {
-  .beautyServicesListPageOne {
-    grid-template-columns: 1fr;
-    justify-items: center;
-  }
-
-  /* Скрываем placeholder карточку (5-ю) */
-  .beautyServicesListPageOne li:nth-child(5) {
-    display: none;
-  }
-
-  .cardImage {
-    width: 312px;
-    height: 160px;
-    object-fit: cover;
-    object-position: top;
-  }
-
-  .beautyServicesListPageOne li:nth-child(2) .cardImage {
-    object-position: center;
-  }
-
-  .beautyServicesListPageOne li:nth-child(3) .cardImage {
-    object-position: 50% 60%;
-  }
-
-  .beautyServicesListPageOne li:nth-child(4) .cardImage {
-    object-position: 50% 60%;
-  }
-
-  .beautyServicesListPageOne li:nth-child(6) .cardImage {
-    object-position: 50% 60%;
-  }
-
-  /* вторая страница */
-
   .cardTitlePageTwo {
     font-size: 42px;
     line-height: 42px;
@@ -555,8 +542,6 @@
 }
 
 @media (max-width: 568px) {
-
-  /* вторая страница */
   .beautyServicesSectionPageTwo {
     padding: 0 16px 0px 16px;
     gap: 24px;
@@ -580,26 +565,6 @@
   .arrowImagePageTwo {
     width: 50px;
     height: 24px;
-  }
-}
-
-@media (max-width: 440px) {
-  .beautyServicesSection {
-    padding: 100px 12px 60px 12px;
-  }
-}
-
-@media (max-width: 390px) {
-  .cardList .cardListItem:nth-child(n+4) {
-    display: none;
-  }
-
-  .cardText {
-    display: none;
-  }
-
-  .cardImage {
-    margin: 0;
   }
 }
 
@@ -690,16 +655,17 @@
     gap: 6px;
   }
 
-  .cardListItemI {
+  /* Scoped to page3: page1 keeps its separators on mobile (design 387:992). */
+  .bsCardListPThree .cardListItemI {
     display: none;
   }
 
-  .bsCardListItemTextPThree {
+  .bsCardListPThree .bsCardListItemTextPThree {
     font-size: 14px;
     line-height: 20px;
   }
 
-  .lastLi {
+  .bsCardListPThree .lastLi {
     padding-left: 0;
     font-size: 14px;
     line-height: 20px;

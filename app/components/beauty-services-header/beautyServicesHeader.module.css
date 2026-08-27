@@ -1,20 +1,29 @@
-/* верхушка ================================= */
+/* =============================================================================
+   BEAUTY SERVICES — headline
+   Fluid instead of stepped: the wordmark, the intro copy and the gaps are all
+   clamp()-scaled between the mobile (Figma 379:1013 — 32/48px) and the desktop
+   (Figma 61:1270 — 112/160px) design. One structural breakpoint at 760px, where
+   the two-column headline becomes a left-aligned stack, matching the grid
+   dropping to a single column.
+   ============================================================================ */
+
 .beautyServicesHead {
   width: 100%;
   max-width: 1768px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: 16px;
+  gap: clamp(16px, 2.5vw, 48px);
 }
 
 .beautyServicesHeadText {
-  margin-top: 37px;
+  /* Optical offset: the intro copy sits slightly below the wordmark's cap
+     line, exactly as in the design. */
+  margin-top: clamp(0px, 1.9vw, 37px);
   display: flex;
-  gap: 48px;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-end;
+  gap: clamp(24px, 2.5vw, 48px);
 }
 
 .beautyServicesHeadTextPageThree {
@@ -29,32 +38,39 @@
 .beautyServicesHeadSubtitle {
   font-family: var(--font-public-sans);
   font-weight: 200;
-  font-size: 24px;
-  line-height: 32px;
-  letter-spacing: 0.5%;
+  font-size: clamp(18px, 1.25vw, 24px);
+  line-height: 1.34;
+  letter-spacing: 0.005em;
   text-align: right;
-  max-width: 500px;
+  /* 490px at the 24px design size — em keeps the measure constant while the
+     type scales. */
+  max-width: 20.5em;
   color: #0A090C;
 }
 
+/* "Beauty" / "Services" is one <h2> with decorative Great Vibes capitals.
+   `text-align: right` + `text-align-last: left` reproduces the design's
+   staggered two-line block, and the em-based max-width keeps that stagger
+   identical at every font size (no per-breakpoint px width). */
 .title {
   color: var(--Black, #0A090C);
   font-family: var(--font-playfair-display);
-  font-size: 112px;
+  font-size: clamp(32px, 5.83vw, 112px);
   font-style: normal;
   font-weight: 400;
-  line-height: 60px;
-  max-width: 568px;
+  line-height: 0.86;
+  max-width: min(100%, 4.9em);
   text-align: right;
   text-align-last: left;
 }
 
 .title span {
   font-family: var(--font-great-vibes);
-  font-size: 160px;
+  /* 160/112 of the base size — one clamp drives both. */
+  font-size: 1.43em;
   font-style: normal;
   font-weight: 400;
-  line-height: 96px;
+  line-height: 0.6;
 }
 
 /* The services (page3) "Beauty Services" wordmark is a PNG — scale it fluidly
@@ -65,9 +81,8 @@
   max-width: 100%;
 }
 
-@media (max-width: 980px) {
+@media (max-width: 760px) {
   .beautyServicesHead {
-    padding: 24px 0 0;
     flex-direction: column;
     align-items: flex-start;
     gap: 24px;
@@ -83,21 +98,12 @@
   }
 
   .title {
-    font-size: 32px;
-    line-height: 31px;
     max-width: none;
     text-align: left;
     text-align-last: auto;
   }
 
-  .title span {
-    font-size: 48px;
-    line-height: 31px;
-  }
-
   .beautyServicesHeadSubtitle {
-    font-size: 18px;
-    line-height: 25px;
     max-width: none;
     text-align: left;
   }
@@ -105,102 +111,5 @@
   :global(.beauty-button).beautyServicesButtonStyle {
     width: 100%;
     justify-content: center;
-  }
-}
-
-
-@media (max-width: 1660px) {
-  .title {
-    font-size: 90px;
-    max-width: 412px;
-    line-height: 0;
-  }
-
-  .title span {
-    font-size: 100px;
-    line-height: 77px;
-  }
-}
-
-@media (max-width: 1320px) {
-  .title {
-    font-size: 70px;
-    max-width: 355px;
-  }
-
-  .title span {
-    line-height: 70px;
-  }
-}
-
-@media (max-width: 1075px) {
-  .title {
-    font-size: 55px;
-    max-width: 318px;
-  }
-
-  .title span {
-    line-height: 66px;
-  }
-
-  .beautyServicesHeadSubtitle {
-    font-size: 20px;
-    max-width: 287px;
-  }
-}
-
-@media (max-width: 850px) {
-
-  .beautyServicesHead {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .beautyServicesHeadText {
-    width: 100%;
-    align-items: flex-start;
-    margin-top: 0;
-    gap: 24px;
-  }
-
-  .beautyServicesHeadSubtitle {
-    max-width: 100%;
-    width: 100%;
-    text-align: left;
-    font-size: 18px;
-  }
-
-  .beautyServicesButtonStyle {
-    align-self: flex-start !important;
-  }
-}
-
-@media (max-width: 740px) {
-  .title {
-    font-size: 48px;
-    max-width: 246px;
-  }
-
-  .title span {
-    font-size: 70px;
-    line-height: 40px;
-  }
-}
-
-@media (max-width: 550px) {
-  .title {
-    line-height: 31px;
-  }
-}
-
-
-@media (max-width: 440px) {
-  .title {
-    font-size: 32px;
-    max-width: 170px;
-  }
-
-  .title span {
-    font-size: 48px;
   }
 }
